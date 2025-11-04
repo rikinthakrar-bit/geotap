@@ -1,0 +1,4 @@
+/questions.json
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300, s-maxage=300, stale-while-revalidate=600

@@ -1,0 +1,2179 @@
+[
+  {
+    "id": "flag:ad",
+    "kind": "flag",
+    "name": "AD",
+    "image": "flags/ad.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ae",
+    "kind": "flag",
+    "name": "AE",
+    "image": "flags/ae.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:af",
+    "kind": "flag",
+    "name": "AF",
+    "image": "flags/af.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ag",
+    "kind": "flag",
+    "name": "AG",
+    "image": "flags/ag.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ai",
+    "kind": "flag",
+    "name": "AI",
+    "image": "flags/ai.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:al",
+    "kind": "flag",
+    "name": "AL",
+    "image": "flags/al.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:am",
+    "kind": "flag",
+    "name": "AM",
+    "image": "flags/am.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ao",
+    "kind": "flag",
+    "name": "AO",
+    "image": "flags/ao.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:aq",
+    "kind": "flag",
+    "name": "AQ",
+    "image": "flags/aq.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Other"
+  },
+  {
+    "id": "flag:ar",
+    "kind": "flag",
+    "name": "AR",
+    "image": "flags/ar.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "flag:as",
+    "kind": "flag",
+    "name": "AS",
+    "image": "flags/as.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:at",
+    "kind": "flag",
+    "name": "AT",
+    "image": "flags/at.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:au",
+    "kind": "flag",
+    "name": "AU",
+    "image": "flags/au.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:aw",
+    "kind": "flag",
+    "name": "AW",
+    "image": "flags/aw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ax",
+    "kind": "flag",
+    "name": "AX",
+    "image": "flags/ax.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:az",
+    "kind": "flag",
+    "name": "AZ",
+    "image": "flags/az.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ba",
+    "kind": "flag",
+    "name": "BA",
+    "image": "flags/ba.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:bb",
+    "kind": "flag",
+    "name": "BB",
+    "image": "flags/bb.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:bd",
+    "kind": "flag",
+    "name": "BD",
+    "image": "flags/bd.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:be",
+    "kind": "flag",
+    "name": "BE",
+    "image": "flags/be.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:bf",
+    "kind": "flag",
+    "name": "BF",
+    "image": "flags/bf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:bg",
+    "kind": "flag",
+    "name": "BG",
+    "image": "flags/bg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:bh",
+    "kind": "flag",
+    "name": "BH",
+    "image": "flags/bh.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:bi",
+    "kind": "flag",
+    "name": "BI",
+    "image": "flags/bi.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:bj",
+    "kind": "flag",
+    "name": "BJ",
+    "image": "flags/bj.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:bl",
+    "kind": "flag",
+    "name": "BL",
+    "image": "flags/bl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:bm",
+    "kind": "flag",
+    "name": "BM",
+    "image": "flags/bm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:bn",
+    "kind": "flag",
+    "name": "BN",
+    "image": "flags/bn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:bo",
+    "kind": "flag",
+    "name": "BO",
+    "image": "flags/bo.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:bq",
+    "kind": "flag",
+    "name": "BQ",
+    "image": "flags/bq.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:br",
+    "kind": "flag",
+    "name": "BR",
+    "image": "flags/br.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "flag:bs",
+    "kind": "flag",
+    "name": "BS",
+    "image": "flags/bs.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:bt",
+    "kind": "flag",
+    "name": "BT",
+    "image": "flags/bt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:bv",
+    "kind": "flag",
+    "name": "BV",
+    "image": "flags/bv.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:bw",
+    "kind": "flag",
+    "name": "BW",
+    "image": "flags/bw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:by",
+    "kind": "flag",
+    "name": "BY",
+    "image": "flags/by.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:bz",
+    "kind": "flag",
+    "name": "BZ",
+    "image": "flags/bz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:ca",
+    "kind": "flag",
+    "name": "CA",
+    "image": "flags/ca.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "North America"
+  },
+  {
+    "id": "flag:cc",
+    "kind": "flag",
+    "name": "CC",
+    "image": "flags/cc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:cd",
+    "kind": "flag",
+    "name": "CD",
+    "image": "flags/cd.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:cf",
+    "kind": "flag",
+    "name": "CF",
+    "image": "flags/cf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:cg",
+    "kind": "flag",
+    "name": "CG",
+    "image": "flags/cg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ch",
+    "kind": "flag",
+    "name": "CH",
+    "image": "flags/ch.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ci",
+    "kind": "flag",
+    "name": "CI",
+    "image": "flags/ci.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ck",
+    "kind": "flag",
+    "name": "CK",
+    "image": "flags/ck.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:cl",
+    "kind": "flag",
+    "name": "CL",
+    "image": "flags/cl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:cm",
+    "kind": "flag",
+    "name": "CM",
+    "image": "flags/cm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:cn",
+    "kind": "flag",
+    "name": "CN",
+    "image": "flags/cn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:co",
+    "kind": "flag",
+    "name": "CO",
+    "image": "flags/co.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:cr",
+    "kind": "flag",
+    "name": "CR",
+    "image": "flags/cr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:cu",
+    "kind": "flag",
+    "name": "CU",
+    "image": "flags/cu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:cv",
+    "kind": "flag",
+    "name": "CV",
+    "image": "flags/cv.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:cw",
+    "kind": "flag",
+    "name": "CW",
+    "image": "flags/cw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:cx",
+    "kind": "flag",
+    "name": "CX",
+    "image": "flags/cx.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:cy",
+    "kind": "flag",
+    "name": "CY",
+    "image": "flags/cy.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:cz",
+    "kind": "flag",
+    "name": "CZ",
+    "image": "flags/cz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:de",
+    "kind": "flag",
+    "name": "DE",
+    "image": "flags/de.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:dj",
+    "kind": "flag",
+    "name": "DJ",
+    "image": "flags/dj.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:dk",
+    "kind": "flag",
+    "name": "DK",
+    "image": "flags/dk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:dm",
+    "kind": "flag",
+    "name": "DM",
+    "image": "flags/dm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:do",
+    "kind": "flag",
+    "name": "DO",
+    "image": "flags/do.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:dz",
+    "kind": "flag",
+    "name": "DZ",
+    "image": "flags/dz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ec",
+    "kind": "flag",
+    "name": "EC",
+    "image": "flags/ec.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:ee",
+    "kind": "flag",
+    "name": "EE",
+    "image": "flags/ee.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:eg",
+    "kind": "flag",
+    "name": "EG",
+    "image": "flags/eg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:eh",
+    "kind": "flag",
+    "name": "EH",
+    "image": "flags/eh.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:er",
+    "kind": "flag",
+    "name": "ER",
+    "image": "flags/er.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:es",
+    "kind": "flag",
+    "name": "ES",
+    "image": "flags/es.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:et",
+    "kind": "flag",
+    "name": "ET",
+    "image": "flags/et.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:fi",
+    "kind": "flag",
+    "name": "FI",
+    "image": "flags/fi.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:fj",
+    "kind": "flag",
+    "name": "FJ",
+    "image": "flags/fj.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:fk",
+    "kind": "flag",
+    "name": "FK",
+    "image": "flags/fk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:fm",
+    "kind": "flag",
+    "name": "FM",
+    "image": "flags/fm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:fo",
+    "kind": "flag",
+    "name": "FO",
+    "image": "flags/fo.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:fr",
+    "kind": "flag",
+    "name": "FR",
+    "image": "flags/fr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ga",
+    "kind": "flag",
+    "name": "GA",
+    "image": "flags/ga.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:gb",
+    "kind": "flag",
+    "name": "GB",
+    "image": "flags/gb.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:gd",
+    "kind": "flag",
+    "name": "GD",
+    "image": "flags/gd.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ge",
+    "kind": "flag",
+    "name": "GE",
+    "image": "flags/ge.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:gf",
+    "kind": "flag",
+    "name": "GF",
+    "image": "flags/gf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:gg",
+    "kind": "flag",
+    "name": "GG",
+    "image": "flags/gg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:gh",
+    "kind": "flag",
+    "name": "GH",
+    "image": "flags/gh.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:gi",
+    "kind": "flag",
+    "name": "GI",
+    "image": "flags/gi.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:gl",
+    "kind": "flag",
+    "name": "GL",
+    "image": "flags/gl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:gm",
+    "kind": "flag",
+    "name": "GM",
+    "image": "flags/gm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:gn",
+    "kind": "flag",
+    "name": "GN",
+    "image": "flags/gn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:gp",
+    "kind": "flag",
+    "name": "GP",
+    "image": "flags/gp.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:gq",
+    "kind": "flag",
+    "name": "GQ",
+    "image": "flags/gq.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:gr",
+    "kind": "flag",
+    "name": "GR",
+    "image": "flags/gr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:gs",
+    "kind": "flag",
+    "name": "GS",
+    "image": "flags/gs.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:gt",
+    "kind": "flag",
+    "name": "GT",
+    "image": "flags/gt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:gu",
+    "kind": "flag",
+    "name": "GU",
+    "image": "flags/gu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:gw",
+    "kind": "flag",
+    "name": "GW",
+    "image": "flags/gw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:gy",
+    "kind": "flag",
+    "name": "GY",
+    "image": "flags/gy.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:hk",
+    "kind": "flag",
+    "name": "HK",
+    "image": "flags/hk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:hm",
+    "kind": "flag",
+    "name": "HM",
+    "image": "flags/hm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:hn",
+    "kind": "flag",
+    "name": "HN",
+    "image": "flags/hn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:hr",
+    "kind": "flag",
+    "name": "HR",
+    "image": "flags/hr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ht",
+    "kind": "flag",
+    "name": "HT",
+    "image": "flags/ht.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:hu",
+    "kind": "flag",
+    "name": "HU",
+    "image": "flags/hu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:id",
+    "kind": "flag",
+    "name": "ID",
+    "image": "flags/id.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ie",
+    "kind": "flag",
+    "name": "IE",
+    "image": "flags/ie.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:il",
+    "kind": "flag",
+    "name": "IL",
+    "image": "flags/il.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:im",
+    "kind": "flag",
+    "name": "IM",
+    "image": "flags/im.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:in",
+    "kind": "flag",
+    "name": "IN",
+    "image": "flags/in.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:io",
+    "kind": "flag",
+    "name": "IO",
+    "image": "flags/io.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:iq",
+    "kind": "flag",
+    "name": "IQ",
+    "image": "flags/iq.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ir",
+    "kind": "flag",
+    "name": "IR",
+    "image": "flags/ir.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:is",
+    "kind": "flag",
+    "name": "IS",
+    "image": "flags/is.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:it",
+    "kind": "flag",
+    "name": "IT",
+    "image": "flags/it.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:je",
+    "kind": "flag",
+    "name": "JE",
+    "image": "flags/je.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:jm",
+    "kind": "flag",
+    "name": "JM",
+    "image": "flags/jm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:jo",
+    "kind": "flag",
+    "name": "JO",
+    "image": "flags/jo.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:jp",
+    "kind": "flag",
+    "name": "JP",
+    "image": "flags/jp.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ke",
+    "kind": "flag",
+    "name": "KE",
+    "image": "flags/ke.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:kg",
+    "kind": "flag",
+    "name": "KG",
+    "image": "flags/kg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:kh",
+    "kind": "flag",
+    "name": "KH",
+    "image": "flags/kh.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ki",
+    "kind": "flag",
+    "name": "KI",
+    "image": "flags/ki.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:km",
+    "kind": "flag",
+    "name": "KM",
+    "image": "flags/km.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:kn",
+    "kind": "flag",
+    "name": "KN",
+    "image": "flags/kn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:kp",
+    "kind": "flag",
+    "name": "KP",
+    "image": "flags/kp.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:kr",
+    "kind": "flag",
+    "name": "KR",
+    "image": "flags/kr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:kw",
+    "kind": "flag",
+    "name": "KW",
+    "image": "flags/kw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:ky",
+    "kind": "flag",
+    "name": "KY",
+    "image": "flags/ky.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:kz",
+    "kind": "flag",
+    "name": "KZ",
+    "image": "flags/kz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:la",
+    "kind": "flag",
+    "name": "LA",
+    "image": "flags/la.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:lb",
+    "kind": "flag",
+    "name": "LB",
+    "image": "flags/lb.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:lc",
+    "kind": "flag",
+    "name": "LC",
+    "image": "flags/lc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:li",
+    "kind": "flag",
+    "name": "LI",
+    "image": "flags/li.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:lk",
+    "kind": "flag",
+    "name": "LK",
+    "image": "flags/lk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:lr",
+    "kind": "flag",
+    "name": "LR",
+    "image": "flags/lr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ls",
+    "kind": "flag",
+    "name": "LS",
+    "image": "flags/ls.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:lt",
+    "kind": "flag",
+    "name": "LT",
+    "image": "flags/lt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:lu",
+    "kind": "flag",
+    "name": "LU",
+    "image": "flags/lu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:lv",
+    "kind": "flag",
+    "name": "LV",
+    "image": "flags/lv.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ly",
+    "kind": "flag",
+    "name": "LY",
+    "image": "flags/ly.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ma",
+    "kind": "flag",
+    "name": "MA",
+    "image": "flags/ma.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:mc",
+    "kind": "flag",
+    "name": "MC",
+    "image": "flags/mc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:md",
+    "kind": "flag",
+    "name": "MD",
+    "image": "flags/md.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:me",
+    "kind": "flag",
+    "name": "ME",
+    "image": "flags/me.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:mf",
+    "kind": "flag",
+    "name": "MF",
+    "image": "flags/mf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mg",
+    "kind": "flag",
+    "name": "MG",
+    "image": "flags/mg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:mh",
+    "kind": "flag",
+    "name": "MH",
+    "image": "flags/mh.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mk",
+    "kind": "flag",
+    "name": "MK",
+    "image": "flags/mk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ml",
+    "kind": "flag",
+    "name": "ML",
+    "image": "flags/ml.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:mm",
+    "kind": "flag",
+    "name": "MM",
+    "image": "flags/mm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:mn",
+    "kind": "flag",
+    "name": "MN",
+    "image": "flags/mn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:mo",
+    "kind": "flag",
+    "name": "MO",
+    "image": "flags/mo.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mp",
+    "kind": "flag",
+    "name": "MP",
+    "image": "flags/mp.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mq",
+    "kind": "flag",
+    "name": "MQ",
+    "image": "flags/mq.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mr",
+    "kind": "flag",
+    "name": "MR",
+    "image": "flags/mr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ms",
+    "kind": "flag",
+    "name": "MS",
+    "image": "flags/ms.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mt",
+    "kind": "flag",
+    "name": "MT",
+    "image": "flags/mt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:mu",
+    "kind": "flag",
+    "name": "MU",
+    "image": "flags/mu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mv",
+    "kind": "flag",
+    "name": "MV",
+    "image": "flags/mv.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:mw",
+    "kind": "flag",
+    "name": "MW",
+    "image": "flags/mw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:mx",
+    "kind": "flag",
+    "name": "MX",
+    "image": "flags/mx.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "North America"
+  },
+  {
+    "id": "flag:my",
+    "kind": "flag",
+    "name": "MY",
+    "image": "flags/my.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:mz",
+    "kind": "flag",
+    "name": "MZ",
+    "image": "flags/mz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:na",
+    "kind": "flag",
+    "name": "NA",
+    "image": "flags/na.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:nc",
+    "kind": "flag",
+    "name": "NC",
+    "image": "flags/nc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:ne",
+    "kind": "flag",
+    "name": "NE",
+    "image": "flags/ne.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:nf",
+    "kind": "flag",
+    "name": "NF",
+    "image": "flags/nf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ng",
+    "kind": "flag",
+    "name": "NG",
+    "image": "flags/ng.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ni",
+    "kind": "flag",
+    "name": "NI",
+    "image": "flags/ni.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:nl",
+    "kind": "flag",
+    "name": "NL",
+    "image": "flags/nl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:no",
+    "kind": "flag",
+    "name": "NO",
+    "image": "flags/no.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:np",
+    "kind": "flag",
+    "name": "NP",
+    "image": "flags/np.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:nr",
+    "kind": "flag",
+    "name": "NR",
+    "image": "flags/nr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:nu",
+    "kind": "flag",
+    "name": "NU",
+    "image": "flags/nu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:nz",
+    "kind": "flag",
+    "name": "NZ",
+    "image": "flags/nz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:om",
+    "kind": "flag",
+    "name": "OM",
+    "image": "flags/om.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:pa",
+    "kind": "flag",
+    "name": "PA",
+    "image": "flags/pa.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:pe",
+    "kind": "flag",
+    "name": "PE",
+    "image": "flags/pe.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:pf",
+    "kind": "flag",
+    "name": "PF",
+    "image": "flags/pf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:pg",
+    "kind": "flag",
+    "name": "PG",
+    "image": "flags/pg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:ph",
+    "kind": "flag",
+    "name": "PH",
+    "image": "flags/ph.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:pk",
+    "kind": "flag",
+    "name": "PK",
+    "image": "flags/pk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:pl",
+    "kind": "flag",
+    "name": "PL",
+    "image": "flags/pl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:pm",
+    "kind": "flag",
+    "name": "PM",
+    "image": "flags/pm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:pn",
+    "kind": "flag",
+    "name": "PN",
+    "image": "flags/pn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:pr",
+    "kind": "flag",
+    "name": "PR",
+    "image": "flags/pr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:ps",
+    "kind": "flag",
+    "name": "PS",
+    "image": "flags/ps.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:pt",
+    "kind": "flag",
+    "name": "PT",
+    "image": "flags/pt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:pw",
+    "kind": "flag",
+    "name": "PW",
+    "image": "flags/pw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:py",
+    "kind": "flag",
+    "name": "PY",
+    "image": "flags/py.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:qa",
+    "kind": "flag",
+    "name": "QA",
+    "image": "flags/qa.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:re",
+    "kind": "flag",
+    "name": "RE",
+    "image": "flags/re.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ro",
+    "kind": "flag",
+    "name": "RO",
+    "image": "flags/ro.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:rs",
+    "kind": "flag",
+    "name": "RS",
+    "image": "flags/rs.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ru",
+    "kind": "flag",
+    "name": "RU",
+    "image": "flags/ru.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:rw",
+    "kind": "flag",
+    "name": "RW",
+    "image": "flags/rw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:sa",
+    "kind": "flag",
+    "name": "SA",
+    "image": "flags/sa.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:sb",
+    "kind": "flag",
+    "name": "SB",
+    "image": "flags/sb.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:sc",
+    "kind": "flag",
+    "name": "SC",
+    "image": "flags/sc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:sd",
+    "kind": "flag",
+    "name": "SD",
+    "image": "flags/sd.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:se",
+    "kind": "flag",
+    "name": "SE",
+    "image": "flags/se.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:sg",
+    "kind": "flag",
+    "name": "SG",
+    "image": "flags/sg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium"
+  },
+  {
+    "id": "flag:sh",
+    "kind": "flag",
+    "name": "SH",
+    "image": "flags/sh.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:si",
+    "kind": "flag",
+    "name": "SI",
+    "image": "flags/si.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:sj",
+    "kind": "flag",
+    "name": "SJ",
+    "image": "flags/sj.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:sk",
+    "kind": "flag",
+    "name": "SK",
+    "image": "flags/sk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:sl",
+    "kind": "flag",
+    "name": "SL",
+    "image": "flags/sl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:sm",
+    "kind": "flag",
+    "name": "SM",
+    "image": "flags/sm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:sn",
+    "kind": "flag",
+    "name": "SN",
+    "image": "flags/sn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:so",
+    "kind": "flag",
+    "name": "SO",
+    "image": "flags/so.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:sr",
+    "kind": "flag",
+    "name": "SR",
+    "image": "flags/sr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:ss",
+    "kind": "flag",
+    "name": "SS",
+    "image": "flags/ss.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:st",
+    "kind": "flag",
+    "name": "ST",
+    "image": "flags/st.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:sv",
+    "kind": "flag",
+    "name": "SV",
+    "image": "flags/sv.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:sx",
+    "kind": "flag",
+    "name": "SX",
+    "image": "flags/sx.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:sy",
+    "kind": "flag",
+    "name": "SY",
+    "image": "flags/sy.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:sz",
+    "kind": "flag",
+    "name": "SZ",
+    "image": "flags/sz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:tc",
+    "kind": "flag",
+    "name": "TC",
+    "image": "flags/tc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:td",
+    "kind": "flag",
+    "name": "TD",
+    "image": "flags/td.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:tf",
+    "kind": "flag",
+    "name": "TF",
+    "image": "flags/tf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Other"
+  },
+  {
+    "id": "flag:tg",
+    "kind": "flag",
+    "name": "TG",
+    "image": "flags/tg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:th",
+    "kind": "flag",
+    "name": "TH",
+    "image": "flags/th.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:tj",
+    "kind": "flag",
+    "name": "TJ",
+    "image": "flags/tj.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:tk",
+    "kind": "flag",
+    "name": "TK",
+    "image": "flags/tk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:tl",
+    "kind": "flag",
+    "name": "TL",
+    "image": "flags/tl.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:tm",
+    "kind": "flag",
+    "name": "TM",
+    "image": "flags/tm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:tn",
+    "kind": "flag",
+    "name": "TN",
+    "image": "flags/tn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:to",
+    "kind": "flag",
+    "name": "TO",
+    "image": "flags/to.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:tr",
+    "kind": "flag",
+    "name": "TR",
+    "image": "flags/tr.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:tt",
+    "kind": "flag",
+    "name": "TT",
+    "image": "flags/tt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "flag:tv",
+    "kind": "flag",
+    "name": "TV",
+    "image": "flags/tv.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:tw",
+    "kind": "flag",
+    "name": "TW",
+    "image": "flags/tw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:tz",
+    "kind": "flag",
+    "name": "TZ",
+    "image": "flags/tz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:ua",
+    "kind": "flag",
+    "name": "UA",
+    "image": "flags/ua.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "flag:ug",
+    "kind": "flag",
+    "name": "UG",
+    "image": "flags/ug.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:um",
+    "kind": "flag",
+    "name": "UM",
+    "image": "flags/um.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:us",
+    "kind": "flag",
+    "name": "US",
+    "image": "flags/us.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "North America"
+  },
+  {
+    "id": "flag:uy",
+    "kind": "flag",
+    "name": "UY",
+    "image": "flags/uy.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:uz",
+    "kind": "flag",
+    "name": "UZ",
+    "image": "flags/uz.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:va",
+    "kind": "flag",
+    "name": "VA",
+    "image": "flags/va.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:vc",
+    "kind": "flag",
+    "name": "VC",
+    "image": "flags/vc.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ve",
+    "kind": "flag",
+    "name": "VE",
+    "image": "flags/ve.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "flag:vg",
+    "kind": "flag",
+    "name": "VG",
+    "image": "flags/vg.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:vi",
+    "kind": "flag",
+    "name": "VI",
+    "image": "flags/vi.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:vn",
+    "kind": "flag",
+    "name": "VN",
+    "image": "flags/vn.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:vu",
+    "kind": "flag",
+    "name": "VU",
+    "image": "flags/vu.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "flag:wf",
+    "kind": "flag",
+    "name": "WF",
+    "image": "flags/wf.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ws",
+    "kind": "flag",
+    "name": "WS",
+    "image": "flags/ws.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:xk",
+    "kind": "flag",
+    "name": "XK",
+    "image": "flags/xk.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:ye",
+    "kind": "flag",
+    "name": "YE",
+    "image": "flags/ye.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "flag:yt",
+    "kind": "flag",
+    "name": "YT",
+    "image": "flags/yt.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard"
+  },
+  {
+    "id": "flag:za",
+    "kind": "flag",
+    "name": "ZA",
+    "image": "flags/za.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "easy",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:zm",
+    "kind": "flag",
+    "name": "ZM",
+    "image": "flags/zm.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "flag:zw",
+    "kind": "flag",
+    "name": "ZW",
+    "image": "flags/zw.png",
+    "prompt": "FLAG: Which country?",
+    "difficulty": "hard",
+    "region": "Africa"
+  }
+]

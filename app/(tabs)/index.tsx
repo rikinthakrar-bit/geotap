@@ -1,98 +1,146 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { router } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import GameCard from "../../components/GameCard";
+import { todayISO } from "../../lib/daily";
+import { getAllResults } from "../../lib/lbStore";
+import { syncProfileToCloud } from "../../lib/profile";
+import { getDisplayName } from "../../lib/profileName";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+function hashString(str: string) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    h = (h << 5) - h + str.charCodeAt(i);
+    h |= 0;
+  }
+  return Math.abs(h);
+}
+function colorFromName(name: string) {
+  const hue = hashString(name) % 360;
+  return `hsl(${hue}, 70%, 55%)`;
+}
+function initialsFromName(name: string) {
+  const parts = name.trim().split(/\s+/).slice(0, 2);
+  return parts.map((p) => p[0]?.toUpperCase() ?? "").join("") || "🙂";
+}
 
 export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+  const [displayName, setDisplayName] = useState<string>("");
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+  useEffect(() => {
+    (async () => {
+      const name = await getDisplayName();
+      setDisplayName(name);
+      await syncProfileToCloud().catch(() => {});
+    })();
+  }, []);
+
+  const avatarColor = colorFromName(displayName || "Player");
+  const avatarText = initialsFromName(displayName || "Player");
+
+  const imgArchive = require("../../assets/home-archive.png");
+
+  return (
+    <SafeAreaView
+      edges={["top", "left", "right"]}
+      style={{ flex: 1, backgroundColor: "#0c1320" }}
+    >
+      <ScrollView
+        contentContainerStyle={{
+          padding: 16,
+          paddingBottom: 24,
+          paddingTop: 8,
+          gap: 16,
+        }}
+      >
+        {/* Greeting */}
+        <View style={{ marginBottom: 4 }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+            <View
+              style={{
+                width: 32,
+                height: 32,
+                borderRadius: 16,
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: avatarColor,
+              }}
+            >
+              <Text style={{ color: "#fff", fontSize: 14, fontWeight: "800" }}>
+                {avatarText}
+              </Text>
+            </View>
+            <Text style={{ color: "#fff", fontSize: 22, fontWeight: "800" }}>
+              👋 Hello, {displayName || "…"}
+            </Text>
+            <TouchableOpacity onPress={() => router.push("/modal")}>
+              <Text style={{ color: "#ccc", fontSize: 18 }}>✏️</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={{ color: "#9aa", marginTop: 6, fontSize: 12 }}>
+            This name appears on leaderboards and friend challenges.
+          </Text>
+        </View>
+
+        {/* Cards — make Daily and Challenge “tall”, Friends shorter */}
+        <GameCard
+  title="Daily 10"
+  description="Play today’s 10-question world quiz"
+  image={require("../../assets/home-daily.png")}
+  imageHeight={200}
+  tint="#1F6FEB"
+  cta={playedToday ? "Replay (practice)" : "Play Daily 10"}
+  onPress={() => router.push("/question")}
+  played={playedToday}
+/>
+
+        <GameCard
+          title="6-Round Challenge"
+          description="Progress through the levels! It get's harder."
+          image={require("../../assets/home-challenge.png")}
+          imageHeight={200}
+          tint="#22C55E"
+          cta="Play Challenge"
+          onPress={() => router.push("/challenge/intro")}
+        />
+
+<GameCard
+  title="Archived Daily 10s"
+  description="Play previous Daily 10s"
+  image={imgArchive}
+  imageHeight={130}          // a little shorter to balance the layout
+  tint="#8B5CF6"             // violet accent (pick any brand color)
+  cta="Open Archived Daily 10s"
+  onPress={() => router.push("/archive")}
+  compact
+/>
+
+        <GameCard
+          title="Friends"
+          description="Invite a friend and compete on Daily 10"
+          image={require("../../assets/home-friends.png")}
+          imageHeight={130}
+          tint="#F59E0B"
+          cta="Play with Friends"
+          onPress={() => router.push("/friends")}
+          compact
+        />
+
+  
+
+
+        {/* Optional sticky ad spacer */}
+        <View style={{ height: 80 }} />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+const [playedToday, setPlayedToday] = useState(false);
+useEffect(() => {
+  (async () => {
+    const all = await getAllResults();
+    setPlayedToday(all.some(r => r.date === todayISO()));
+  })();
+}, []);

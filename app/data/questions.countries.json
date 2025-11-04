@@ -1,0 +1,1481 @@
+[
+  {
+    "id": "country:afg",
+    "type": "country",
+    "answer": "Afghanistan",
+    "iso3": "AFG",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:alb",
+    "type": "country",
+    "answer": "Albania",
+    "iso3": "ALB",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:dza",
+    "type": "country",
+    "answer": "Algeria",
+    "iso3": "DZA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:ago",
+    "type": "country",
+    "answer": "Angola",
+    "iso3": "AGO",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:arg",
+    "type": "country",
+    "answer": "Argentina",
+    "iso3": "ARG",
+    "iso2": "ar",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "country:arm",
+    "type": "country",
+    "answer": "Armenia",
+    "iso3": "ARM",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:aus",
+    "type": "country",
+    "answer": "Australia",
+    "iso3": "AUS",
+    "iso2": "au",
+    "difficulty": "easy",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:aut",
+    "type": "country",
+    "answer": "Austria",
+    "iso3": "AUT",
+    "iso2": "at",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:aze",
+    "type": "country",
+    "answer": "Azerbaijan",
+    "iso3": "AZE",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:bgd",
+    "type": "country",
+    "answer": "Bangladesh",
+    "iso3": "BGD",
+    "iso2": "bd",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:blr",
+    "type": "country",
+    "answer": "Belarus",
+    "iso3": "BLR",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:bel",
+    "type": "country",
+    "answer": "Belgium",
+    "iso3": "BEL",
+    "iso2": "be",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:blz",
+    "type": "country",
+    "answer": "Belize",
+    "iso3": "BLZ",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "country:ben",
+    "type": "country",
+    "answer": "Benin",
+    "iso3": "BEN",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:bmu",
+    "type": "country",
+    "answer": "Bermuda",
+    "iso3": "BMU",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:btn",
+    "type": "country",
+    "answer": "Bhutan",
+    "iso3": "BTN",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:bol",
+    "type": "country",
+    "answer": "Bolivia",
+    "iso3": "BOL",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:bih",
+    "type": "country",
+    "answer": "Bosnia and Herzegovina",
+    "iso3": "BIH",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:bwa",
+    "type": "country",
+    "answer": "Botswana",
+    "iso3": "BWA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:bra",
+    "type": "country",
+    "answer": "Brazil",
+    "iso3": "BRA",
+    "iso2": "br",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "country:brn",
+    "type": "country",
+    "answer": "Brunei",
+    "iso3": "BRN",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:bgr",
+    "type": "country",
+    "answer": "Bulgaria",
+    "iso3": "BGR",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:bfa",
+    "type": "country",
+    "answer": "Burkina Faso",
+    "iso3": "BFA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:bdi",
+    "type": "country",
+    "answer": "Burundi",
+    "iso3": "BDI",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:khm",
+    "type": "country",
+    "answer": "Cambodia",
+    "iso3": "KHM",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:cmr",
+    "type": "country",
+    "answer": "Cameroon",
+    "iso3": "CMR",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:can",
+    "type": "country",
+    "answer": "Canada",
+    "iso3": "CAN",
+    "iso2": "ca",
+    "difficulty": "easy",
+    "region": "North America"
+  },
+  {
+    "id": "country:caf",
+    "type": "country",
+    "answer": "Central African Republic",
+    "iso3": "CAF",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:tcd",
+    "type": "country",
+    "answer": "Chad",
+    "iso3": "TCD",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:chl",
+    "type": "country",
+    "answer": "Chile",
+    "iso3": "CHL",
+    "iso2": "cl",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "country:chn",
+    "type": "country",
+    "answer": "China",
+    "iso3": "CHN",
+    "iso2": "cn",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:col",
+    "type": "country",
+    "answer": "Colombia",
+    "iso3": "COL",
+    "iso2": "co",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "country:cri",
+    "type": "country",
+    "answer": "Costa Rica",
+    "iso3": "CRI",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:hrv",
+    "type": "country",
+    "answer": "Croatia",
+    "iso3": "HRV",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:cub",
+    "type": "country",
+    "answer": "Cuba",
+    "iso3": "CUB",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:cyp",
+    "type": "country",
+    "answer": "Cyprus",
+    "iso3": "CYP",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:cze",
+    "type": "country",
+    "answer": "Czech Republic",
+    "iso3": "CZE",
+    "iso2": "cz",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:cod",
+    "type": "country",
+    "answer": "Democratic Republic of the Congo",
+    "iso3": "COD",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:dnk",
+    "type": "country",
+    "answer": "Denmark",
+    "iso3": "DNK",
+    "iso2": "dk",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:dji",
+    "type": "country",
+    "answer": "Djibouti",
+    "iso3": "DJI",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "country:dom",
+    "type": "country",
+    "answer": "Dominican Republic",
+    "iso3": "DOM",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:tls",
+    "type": "country",
+    "answer": "East Timor",
+    "iso3": "TLS",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:ecu",
+    "type": "country",
+    "answer": "Ecuador",
+    "iso3": "ECU",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:egy",
+    "type": "country",
+    "answer": "Egypt",
+    "iso3": "EGY",
+    "iso2": "eg",
+    "difficulty": "easy",
+    "region": "Africa"
+  },
+  {
+    "id": "country:slv",
+    "type": "country",
+    "answer": "El Salvador",
+    "iso3": "SLV",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:gnq",
+    "type": "country",
+    "answer": "Equatorial Guinea",
+    "iso3": "GNQ",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "country:eri",
+    "type": "country",
+    "answer": "Eritrea",
+    "iso3": "ERI",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "country:est",
+    "type": "country",
+    "answer": "Estonia",
+    "iso3": "EST",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:eth",
+    "type": "country",
+    "answer": "Ethiopia",
+    "iso3": "ETH",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:flk",
+    "type": "country",
+    "answer": "Falkland Islands",
+    "iso3": "FLK",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:fji",
+    "type": "country",
+    "answer": "Fiji",
+    "iso3": "FJI",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:fin",
+    "type": "country",
+    "answer": "Finland",
+    "iso3": "FIN",
+    "iso2": "fi",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:fra",
+    "type": "country",
+    "answer": "France",
+    "iso3": "FRA",
+    "iso2": "fr",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:guf",
+    "type": "country",
+    "answer": "French Guiana",
+    "iso3": "GUF",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:atf",
+    "type": "country",
+    "answer": "French Southern and Antarctic Lands",
+    "iso3": "ATF",
+    "difficulty": "medium",
+    "region": "Other"
+  },
+  {
+    "id": "country:gab",
+    "type": "country",
+    "answer": "Gabon",
+    "iso3": "GAB",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "country:gmb",
+    "type": "country",
+    "answer": "Gambia",
+    "iso3": "GMB",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:geo",
+    "type": "country",
+    "answer": "Georgia",
+    "iso3": "GEO",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:deu",
+    "type": "country",
+    "answer": "Germany",
+    "iso3": "DEU",
+    "iso2": "de",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:gha",
+    "type": "country",
+    "answer": "Ghana",
+    "iso3": "GHA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:grc",
+    "type": "country",
+    "answer": "Greece",
+    "iso3": "GRC",
+    "iso2": "gr",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:grl",
+    "type": "country",
+    "answer": "Greenland",
+    "iso3": "GRL",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:gtm",
+    "type": "country",
+    "answer": "Guatemala",
+    "iso3": "GTM",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:gin",
+    "type": "country",
+    "answer": "Guinea",
+    "iso3": "GIN",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:gnb",
+    "type": "country",
+    "answer": "Guinea Bissau",
+    "iso3": "GNB",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:guy",
+    "type": "country",
+    "answer": "Guyana",
+    "iso3": "GUY",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "country:hti",
+    "type": "country",
+    "answer": "Haiti",
+    "iso3": "HTI",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:hnd",
+    "type": "country",
+    "answer": "Honduras",
+    "iso3": "HND",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:hun",
+    "type": "country",
+    "answer": "Hungary",
+    "iso3": "HUN",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:isl",
+    "type": "country",
+    "answer": "Iceland",
+    "iso3": "ISL",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:ind",
+    "type": "country",
+    "answer": "India",
+    "iso3": "IND",
+    "iso2": "in",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:idn",
+    "type": "country",
+    "answer": "Indonesia",
+    "iso3": "IDN",
+    "iso2": "id",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:irn",
+    "type": "country",
+    "answer": "Iran",
+    "iso3": "IRN",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:irq",
+    "type": "country",
+    "answer": "Iraq",
+    "iso3": "IRQ",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:irl",
+    "type": "country",
+    "answer": "Ireland",
+    "iso3": "IRL",
+    "iso2": "ie",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:isr",
+    "type": "country",
+    "answer": "Israel",
+    "iso3": "ISR",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:ita",
+    "type": "country",
+    "answer": "Italy",
+    "iso3": "ITA",
+    "iso2": "it",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:civ",
+    "type": "country",
+    "answer": "Ivory Coast",
+    "iso3": "CIV",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:jam",
+    "type": "country",
+    "answer": "Jamaica",
+    "iso3": "JAM",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:jpn",
+    "type": "country",
+    "answer": "Japan",
+    "iso3": "JPN",
+    "iso2": "jp",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:jor",
+    "type": "country",
+    "answer": "Jordan",
+    "iso3": "JOR",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:kaz",
+    "type": "country",
+    "answer": "Kazakhstan",
+    "iso3": "KAZ",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:ken",
+    "type": "country",
+    "answer": "Kenya",
+    "iso3": "KEN",
+    "iso2": "ke",
+    "difficulty": "easy",
+    "region": "Africa"
+  },
+  {
+    "id": "country:cs-km",
+    "type": "country",
+    "answer": "Kosovo",
+    "iso3": "CS-KM",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:kwt",
+    "type": "country",
+    "answer": "Kuwait",
+    "iso3": "KWT",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:kgz",
+    "type": "country",
+    "answer": "Kyrgyzstan",
+    "iso3": "KGZ",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:lao",
+    "type": "country",
+    "answer": "Laos",
+    "iso3": "LAO",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:lva",
+    "type": "country",
+    "answer": "Latvia",
+    "iso3": "LVA",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:lbn",
+    "type": "country",
+    "answer": "Lebanon",
+    "iso3": "LBN",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:lso",
+    "type": "country",
+    "answer": "Lesotho",
+    "iso3": "LSO",
+    "difficulty": "hard",
+    "region": "Africa"
+  },
+  {
+    "id": "country:lbr",
+    "type": "country",
+    "answer": "Liberia",
+    "iso3": "LBR",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:lby",
+    "type": "country",
+    "answer": "Libya",
+    "iso3": "LBY",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:ltu",
+    "type": "country",
+    "answer": "Lithuania",
+    "iso3": "LTU",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:lux",
+    "type": "country",
+    "answer": "Luxembourg",
+    "iso3": "LUX",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:mkd",
+    "type": "country",
+    "answer": "Macedonia",
+    "iso3": "MKD",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:mdg",
+    "type": "country",
+    "answer": "Madagascar",
+    "iso3": "MDG",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:mwi",
+    "type": "country",
+    "answer": "Malawi",
+    "iso3": "MWI",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:mys",
+    "type": "country",
+    "answer": "Malaysia",
+    "iso3": "MYS",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:mli",
+    "type": "country",
+    "answer": "Mali",
+    "iso3": "MLI",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:mlt",
+    "type": "country",
+    "answer": "Malta",
+    "iso3": "MLT",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:mrt",
+    "type": "country",
+    "answer": "Mauritania",
+    "iso3": "MRT",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:mex",
+    "type": "country",
+    "answer": "Mexico",
+    "iso3": "MEX",
+    "iso2": "mx",
+    "difficulty": "easy",
+    "region": "North America"
+  },
+  {
+    "id": "country:mda",
+    "type": "country",
+    "answer": "Moldova",
+    "iso3": "MDA",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:mng",
+    "type": "country",
+    "answer": "Mongolia",
+    "iso3": "MNG",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:mne",
+    "type": "country",
+    "answer": "Montenegro",
+    "iso3": "MNE",
+    "difficulty": "hard",
+    "region": "Europe"
+  },
+  {
+    "id": "country:mar",
+    "type": "country",
+    "answer": "Morocco",
+    "iso3": "MAR",
+    "iso2": "ma",
+    "difficulty": "easy",
+    "region": "Africa"
+  },
+  {
+    "id": "country:moz",
+    "type": "country",
+    "answer": "Mozambique",
+    "iso3": "MOZ",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:mmr",
+    "type": "country",
+    "answer": "Myanmar",
+    "iso3": "MMR",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:nam",
+    "type": "country",
+    "answer": "Namibia",
+    "iso3": "NAM",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:npl",
+    "type": "country",
+    "answer": "Nepal",
+    "iso3": "NPL",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:nld",
+    "type": "country",
+    "answer": "Netherlands",
+    "iso3": "NLD",
+    "iso2": "nl",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:ncl",
+    "type": "country",
+    "answer": "New Caledonia",
+    "iso3": "NCL",
+    "difficulty": "medium",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:nzl",
+    "type": "country",
+    "answer": "New Zealand",
+    "iso3": "NZL",
+    "iso2": "nz",
+    "difficulty": "easy",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:nic",
+    "type": "country",
+    "answer": "Nicaragua",
+    "iso3": "NIC",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:ner",
+    "type": "country",
+    "answer": "Niger",
+    "iso3": "NER",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:nga",
+    "type": "country",
+    "answer": "Nigeria",
+    "iso3": "NGA",
+    "iso2": "ng",
+    "difficulty": "easy",
+    "region": "Africa"
+  },
+  {
+    "id": "country:prk",
+    "type": "country",
+    "answer": "North Korea",
+    "iso3": "PRK",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:-99",
+    "type": "country",
+    "answer": "Northern Cyprus",
+    "iso3": "-99",
+    "difficulty": "medium",
+    "region": "Other"
+  },
+  {
+    "id": "country:nor",
+    "type": "country",
+    "answer": "Norway",
+    "iso3": "NOR",
+    "iso2": "no",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:omn",
+    "type": "country",
+    "answer": "Oman",
+    "iso3": "OMN",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:pak",
+    "type": "country",
+    "answer": "Pakistan",
+    "iso3": "PAK",
+    "iso2": "pk",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:pan",
+    "type": "country",
+    "answer": "Panama",
+    "iso3": "PAN",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:png",
+    "type": "country",
+    "answer": "Papua New Guinea",
+    "iso3": "PNG",
+    "difficulty": "medium",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:pry",
+    "type": "country",
+    "answer": "Paraguay",
+    "iso3": "PRY",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:per",
+    "type": "country",
+    "answer": "Peru",
+    "iso3": "PER",
+    "iso2": "pe",
+    "difficulty": "easy",
+    "region": "South America"
+  },
+  {
+    "id": "country:phl",
+    "type": "country",
+    "answer": "Philippines",
+    "iso3": "PHL",
+    "iso2": "ph",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:pol",
+    "type": "country",
+    "answer": "Poland",
+    "iso3": "POL",
+    "iso2": "pl",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:prt",
+    "type": "country",
+    "answer": "Portugal",
+    "iso3": "PRT",
+    "iso2": "pt",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:pri",
+    "type": "country",
+    "answer": "Puerto Rico",
+    "iso3": "PRI",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:qat",
+    "type": "country",
+    "answer": "Qatar",
+    "iso3": "QAT",
+    "difficulty": "hard",
+    "region": "Asia"
+  },
+  {
+    "id": "country:srb",
+    "type": "country",
+    "answer": "Republic of Serbia",
+    "iso3": "SRB",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:cog",
+    "type": "country",
+    "answer": "Republic of the Congo",
+    "iso3": "COG",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:rou",
+    "type": "country",
+    "answer": "Romania",
+    "iso3": "ROU",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:rus",
+    "type": "country",
+    "answer": "Russia",
+    "iso3": "RUS",
+    "iso2": "ru",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:rwa",
+    "type": "country",
+    "answer": "Rwanda",
+    "iso3": "RWA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:sau",
+    "type": "country",
+    "answer": "Saudi Arabia",
+    "iso3": "SAU",
+    "iso2": "sa",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:sen",
+    "type": "country",
+    "answer": "Senegal",
+    "iso3": "SEN",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:sle",
+    "type": "country",
+    "answer": "Sierra Leone",
+    "iso3": "SLE",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:svk",
+    "type": "country",
+    "answer": "Slovakia",
+    "iso3": "SVK",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:svn",
+    "type": "country",
+    "answer": "Slovenia",
+    "iso3": "SVN",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:slb",
+    "type": "country",
+    "answer": "Solomon Islands",
+    "iso3": "SLB",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:som",
+    "type": "country",
+    "answer": "Somalia",
+    "iso3": "SOM",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:-99",
+    "type": "country",
+    "answer": "Somaliland",
+    "iso3": "-99",
+    "difficulty": "medium",
+    "region": "Other"
+  },
+  {
+    "id": "country:zaf",
+    "type": "country",
+    "answer": "South Africa",
+    "iso3": "ZAF",
+    "iso2": "za",
+    "difficulty": "easy",
+    "region": "Africa"
+  },
+  {
+    "id": "country:kor",
+    "type": "country",
+    "answer": "South Korea",
+    "iso3": "KOR",
+    "iso2": "kr",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:ssd",
+    "type": "country",
+    "answer": "South Sudan",
+    "iso3": "SSD",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:esp",
+    "type": "country",
+    "answer": "Spain",
+    "iso3": "ESP",
+    "iso2": "es",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:lka",
+    "type": "country",
+    "answer": "Sri Lanka",
+    "iso3": "LKA",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:sdn",
+    "type": "country",
+    "answer": "Sudan",
+    "iso3": "SDN",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:sur",
+    "type": "country",
+    "answer": "Suriname",
+    "iso3": "SUR",
+    "difficulty": "hard",
+    "region": "South America"
+  },
+  {
+    "id": "country:swz",
+    "type": "country",
+    "answer": "Swaziland",
+    "iso3": "SWZ",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:swe",
+    "type": "country",
+    "answer": "Sweden",
+    "iso3": "SWE",
+    "iso2": "se",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:che",
+    "type": "country",
+    "answer": "Switzerland",
+    "iso3": "CHE",
+    "iso2": "ch",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:syr",
+    "type": "country",
+    "answer": "Syria",
+    "iso3": "SYR",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:twn",
+    "type": "country",
+    "answer": "Taiwan",
+    "iso3": "TWN",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:tjk",
+    "type": "country",
+    "answer": "Tajikistan",
+    "iso3": "TJK",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:tha",
+    "type": "country",
+    "answer": "Thailand",
+    "iso3": "THA",
+    "iso2": "th",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:bhs",
+    "type": "country",
+    "answer": "The Bahamas",
+    "iso3": "BHS",
+    "difficulty": "medium",
+    "region": "North America"
+  },
+  {
+    "id": "country:tgo",
+    "type": "country",
+    "answer": "Togo",
+    "iso3": "TGO",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:tto",
+    "type": "country",
+    "answer": "Trinidad and Tobago",
+    "iso3": "TTO",
+    "difficulty": "hard",
+    "region": "North America"
+  },
+  {
+    "id": "country:tun",
+    "type": "country",
+    "answer": "Tunisia",
+    "iso3": "TUN",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:tur",
+    "type": "country",
+    "answer": "Turkey",
+    "iso3": "TUR",
+    "iso2": "tr",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:tkm",
+    "type": "country",
+    "answer": "Turkmenistan",
+    "iso3": "TKM",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:uga",
+    "type": "country",
+    "answer": "Uganda",
+    "iso3": "UGA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:ukr",
+    "type": "country",
+    "answer": "Ukraine",
+    "iso3": "UKR",
+    "difficulty": "medium",
+    "region": "Europe"
+  },
+  {
+    "id": "country:are",
+    "type": "country",
+    "answer": "United Arab Emirates",
+    "iso3": "ARE",
+    "iso2": "ae",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:gbr",
+    "type": "country",
+    "answer": "United Kingdom",
+    "iso3": "GBR",
+    "iso2": "gb",
+    "difficulty": "easy",
+    "region": "Europe"
+  },
+  {
+    "id": "country:tza",
+    "type": "country",
+    "answer": "United Republic of Tanzania",
+    "iso3": "TZA",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:usa",
+    "type": "country",
+    "answer": "United States of America",
+    "iso3": "USA",
+    "iso2": "us",
+    "difficulty": "easy",
+    "region": "North America"
+  },
+  {
+    "id": "country:ury",
+    "type": "country",
+    "answer": "Uruguay",
+    "iso3": "URY",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:uzb",
+    "type": "country",
+    "answer": "Uzbekistan",
+    "iso3": "UZB",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:vut",
+    "type": "country",
+    "answer": "Vanuatu",
+    "iso3": "VUT",
+    "difficulty": "hard",
+    "region": "Oceania"
+  },
+  {
+    "id": "country:ven",
+    "type": "country",
+    "answer": "Venezuela",
+    "iso3": "VEN",
+    "difficulty": "medium",
+    "region": "South America"
+  },
+  {
+    "id": "country:vnm",
+    "type": "country",
+    "answer": "Vietnam",
+    "iso3": "VNM",
+    "iso2": "vn",
+    "difficulty": "easy",
+    "region": "Asia"
+  },
+  {
+    "id": "country:pse",
+    "type": "country",
+    "answer": "West Bank",
+    "iso3": "PSE",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:esh",
+    "type": "country",
+    "answer": "Western Sahara",
+    "iso3": "ESH",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:yem",
+    "type": "country",
+    "answer": "Yemen",
+    "iso3": "YEM",
+    "difficulty": "medium",
+    "region": "Asia"
+  },
+  {
+    "id": "country:zmb",
+    "type": "country",
+    "answer": "Zambia",
+    "iso3": "ZMB",
+    "difficulty": "medium",
+    "region": "Africa"
+  },
+  {
+    "id": "country:zwe",
+    "type": "country",
+    "answer": "Zimbabwe",
+    "iso3": "ZWE",
+    "difficulty": "medium",
+    "region": "Africa"
+  }
+]

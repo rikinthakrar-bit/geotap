@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "levels": [
+    { "id": 1, "difficulty": "easy",   "numQuestions": 6, "advanceMaxKm": 5000, "adAfter": false },
+    { "id": 2, "difficulty": "easy",   "numQuestions": 6, "advanceMaxKm": 2000, "adAfter": true  },
+    { "id": 3, "difficulty": "medium", "numQuestions": 6, "advanceMaxKm": 5000, "adAfter": false },
+    { "id": 4, "difficulty": "medium", "numQuestions": 6, "advanceMaxKm": 2500, "adAfter": true  },
+    { "id": 5, "difficulty": "hard",   "numQuestions": 6, "advanceMaxKm": 5000, "adAfter": false },
+    { "id": 6, "difficulty": "hard",   "numQuestions": 6, "advanceMaxKm": 3000, "adAfter": false }
+  ]
+}
