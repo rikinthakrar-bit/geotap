@@ -39,14 +39,23 @@ export default function TabsLayout() {
           ),
         }}
       />
-      // app/(tabs)/_layout.tsx
-<Tabs.Screen
-  name="stats"
-  options={{
-    title: "Stats",
-    tabBarIcon: ({ color, size }) => (<Ionicons name="stats-chart" size={size} color={color} />),
-  }}
-/>
+      <Tabs.Screen
+        name="stats"
+        options={{
+          title: "Stats",
+          tabBarIcon: ({ color, size }) => (<Ionicons name="stats-chart" size={size} color={color} />),
+        }}
+      />
+      <Tabs.Screen
+        name="summary"
+        options={{
+          // Hide from the tab bar but keep it as a routable screen under the Tabs layout
+          href: null,
+          title: "Summary",
+        }}
+      />
+      <Tabs.Screen name="archive/index" options={{ href: null }} />
+      <Tabs.Screen name="archive/[date]" options={{ href: null }} />
     </Tabs>
   );
 }

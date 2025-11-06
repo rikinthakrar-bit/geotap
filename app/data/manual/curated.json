@@ -4786,14 +4786,6 @@
     "region": "North America"
   },
   {
-    "id": "flag:cc",
-    "kind": "flag",
-    "name": "CC",
-    "image": "flags/cc.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:cd",
     "kind": "flag",
     "name": "CD",
@@ -5747,14 +5739,6 @@
     "difficulty": "hard"
   },
   {
-    "id": "flag:mq",
-    "kind": "flag",
-    "name": "MQ",
-    "image": "flags/mq.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:mr",
     "kind": "flag",
     "name": "MR",
@@ -6493,14 +6477,6 @@
     "kind": "flag",
     "name": "VA",
     "image": "flags/va.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:vc",
-    "kind": "flag",
-    "name": "VC",
-    "image": "flags/vc.png",
     "prompt": "FLAG: Which country?",
     "difficulty": "hard"
   },

@@ -169,6 +169,11 @@ function normalize(item: AnyQ): AnyQ {
   }
   if (typeof obj.kind === "string") obj.kind = obj.kind.toLowerCase();
 
+  // Infer capital status from id or explicit flag
+  const idStr = typeof obj.id === "string" ? obj.id.toLowerCase() : "";
+  const inferredCapital = idStr.startsWith("capital:") || obj.isCapital === true;
+  if (inferredCapital) obj.isCapital = true;
+
   // Try to ensure `countryName` exists using multiple sources
   if (typeof obj.countryName !== "string" || obj.countryName.trim().length === 0) {
     // 0) Direct fields first
@@ -244,13 +249,13 @@ function normalize(item: AnyQ): AnyQ {
       const country = (typeof obj.countryName === "string" && obj.countryName.trim().length)
         ? obj.countryName.trim()
         : undefined;
-      if (city && country) {
-        obj.prompt = `Where is ${city}, ${country}?`;
-      } else if (city) {
-        obj.prompt = `Where is ${city}?`;
-      } else {
-        obj.prompt = "Where is this city?";
-      }
+
+      let base = "Where is this city?";
+      if (city && country) base = `Where is ${city}, ${country}?`;
+      else if (city) base = `Where is ${city}?`;
+
+      // Prefix CAPITAL: for capital city questions
+      obj.prompt = (obj.isCapital && !/^CAPITAL:\s*/i.test(base)) ? `CAPITAL: ${base}` : base;
     } else if (kind === "state") {
       if (displayName && typeof obj.countryName === "string" && obj.countryName.trim().length) {
         obj.prompt = `Where is ${displayName}, ${obj.countryName.trim()}?`;
@@ -275,6 +280,11 @@ function normalize(item: AnyQ): AnyQ {
       if (displayName) obj.prompt = `Where is ${displayName}?`;
       else obj.prompt = "Where is this place?";
     }
+  }
+
+  // Ensure capital city prompts are prefixed even if prompt was pre-filled in curated data
+  if (obj.kind === "city" && obj.isCapital && typeof obj.prompt === "string" && !/^CAPITAL:\s*/i.test(obj.prompt)) {
+    obj.prompt = `CAPITAL: ${obj.prompt}`;
   }
 
   return obj;
@@ -326,7 +336,21 @@ if (fs.existsSync(flagsPath)) {
   }
 }
 
-// Merge curated + flags, preferring curated on id collisions
+// --- Optionally include generated US states (merge with curated) ---
+const statesPath = path.resolve(process.cwd(), "app/data/questions.us_states.json");
+let stateItems: AnyQ[] = [];
+if (fs.existsSync(statesPath)) {
+  try {
+    const raw = readJSON<any>(statesPath);
+    const arr = Array.isArray(raw) ? raw : (Array.isArray(raw?.items) ? raw.items : []);
+    stateItems = arr.map(normalize).filter((q: AnyQ) => q && q.kind === "state");
+    console.log(`ℹ️  Loaded states from ${statesPath} -> ${stateItems.length} items`);
+  } catch (e) {
+    console.warn(`⚠️  Failed to read states at ${statesPath}:`, (e as Error)?.message);
+  }
+}
+
+// Merge curated + flags + states, preferring curated on id collisions, then flags, then states
 const byId = new Map<string, AnyQ>();
 for (const q of curatedItems) {
   if (q && typeof q.id === "string") byId.set(q.id, q);
@@ -335,9 +359,13 @@ for (const q of flagItems) {
   if (!q || typeof q.id !== "string") continue;
   if (!byId.has(q.id)) byId.set(q.id, q);
 }
+for (const q of stateItems) {
+  if (!q || typeof q.id !== "string") continue;
+  if (!byId.has(q.id)) byId.set(q.id, q);
+}
 let finalItems = Array.from(byId.values());
 // --- Exclude unsupported micro-territories (e.g., Jersey / JE) ---
-const DROP_ISO2 = new Set(["je", "um"]);
+const DROP_ISO2 = new Set(["je", "um", "mq", "cc", "vc"]);
 
 function extractIso2Loose(q: any): string | undefined {
   // explicit iso2

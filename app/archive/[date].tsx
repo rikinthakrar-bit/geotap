@@ -1,21 +1,18 @@
 import { router, useLocalSearchParams, type Href } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { useEffect } from "react";
 
-export default function ArchiveDay() {
+export default function ArchiveDateRedirect() {
   const { date } = useLocalSearchParams<{ date?: string }>();
-  const dateISO = (typeof date === "string" && date) ? date : "";
 
-  return (
-    <View style={{ flex: 1, padding: 24, backgroundColor: "#fff", justifyContent: "center" }}>
-      <Text style={{ fontSize: 24, fontWeight: "700", marginBottom: 16 }}>
-        Archive — {dateISO || "Unknown date"}
-      </Text>
+  useEffect(() => {
+    const d = typeof date === "string" && date ? date : "";
+    if (d) {
+      // Send to tabbed archive path but without adding another Archive tab
+      router.replace((`/?archiveDate=${encodeURIComponent(d)}` as Href));
+    } else {
+      router.replace("/" as Href);
+    }
+  }, [date]);
 
-      <View style={{ gap: 12 }}>
-        <Button title="View Leaderboard" onPress={() => router.push(`/leaderboard?date=${dateISO}` as Href)} />
-        <Button title="Play This Set" onPress={() => router.push(`/question?mode=archive&date=${dateISO}` as Href)} />
-        <Button title="Back" onPress={() => router.back()} />
-      </View>
-    </View>
-  );
+  return null;
 }

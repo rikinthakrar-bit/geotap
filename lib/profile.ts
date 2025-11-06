@@ -6,6 +6,9 @@ import { getDeviceId } from "./device";
 
 const KEY = "profile_v1";
 
+const KEY_LEGACY_PRIMARY = "profile.displayName";   // legacy/simple key
+const KEY_LEGACY_SECONDARY = "display_name_v1";     // alternate legacy key
+
 type Profile = {
   id: string;            // deviceId
   displayName: string;   // "Brave Narwhal"
@@ -24,28 +27,61 @@ function randomName() {
 
 function colorFromId(id: string) {
   // deterministic-ish pastel from deviceId
+  const toHex = (n: number) => n.toString(16).padStart(2, "0");
   const hash = Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA1, id);
-  return hash.then(h => {
-    // take first 6 hex as hue-ish seed
-    const x = parseInt(h.slice(0,6), 16);
-    const r = 180 + (x % 60);     // 180..239
-    const g = 180 + ((x>>3)%60);
-    const b = 180 + ((x>>5)%60);
-    return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+  return hash.then((h) => {
+    const x = parseInt(h.slice(0, 6), 16) || 0;
+    const r = 180 + (x % 60); // 180..239
+    const g = 180 + ((x >> 3) % 60);
+    const b = 180 + ((x >> 5) % 60);
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
   });
 }
 
 // ---------- local profile ----------
 export async function getOrCreateProfile(): Promise<Profile> {
   const id = await getDeviceId();
-  const cached = await AsyncStorage.getItem(KEY);
-  if (cached) return JSON.parse(cached);
 
-  const displayName = randomName();
+  // Return cached profile if present (and well-formed)
+  const cached = await AsyncStorage.getItem(KEY);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached) as Profile;
+      if (parsed && parsed.id && typeof parsed.displayName === "string" && parsed.color) {
+        return parsed;
+      }
+    } catch {
+      // fall through to recreate if corrupt
+    }
+  }
+
+  // Check legacy/simple keys for an existing name to migrate
+  let migratedName = "";
+  try {
+    const [p, s] = await Promise.all([
+      AsyncStorage.getItem(KEY_LEGACY_PRIMARY),
+      AsyncStorage.getItem(KEY_LEGACY_SECONDARY),
+    ]);
+    migratedName = (p && p.trim()) || (s && s.trim()) || "";
+  } catch {
+    migratedName = "";
+  }
+
+  const displayName = migratedName || randomName();
   const color = await colorFromId(id);
   const profile: Profile = { id, displayName, color };
 
+  // Persist new profile
   await AsyncStorage.setItem(KEY, JSON.stringify(profile));
+
+  // Keep legacy keys in sync so older code paths remain stable
+  try {
+    await AsyncStorage.multiSet([
+      [KEY_LEGACY_PRIMARY, displayName],
+      [KEY_LEGACY_SECONDARY, displayName],
+    ]);
+  } catch {}
+
   return profile;
 }
 
@@ -53,6 +89,13 @@ export async function updateLocalDisplayName(displayName: string) {
   const cur = await getOrCreateProfile();
   const next = { ...cur, displayName };
   await AsyncStorage.setItem(KEY, JSON.stringify(next));
+  // Mirror to legacy keys for backward compatibility
+  try {
+    await AsyncStorage.multiSet([
+      [KEY_LEGACY_PRIMARY, displayName],
+      [KEY_LEGACY_SECONDARY, displayName],
+    ]);
+  } catch {}
   return next;
 }
 

@@ -22,11 +22,11 @@ import usStates from "../assets/us-states.json";
 import { getDailySet, todayISO } from "../lib/daily";
 import { getDeviceId } from "../lib/device";
 import { getFlagSource } from "../lib/flags";
-import { addResult } from "../lib/lbStore";
+import { addResult, hasPlayed } from "../lib/lbStore";
 import { loadQuestions } from "../lib/loadQuestions";
 import { upsertDaily } from "../lib/publicResults";
 import { type Question } from "../lib/questions";
-
+import { incrementChallengeLevel, saveSummary } from "../lib/storage";
 
 type CountryFeature = {
   id?: string;
@@ -185,6 +185,63 @@ function formatPrompt(q: Question): string {
 
   // Generic fallback
   return bestLabel ? `Where is ${bestLabel}?` : "Where is this?";
+}
+
+function formatAnswerLabel(q: Question): string {
+  const t = qType(q);
+  const k = (q as any)?.kind;
+
+  const bestCountry = (raw?: any) => getCountryLabelFromQuestion(q as any, raw);
+
+  // Flags → country name
+  if (isFlagQuestion(q)) {
+    const iso2 = extractIso2FromQuestion(q);
+    if (iso2 && ISO2_TO_NAME[iso2]) return ISO2_TO_NAME[iso2];
+    const raw =
+      (q as any)?.countryName ||
+      (q as any)?.country ||
+      (q as any)?.answer ||
+      (q as any)?.name;
+    const label = bestCountry(raw);
+    return (label && label.trim()) ? label : (typeof raw === "string" ? raw.trim() : "");
+  }
+
+  // Countries → full country name
+  if (t === "country" || k === "country") {
+    const raw =
+      (q as any)?.countryName ||
+      (q as any)?.answer ||
+      (q as any)?.name ||
+      (q as any)?.featureId;
+    const label = bestCountry(raw);
+    return (label && label.trim()) ? label : (typeof raw === "string" ? raw.trim() : "");
+  }
+
+  // Cities → "City, Country"
+  if ((t === "point" && k === "city") || k === "capital" || t === "city") {
+    const city = ((q as any)?.name || (q as any)?.answer || "").toString().trim();
+    const country = bestCountry(
+      (q as any)?.countryName || (q as any)?.country || (q as any)?.adm0name || (q as any)?.iso2 || (q as any)?.iso3
+    );
+    if (city && country) return `${city}, ${country}`;
+    return city || country || "";
+  }
+
+  // States → "<State>, United States"
+  if (t === "state" || k === "state") {
+    const state = ((q as any)?.name || (q as any)?.answer || "").toString().trim();
+    return state ? `${state}, United States` : "United States";
+  }
+
+  // Generic fallback
+  const label =
+    (q as any)?.answer ||
+    (q as any)?.name ||
+    (q as any)?.featureName ||
+    (q as any)?.countryName ||
+    (q as any)?.country ||
+    "";
+  return typeof label === "string" ? label : String(label ?? "");
 }
 
 // ---- ISO2 → Country Name lookup and helpers ----
@@ -480,6 +537,10 @@ const HTML = `
   @keyframes pulse{0%{transform:translate(-50%,-50%) scale(1);opacity:.7;}70%{transform:translate(-50%,-50%) scale(2.3);opacity:0;}100%{transform:translate(-50%,-50%) scale(2.3);opacity:0;}}
 
   .badge{position:absolute;transform:translate(-50%,calc(-100% - 8px));transform-origin:center;padding:10px 16px;border-radius:16px;font:700 16px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:rgba(10,15,25,0.9);backdrop-filter:blur(5px);color:#fff;border:1px solid rgba(255,255,255,0.15);pointer-events:none;white-space:nowrap;z-index:4;box-shadow:0 4px 12px rgba(0,0,0,0.4);opacity:0;transition:opacity .4s ease,transform .4s ease;text-shadow:-1px -1px 0 rgba(0,0,0,0.25), 1px -1px 0 rgba(0,0,0,0.25), -1px 1px 0 rgba(0,0,0,0.25), 1px 1px 0 rgba(0,0,0,0.25);}
+  .badge .answer{font-weight:800;font-size:14px;margin-bottom:6px;color:#fff;opacity:.95}
+  .badge .divider{height:1px;width:100%;background:rgba(255,255,255,0.15);margin:4px 0 6px}
+  .badge .km{font-weight:700;font-size:14px;color:#cfe3ff}
+  .badge .km.perfect{background:transparent;color:#222}
   .badge.below{transform:translate(-50%,8px);}
   .badge.perfect{background:linear-gradient(135deg,#ffcc33,#ff9933);color:#222;font-weight:800;box-shadow:0 0 12px rgba(255,204,51,.5);}
   canvas#line{position:absolute;top:0;left:0;pointer-events:none;z-index:2;}
@@ -509,6 +570,10 @@ const HTML = `
     const canvas = document.getElementById("line");
     const ctx = canvas.getContext("2d");
 
+     function escapeHtml(s){
+  return String(s).replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
     window.__mode = "point";
     window.__feature = null;
     window.__lastGuess = null;
@@ -524,30 +589,38 @@ const HTML = `
       const c=map.getContainer();
       canvas.width=c.clientWidth; canvas.height=c.clientHeight;
     }
-    function placeBadgeSmart(lng,lat,text,isPerfect=false){
-      const p=project(lng,lat);
-      if (text!=null) badge.textContent=text;
-      badge.style.display="block"; badge.style.opacity="1";
-      badge.classList.add("visible");
-      badge.classList.toggle("perfect", !!isPerfect);
 
-      const w=badge.offsetWidth||100, h=badge.offsetHeight||28;
-      const c=map.getContainer();
-      const W=c.clientWidth, H=c.clientHeight, pad=8;
+  function placeBadgeSmart(lng,lat,text,isPerfect=false){
+  const p=project(lng,lat);
+  const answer = (window.answerText||"").toString();
+  const kmTxt = (window.kmText||"").toString();
 
-      let anchorBelow=false;
-      const spaceAbove=p.y-h-6, spaceBelow=H-(p.y+6+h);
-      if(spaceAbove<pad && spaceBelow>spaceAbove) anchorBelow=true;
+  const kmHtml = '<div class="km ' + (isPerfect ? 'perfect' : '') + '\">' + escapeHtml(kmTxt) + '</div>';
+  const html = answer
+    ? '<div class="answer">' + escapeHtml(answer) + '</div><div class="divider"></div>' + kmHtml
+    : kmHtml;
 
-      const minX=pad+w/2, maxX=W-pad-w/2;
-      const clampedX=Math.max(minX, Math.min(maxX, p.x));
+  badge.innerHTML = html;
+  badge.style.display="block"; badge.style.opacity="1";
+  badge.classList.add("visible");
 
-      const minY=pad+(anchorBelow?6:h+6), maxY=H-pad-(anchorBelow?h+6:6);
-      const clampedY=Math.max(minY, Math.min(maxY, p.y));
+  const w=badge.offsetWidth||100, h=badge.offsetHeight||28;
+  const c=map.getContainer();
+  const W=c.clientWidth, H=c.clientHeight, pad=8;
 
-      badge.classList.toggle("below", anchorBelow);
-      badge.style.left=clampedX+"px"; badge.style.top=clampedY+"px";
-    }
+  let anchorBelow=false;
+  const spaceAbove=p.y-h-6, spaceBelow=H-(p.y+6+h);
+  if(spaceAbove<pad && spaceBelow>spaceAbove) anchorBelow=true;
+
+  const minX=pad+w/2, maxX=W-pad-w/2;
+  const clampedX=Math.max(minX, Math.min(maxX, p.x));
+
+  const minY=pad+(anchorBelow?6:h+6), maxY=H-pad-(anchorBelow?h+6:6);
+  const clampedY=Math.max(minY, Math.min(maxY, p.y));
+
+  badge.classList.toggle("below", anchorBelow);
+  badge.style.left=clampedX+"px"; badge.style.top=clampedY+"px";
+}
 
     function playDing(){
       try{
@@ -715,13 +788,12 @@ map.on("load", () => {
         if (msg.type === "set-point"){ 
           window.__mode = "point"; 
           window.__feature = null; 
-          try {
-            const c = map.getCenter();
-            placeDot(pin, c.lng, c.lat);
-            // make the placeholder invisible but ensure layout paints first
-            pin.style.opacity = "0";
-            setTimeout(() => { pin.style.opacity = "1"; pin.style.display = "none"; }, 50);
-          } catch {}
+          // ensure pin/target are hidden and state is clean
+          try { pin.style.display = "none"; } catch {}
+          try { target.style.display = "none"; } catch {}
+          window.__lastGuess = null;
+          window.__lastSnap = null;
+          window.kmText = "";
           return; 
         }
 
@@ -759,7 +831,7 @@ map.on("load", () => {
 
           if (lng != null && lat != null) {
             placeDot(target, lng, lat);
-
+            window.answerText = typeof msg.answer === "string" ? msg.answer : "";
             if (typeof msg.km === "number") {
               window.kmText = (msg.km === 0) ? "⭐ Perfect!" : (msg.km.toLocaleString() + " km");
               placeBadgeSmart(lng, lat, window.kmText, msg.km === 0);
@@ -799,6 +871,19 @@ export default function Question() {
   const targetKmNum = isChallenge ? Math.max(0, Number(targetKm ?? "0")) : 0;
   const roundDesiredCount = isChallenge ? Math.max(1, Number(num ?? "6")) : 0;
 
+  // Prevent replaying Daily 10 for today: if already played, bounce to Summary
+  useEffect(() => {
+    if (!isChallenge && isToday) {
+      (async () => {
+        try {
+          if (await hasPlayed(dateISO)) {
+            router.replace(`/(tabs)/summary?date=${dateISO}` as Href);
+          }
+        } catch {}
+      })();
+    }
+  }, [isChallenge, isToday, dateISO]);
+
   // --- Challenge helpers ---
   const goToChallengeIntro = (lvl: string) =>
     router.replace({
@@ -828,6 +913,14 @@ export default function Question() {
     const passed = finalKm <= targetKmNum;
 
     if (passed) {
+      // Increment completion count for this level (non-blocking)
+      try {
+        const lvl = Number(level ?? "1");
+        if (Number.isFinite(lvl) && lvl > 0) {
+          incrementChallengeLevel(lvl).catch(() => {});
+        }
+      } catch {}
+
       const nextLevel = String(Number(level ?? "1") + 1);
       goToChallengeIntro(nextLevel);
     } else {
@@ -1114,12 +1207,13 @@ export default function Question() {
           type: "reveal",
           target: (q as any).target,
           km: kmRounded,
+          answer: formatAnswerLabel(q),
         })}); true;`
       );
     } else {
       const target = lastPolySnap ?? null;
       webref.current?.injectJavaScript(
-        `window.receiveFromRN(${JSON.stringify({ type: "reveal", target, km: kmRounded })}); true;`
+        `window.receiveFromRN(${JSON.stringify({ type: "reveal", target, km: kmRounded, answer: formatAnswerLabel(q) })}); true;`
       );
     }
 
@@ -1156,15 +1250,16 @@ export default function Question() {
           const finalKm = roundKm + kmRounded;
           finishChallengeRound(finalKm);
         } else {
-          if (isToday) {
-            try {
-              await addResult(dateISO, nextTotal);
-              const deviceId = await getDeviceId();
-              await upsertDaily(deviceId, dateISO, nextTotal);
-            } catch (e) {
-              console.warn("Result save failed:", e);
-            }
+          try {
+            // Persist: best-of-day leaderboard + public daily + detailed summary for Summary screen
+            await addResult(dateISO, nextTotal);
+            const deviceId = await getDeviceId();
+            await upsertDaily(deviceId, dateISO, nextTotal);
+            await saveSummary(dateISO, nextTotal, nextResults);
+          } catch (e) {
+            console.warn("Result save failed:", e);
           }
+
           const resultsParam = encodeURIComponent(JSON.stringify(nextResults));
           router.push({
             pathname: "/summary",

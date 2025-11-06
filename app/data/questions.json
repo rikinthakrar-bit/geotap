@@ -1,5 +1,5 @@
 {
-  "version": 1762277635207,
+  "version": 1762345368788,
   "items": [
     {
       "id": "country:afg",
@@ -1997,8 +1997,9 @@
       "population": 832,
       "scalerank": 8,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Vatican",
-      "prompt": "Where is Vatican City, Vatican?"
+      "prompt": "CAPITAL: Where is Vatican City, Vatican?"
     },
     {
       "id": "capital:san-marino:sm",
@@ -2013,8 +2014,9 @@
       "population": 29579,
       "scalerank": 7,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "San Marino",
-      "prompt": "Where is San Marino, San Marino?"
+      "prompt": "CAPITAL: Where is San Marino, San Marino?"
     },
     {
       "id": "capital:vaduz:li",
@@ -2029,8 +2031,9 @@
       "population": 36281,
       "scalerank": 7,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Liechtenstein",
-      "prompt": "Where is Vaduz, Liechtenstein?"
+      "prompt": "CAPITAL: Where is Vaduz, Liechtenstein?"
     },
     {
       "id": "capital:luxembourg:lu",
@@ -2046,8 +2049,9 @@
       "population": 107260,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Luxembourg",
-      "prompt": "Where is Luxembourg, Luxembourg?"
+      "prompt": "CAPITAL: Where is Luxembourg, Luxembourg?"
     },
     {
       "id": "capital:palikir:fm",
@@ -2062,8 +2066,9 @@
       "population": 4645,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Federated States of Micronesia",
-      "prompt": "Where is Palikir, Federated States of Micronesia?"
+      "prompt": "CAPITAL: Where is Palikir, Federated States of Micronesia?"
     },
     {
       "id": "capital:majuro:mh",
@@ -2078,8 +2083,9 @@
       "population": 25400,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Marshall Islands",
-      "prompt": "Where is Majuro, Marshall Islands?"
+      "prompt": "CAPITAL: Where is Majuro, Marshall Islands?"
     },
     {
       "id": "capital:funafuti:tv",
@@ -2094,8 +2100,9 @@
       "population": 4749,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Tuvalu",
-      "prompt": "Where is Funafuti, Tuvalu?"
+      "prompt": "CAPITAL: Where is Funafuti, Tuvalu?"
     },
     {
       "id": "capital:melekeok:pw",
@@ -2110,8 +2117,9 @@
       "population": 7026,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Palau",
-      "prompt": "Where is Melekeok, Palau?"
+      "prompt": "CAPITAL: Where is Melekeok, Palau?"
     },
     {
       "id": "capital:monaco:mc",
@@ -2126,8 +2134,9 @@
       "population": 36371,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Monaco",
-      "prompt": "Where is Monaco, Monaco?"
+      "prompt": "CAPITAL: Where is Monaco, Monaco?"
     },
     {
       "id": "capital:tarawa:ki",
@@ -2142,8 +2151,9 @@
       "population": 28802,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Kiribati",
-      "prompt": "Where is Tarawa, Kiribati?"
+      "prompt": "CAPITAL: Where is Tarawa, Kiribati?"
     },
     {
       "id": "capital:moroni:km",
@@ -2158,8 +2168,9 @@
       "population": 128698,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Comoros",
-      "prompt": "Where is Moroni, Comoros?"
+      "prompt": "CAPITAL: Where is Moroni, Comoros?"
     },
     {
       "id": "capital:andorra:ad",
@@ -2174,8 +2185,9 @@
       "population": 53998,
       "scalerank": 6,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Andorra",
-      "prompt": "Where is Andorra, Andorra?"
+      "prompt": "CAPITAL: Where is Andorra, Andorra?"
     },
     {
       "id": "capital:port-of-spain:tt",
@@ -2191,8 +2203,9 @@
       "population": 294934,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Trinidad and Tobago",
-      "prompt": "Where is Port-of-Spain, Trinidad and Tobago?"
+      "prompt": "CAPITAL: Where is Port-of-Spain, Trinidad and Tobago?"
     },
     {
       "id": "capital:kigali:rw",
@@ -2208,8 +2221,9 @@
       "population": 860000,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Rwanda",
-      "prompt": "Where is Kigali, Rwanda?"
+      "prompt": "CAPITAL: Where is Kigali, Rwanda?"
     },
     {
       "id": "capital:mbabane:sz",
@@ -2225,8 +2239,9 @@
       "population": 90138,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "eSwatini",
-      "prompt": "Where is Mbabane, eSwatini?"
+      "prompt": "CAPITAL: Where is Mbabane, eSwatini?"
     },
     {
       "id": "capital:juba:ss",
@@ -2242,8 +2257,9 @@
       "population": 111975,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "South Sudan",
-      "prompt": "Where is Juba, South Sudan?"
+      "prompt": "CAPITAL: Where is Juba, South Sudan?"
     },
     {
       "id": "capital:ljubljana:si",
@@ -2259,8 +2275,9 @@
       "population": 314807,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Slovenia",
-      "prompt": "Where is Ljubljana, Slovenia?"
+      "prompt": "CAPITAL: Where is Ljubljana, Slovenia?"
     },
     {
       "id": "capital:bratislava:sk",
@@ -2276,8 +2293,9 @@
       "population": 423737,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Slovakia",
-      "prompt": "Where is Bratislava, Slovakia?"
+      "prompt": "CAPITAL: Where is Bratislava, Slovakia?"
     },
     {
       "id": "capital:doha:qa",
@@ -2293,8 +2311,9 @@
       "population": 1450000,
       "scalerank": 4,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Qatar",
-      "prompt": "Where is Doha, Qatar?"
+      "prompt": "CAPITAL: Where is Doha, Qatar?"
     },
     {
       "id": "capital:podgorica:me",
@@ -2310,8 +2329,9 @@
       "population": 145850,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Montenegro",
-      "prompt": "Where is Podgorica, Montenegro?"
+      "prompt": "CAPITAL: Where is Podgorica, Montenegro?"
     },
     {
       "id": "capital:bern:ch",
@@ -2327,8 +2347,9 @@
       "population": 275329,
       "scalerank": 4,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Switzerland",
-      "prompt": "Where is Bern, Switzerland?"
+      "prompt": "CAPITAL: Where is Bern, Switzerland?"
     },
     {
       "id": "capital:pristina:xk",
@@ -2343,8 +2364,9 @@
       "population": 465186,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Kosovo",
-      "prompt": "Where is Pristina, Kosovo?"
+      "prompt": "CAPITAL: Where is Pristina, Kosovo?"
     },
     {
       "id": "capital:roseau:dm",
@@ -2359,8 +2381,9 @@
       "population": 23336,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Dominica",
-      "prompt": "Where is Roseau, Dominica?"
+      "prompt": "CAPITAL: Where is Roseau, Dominica?"
     },
     {
       "id": "capital:djibouti:dj",
@@ -2376,8 +2399,9 @@
       "population": 923000,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Djibouti",
-      "prompt": "Where is Djibouti, Djibouti?"
+      "prompt": "CAPITAL: Where is Djibouti, Djibouti?"
     },
     {
       "id": "capital:banjul:gm",
@@ -2393,8 +2417,9 @@
       "population": 43094,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "The Gambia",
-      "prompt": "Where is Banjul, The Gambia?"
+      "prompt": "CAPITAL: Where is Banjul, The Gambia?"
     },
     {
       "id": "capital:skopje:mk",
@@ -2410,8 +2435,9 @@
       "population": 494087,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "North Macedonia",
-      "prompt": "Where is Skopje, North Macedonia?"
+      "prompt": "CAPITAL: Where is Skopje, North Macedonia?"
     },
     {
       "id": "capital:bridgetown:bb",
@@ -2426,8 +2452,9 @@
       "population": 191152,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Barbados",
-      "prompt": "Where is Bridgetown, Barbados?"
+      "prompt": "CAPITAL: Where is Bridgetown, Barbados?"
     },
     {
       "id": "capital:bujumbura:bi",
@@ -2443,8 +2470,9 @@
       "population": 331700,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Burundi",
-      "prompt": "Where is Bujumbura, Burundi?"
+      "prompt": "CAPITAL: Where is Bujumbura, Burundi?"
     },
     {
       "id": "capital:kingstown:vc",
@@ -2459,8 +2487,9 @@
       "population": 49485,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Saint Vincent and the Grenadines",
-      "prompt": "Where is Kingstown, Saint Vincent and the Grenadines?"
+      "prompt": "CAPITAL: Where is Kingstown, Saint Vincent and the Grenadines?"
     },
     {
       "id": "capital:castries:lc",
@@ -2475,8 +2504,9 @@
       "population": 37963,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Saint Lucia",
-      "prompt": "Where is Castries, Saint Lucia?"
+      "prompt": "CAPITAL: Where is Castries, Saint Lucia?"
     },
     {
       "id": "capital:basseterre:kn",
@@ -2491,8 +2521,9 @@
       "population": 21887,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Saint Kitts and Nevis",
-      "prompt": "Where is Basseterre, Saint Kitts and Nevis?"
+      "prompt": "CAPITAL: Where is Basseterre, Saint Kitts and Nevis?"
     },
     {
       "id": "capital:port-louis:mu",
@@ -2507,8 +2538,9 @@
       "population": 595491,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Mauritius",
-      "prompt": "Where is Port Louis, Mauritius?"
+      "prompt": "CAPITAL: Where is Port Louis, Mauritius?"
     },
     {
       "id": "capital:saint-george-s:gd",
@@ -2523,8 +2555,9 @@
       "population": 33734,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Grenada",
-      "prompt": "Where is Saint George's, Grenada?"
+      "prompt": "CAPITAL: Where is Saint George's, Grenada?"
     },
     {
       "id": "capital:manama:bh",
@@ -2539,8 +2572,9 @@
       "population": 563920,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Bahrain",
-      "prompt": "Where is Manama, Bahrain?"
+      "prompt": "CAPITAL: Where is Manama, Bahrain?"
     },
     {
       "id": "capital:saint-john-s:ag",
@@ -2555,8 +2589,9 @@
       "population": 35499,
       "scalerank": 4,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Antigua and Barbuda",
-      "prompt": "Where is Saint John's, Antigua and Barbuda?"
+      "prompt": "CAPITAL: Where is Saint John's, Antigua and Barbuda?"
     },
     {
       "id": "capital:montevideo:uy",
@@ -2572,8 +2607,9 @@
       "population": 1513000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Uruguay",
-      "prompt": "Where is Montevideo, Uruguay?"
+      "prompt": "CAPITAL: Where is Montevideo, Uruguay?"
     },
     {
       "id": "capital:lom:tg",
@@ -2589,8 +2625,9 @@
       "population": 1452000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Togo",
-      "prompt": "Where is Lomé, Togo?"
+      "prompt": "CAPITAL: Where is Lomé, Togo?"
     },
     {
       "id": "capital:tunis:tn",
@@ -2606,8 +2643,9 @@
       "population": 2412500,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Tunisia",
-      "prompt": "Where is Tunis, Tunisia?"
+      "prompt": "CAPITAL: Where is Tunis, Tunisia?"
     },
     {
       "id": "capital:abu-dhabi:ae",
@@ -2623,8 +2661,9 @@
       "population": 603492,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "United Arab Emirates",
-      "prompt": "Where is Abu Dhabi, United Arab Emirates?"
+      "prompt": "CAPITAL: Where is Abu Dhabi, United Arab Emirates?"
     },
     {
       "id": "capital:ashgabat:tm",
@@ -2640,8 +2679,9 @@
       "population": 727700,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Turkmenistan",
-      "prompt": "Where is Ashgabat, Turkmenistan?"
+      "prompt": "CAPITAL: Where is Ashgabat, Turkmenistan?"
     },
     {
       "id": "capital:lusaka:zm",
@@ -2657,8 +2697,9 @@
       "population": 1328000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Zambia",
-      "prompt": "Where is Lusaka, Zambia?"
+      "prompt": "CAPITAL: Where is Lusaka, Zambia?"
     },
     {
       "id": "capital:harare:zw",
@@ -2674,8 +2715,9 @@
       "population": 1572000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Zimbabwe",
-      "prompt": "Where is Harare, Zimbabwe?"
+      "prompt": "CAPITAL: Where is Harare, Zimbabwe?"
     },
     {
       "id": "capital:dili:tl",
@@ -2691,8 +2733,9 @@
       "population": 234331,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "East Timor",
-      "prompt": "Where is Dili, East Timor?"
+      "prompt": "CAPITAL: Where is Dili, East Timor?"
     },
     {
       "id": "capital:port-vila:vu",
@@ -2708,8 +2751,9 @@
       "population": 44040,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Vanuatu",
-      "prompt": "Where is Port Vila, Vanuatu?"
+      "prompt": "CAPITAL: Where is Port Vila, Vanuatu?"
     },
     {
       "id": "capital:tegucigalpa:hn",
@@ -2725,8 +2769,9 @@
       "population": 946000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Honduras",
-      "prompt": "Where is Tegucigalpa, Honduras?"
+      "prompt": "CAPITAL: Where is Tegucigalpa, Honduras?"
     },
     {
       "id": "capital:georgetown:gy",
@@ -2742,8 +2787,9 @@
       "population": 264350,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Guyana",
-      "prompt": "Where is Georgetown, Guyana?"
+      "prompt": "CAPITAL: Where is Georgetown, Guyana?"
     },
     {
       "id": "capital:reykjav-k:is",
@@ -2759,8 +2805,9 @@
       "population": 166212,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Iceland",
-      "prompt": "Where is Reykjavík, Iceland?"
+      "prompt": "CAPITAL: Where is Reykjavík, Iceland?"
     },
     {
       "id": "capital:port-au-prince:ht",
@@ -2776,8 +2823,9 @@
       "population": 1998000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Haiti",
-      "prompt": "Where is Port-au-Prince, Haiti?"
+      "prompt": "CAPITAL: Where is Port-au-Prince, Haiti?"
     },
     {
       "id": "capital:kampala:ug",
@@ -2793,8 +2841,9 @@
       "population": 1420000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Uganda",
-      "prompt": "Where is Kampala, Uganda?"
+      "prompt": "CAPITAL: Where is Kampala, Uganda?"
     },
     {
       "id": "capital:paramaribo:sr",
@@ -2810,8 +2859,9 @@
       "population": 254169,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Suriname",
-      "prompt": "Where is Paramaribo, Suriname?"
+      "prompt": "CAPITAL: Where is Paramaribo, Suriname?"
     },
     {
       "id": "capital:niamey:ne",
@@ -2827,8 +2877,9 @@
       "population": 915000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Niger",
-      "prompt": "Where is Niamey, Niger?"
+      "prompt": "CAPITAL: Where is Niamey, Niger?"
     },
     {
       "id": "capital:dushanbe:tj",
@@ -2844,8 +2895,9 @@
       "population": 1086244,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Tajikistan",
-      "prompt": "Where is Dushanbe, Tajikistan?"
+      "prompt": "CAPITAL: Where is Dushanbe, Tajikistan?"
     },
     {
       "id": "capital:asunci-n:py",
@@ -2861,8 +2913,9 @@
       "population": 1870000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Paraguay",
-      "prompt": "Where is Asunción, Paraguay?"
+      "prompt": "CAPITAL: Where is Asunción, Paraguay?"
     },
     {
       "id": "capital:managua:ni",
@@ -2878,8 +2931,9 @@
       "population": 920000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Nicaragua",
-      "prompt": "Where is Managua, Nicaragua?"
+      "prompt": "CAPITAL: Where is Managua, Nicaragua?"
     },
     {
       "id": "capital:freetown:sl",
@@ -2895,8 +2949,9 @@
       "population": 827000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Sierra Leone",
-      "prompt": "Where is Freetown, Sierra Leone?"
+      "prompt": "CAPITAL: Where is Freetown, Sierra Leone?"
     },
     {
       "id": "capital:islamabad:pk",
@@ -2912,8 +2967,9 @@
       "population": 780000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Pakistan",
-      "prompt": "Where is Islamabad, Pakistan?"
+      "prompt": "CAPITAL: Where is Islamabad, Pakistan?"
     },
     {
       "id": "capital:kathmandu:np",
@@ -2929,8 +2985,9 @@
       "population": 895000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Nepal",
-      "prompt": "Where is Kathmandu, Nepal?"
+      "prompt": "CAPITAL: Where is Kathmandu, Nepal?"
     },
     {
       "id": "capital:bloemfontein:za",
@@ -2946,8 +3003,9 @@
       "population": 463064,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "South Africa",
-      "prompt": "Where is Bloemfontein, South Africa?"
+      "prompt": "CAPITAL: Where is Bloemfontein, South Africa?"
     },
     {
       "id": "capital:pretoria:za",
@@ -2963,8 +3021,9 @@
       "population": 1338000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "South Africa",
-      "prompt": "Where is Pretoria, South Africa?"
+      "prompt": "CAPITAL: Where is Pretoria, South Africa?"
     },
     {
       "id": "capital:port-moresby:pg",
@@ -2980,8 +3039,9 @@
       "population": 283733,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Papua New Guinea",
-      "prompt": "Where is Port Moresby, Papua New Guinea?"
+      "prompt": "CAPITAL: Where is Port Moresby, Papua New Guinea?"
     },
     {
       "id": "capital:honiara:sb",
@@ -2997,8 +3057,9 @@
       "population": 76328,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Solomon Islands",
-      "prompt": "Where is Honiara, Solomon Islands?"
+      "prompt": "CAPITAL: Where is Honiara, Solomon Islands?"
     },
     {
       "id": "capital:panama-city:pa",
@@ -3014,8 +3075,9 @@
       "population": 1281000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Panama",
-      "prompt": "Where is Panama City, Panama?"
+      "prompt": "CAPITAL: Where is Panama City, Panama?"
     },
     {
       "id": "capital:rabat:ma",
@@ -3031,8 +3093,9 @@
       "population": 1705000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Morocco",
-      "prompt": "Where is Rabat, Morocco?"
+      "prompt": "CAPITAL: Where is Rabat, Morocco?"
     },
     {
       "id": "capital:chi-in-u:md",
@@ -3048,8 +3111,9 @@
       "population": 688134,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Moldova",
-      "prompt": "Where is Chișinău, Moldova?"
+      "prompt": "CAPITAL: Where is Chișinău, Moldova?"
     },
     {
       "id": "capital:maputo:mz",
@@ -3065,8 +3129,9 @@
       "population": 1446000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Mozambique",
-      "prompt": "Where is Maputo, Mozambique?"
+      "prompt": "CAPITAL: Where is Maputo, Mozambique?"
     },
     {
       "id": "capital:mogadishu:so",
@@ -3082,8 +3147,9 @@
       "population": 1100000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Somalia",
-      "prompt": "Where is Mogadishu, Somalia?"
+      "prompt": "CAPITAL: Where is Mogadishu, Somalia?"
     },
     {
       "id": "capital:muscat:om",
@@ -3099,8 +3165,9 @@
       "population": 734697,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Oman",
-      "prompt": "Where is Muscat, Oman?"
+      "prompt": "CAPITAL: Where is Muscat, Oman?"
     },
     {
       "id": "capital:colombo:lk",
@@ -3116,8 +3183,9 @@
       "population": 217000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Sri Lanka",
-      "prompt": "Where is Colombo, Sri Lanka?"
+      "prompt": "CAPITAL: Where is Colombo, Sri Lanka?"
     },
     {
       "id": "capital:ulaanbaatar:mn",
@@ -3133,8 +3201,9 @@
       "population": 885000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Mongolia",
-      "prompt": "Where is Ulaanbaatar, Mongolia?"
+      "prompt": "CAPITAL: Where is Ulaanbaatar, Mongolia?"
     },
     {
       "id": "capital:windhoek:na",
@@ -3150,8 +3219,9 @@
       "population": 268132,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Namibia",
-      "prompt": "Where is Windhoek, Namibia?"
+      "prompt": "CAPITAL: Where is Windhoek, Namibia?"
     },
     {
       "id": "capital:abuja:ng",
@@ -3167,8 +3237,9 @@
       "population": 1576000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Nigeria",
-      "prompt": "Where is Abuja, Nigeria?"
+      "prompt": "CAPITAL: Where is Abuja, Nigeria?"
     },
     {
       "id": "capital:bissau:gw",
@@ -3184,8 +3255,9 @@
       "population": 403339,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Guinea Bissau",
-      "prompt": "Where is Bissau, Guinea Bissau?"
+      "prompt": "CAPITAL: Where is Bissau, Guinea Bissau?"
     },
     {
       "id": "capital:amman:jo",
@@ -3201,8 +3273,9 @@
       "population": 1060000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Jordan",
-      "prompt": "Where is Amman, Jordan?"
+      "prompt": "CAPITAL: Where is Amman, Jordan?"
     },
     {
       "id": "capital:vilnius:lt",
@@ -3218,8 +3291,9 @@
       "population": 542366,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Lithuania",
-      "prompt": "Where is Vilnius, Lithuania?"
+      "prompt": "CAPITAL: Where is Vilnius, Lithuania?"
     },
     {
       "id": "capital:riga:lv",
@@ -3235,8 +3309,9 @@
       "population": 742572,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Latvia",
-      "prompt": "Where is Riga, Latvia?"
+      "prompt": "CAPITAL: Where is Riga, Latvia?"
     },
     {
       "id": "capital:bishkek:kg",
@@ -3252,8 +3327,9 @@
       "population": 837000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Kyrgyzstan",
-      "prompt": "Where is Bishkek, Kyrgyzstan?"
+      "prompt": "CAPITAL: Where is Bishkek, Kyrgyzstan?"
     },
     {
       "id": "capital:maseru:ls",
@@ -3269,8 +3345,9 @@
       "population": 361324,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Lesotho",
-      "prompt": "Where is Maseru, Lesotho?"
+      "prompt": "CAPITAL: Where is Maseru, Lesotho?"
     },
     {
       "id": "capital:antananarivo:mg",
@@ -3286,8 +3363,9 @@
       "population": 1697000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Madagascar",
-      "prompt": "Where is Antananarivo, Madagascar?"
+      "prompt": "CAPITAL: Where is Antananarivo, Madagascar?"
     },
     {
       "id": "capital:quito:ec",
@@ -3303,8 +3381,9 @@
       "population": 1701000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Ecuador",
-      "prompt": "Where is Quito, Ecuador?"
+      "prompt": "CAPITAL: Where is Quito, Ecuador?"
     },
     {
       "id": "capital:san-jos:cr",
@@ -3320,8 +3399,9 @@
       "population": 1284000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Costa Rica",
-      "prompt": "Where is San José, Costa Rica?"
+      "prompt": "CAPITAL: Where is San José, Costa Rica?"
     },
     {
       "id": "capital:san-salvador:sv",
@@ -3337,8 +3417,9 @@
       "population": 1433000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "El Salvador",
-      "prompt": "Where is San Salvador, El Salvador?"
+      "prompt": "CAPITAL: Where is San Salvador, El Salvador?"
     },
     {
       "id": "capital:kingston:jm",
@@ -3354,8 +3435,9 @@
       "population": 937700,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Jamaica",
-      "prompt": "Where is Kingston, Jamaica?"
+      "prompt": "CAPITAL: Where is Kingston, Jamaica?"
     },
     {
       "id": "capital:n-djamena:td",
@@ -3371,8 +3453,9 @@
       "population": 989000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Chad",
-      "prompt": "Where is N'Djamena, Chad?"
+      "prompt": "CAPITAL: Where is N'Djamena, Chad?"
     },
     {
       "id": "capital:malabo:gq",
@@ -3388,8 +3471,9 @@
       "population": 155963,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Equatorial Guinea",
-      "prompt": "Where is Malabo, Equatorial Guinea?"
+      "prompt": "CAPITAL: Where is Malabo, Equatorial Guinea?"
     },
     {
       "id": "capital:asmara:er",
@@ -3405,8 +3489,9 @@
       "population": 620802,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Eritrea",
-      "prompt": "Where is Asmara, Eritrea?"
+      "prompt": "CAPITAL: Where is Asmara, Eritrea?"
     },
     {
       "id": "capital:zagreb:hr",
@@ -3422,8 +3507,9 @@
       "population": 722526,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Croatia",
-      "prompt": "Where is Zagreb, Croatia?"
+      "prompt": "CAPITAL: Where is Zagreb, Croatia?"
     },
     {
       "id": "capital:tallinn:ee",
@@ -3439,8 +3525,9 @@
       "population": 394024,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Estonia",
-      "prompt": "Where is Tallinn, Estonia?"
+      "prompt": "CAPITAL: Where is Tallinn, Estonia?"
     },
     {
       "id": "capital:lilongwe:mw",
@@ -3456,8 +3543,9 @@
       "population": 646750,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Malawi",
-      "prompt": "Where is Lilongwe, Malawi?"
+      "prompt": "CAPITAL: Where is Lilongwe, Malawi?"
     },
     {
       "id": "capital:guatemala-city:gt",
@@ -3473,8 +3561,9 @@
       "population": 1024000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Guatemala",
-      "prompt": "Where is Guatemala City, Guatemala?"
+      "prompt": "CAPITAL: Where is Guatemala City, Guatemala?"
     },
     {
       "id": "capital:libreville:ga",
@@ -3490,8 +3579,9 @@
       "population": 578156,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Gabon",
-      "prompt": "Where is Libreville, Gabon?"
+      "prompt": "CAPITAL: Where is Libreville, Gabon?"
     },
     {
       "id": "capital:suva:fj",
@@ -3507,8 +3597,9 @@
       "population": 175399,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Fiji",
-      "prompt": "Where is Suva, Fiji?"
+      "prompt": "CAPITAL: Where is Suva, Fiji?"
     },
     {
       "id": "capital:nouakchott:mr",
@@ -3524,8 +3615,9 @@
       "population": 742144,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Mauritania",
-      "prompt": "Where is Nouakchott, Mauritania?"
+      "prompt": "CAPITAL: Where is Nouakchott, Mauritania?"
     },
     {
       "id": "capital:bamako:ml",
@@ -3541,8 +3633,9 @@
       "population": 1494000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Mali",
-      "prompt": "Where is Bamako, Mali?"
+      "prompt": "CAPITAL: Where is Bamako, Mali?"
     },
     {
       "id": "capital:beirut:lb",
@@ -3558,8 +3651,9 @@
       "population": 1846000,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Lebanon",
-      "prompt": "Where is Beirut, Lebanon?"
+      "prompt": "CAPITAL: Where is Beirut, Lebanon?"
     },
     {
       "id": "capital:tbilisi:ge",
@@ -3575,8 +3669,9 @@
       "population": 1100000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Georgia",
-      "prompt": "Where is Tbilisi, Georgia?"
+      "prompt": "CAPITAL: Where is Tbilisi, Georgia?"
     },
     {
       "id": "capital:nur-sultan:kz",
@@ -3592,8 +3687,9 @@
       "population": 345604,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Kazakhstan",
-      "prompt": "Where is Nur-Sultan, Kazakhstan?"
+      "prompt": "CAPITAL: Where is Nur-Sultan, Kazakhstan?"
     },
     {
       "id": "capital:vientiane:la",
@@ -3609,8 +3705,9 @@
       "population": 754000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Laos",
-      "prompt": "Where is Vientiane, Laos?"
+      "prompt": "CAPITAL: Where is Vientiane, Laos?"
     },
     {
       "id": "capital:brazzaville:cg",
@@ -3626,8 +3723,9 @@
       "population": 1355000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Republic of the Congo",
-      "prompt": "Where is Brazzaville, Republic of the Congo?"
+      "prompt": "CAPITAL: Where is Brazzaville, Republic of the Congo?"
     },
     {
       "id": "capital:conakry:gn",
@@ -3643,8 +3741,9 @@
       "population": 1494000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Guinea",
-      "prompt": "Where is Conakry, Guinea?"
+      "prompt": "CAPITAL: Where is Conakry, Guinea?"
     },
     {
       "id": "capital:yamoussoukro:ci",
@@ -3660,8 +3759,9 @@
       "population": 206499,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Ivory Coast",
-      "prompt": "Where is Yamoussoukro, Ivory Coast?"
+      "prompt": "CAPITAL: Where is Yamoussoukro, Ivory Coast?"
     },
     {
       "id": "capital:ottawa:ca",
@@ -3677,8 +3777,9 @@
       "population": 1145000,
       "scalerank": 3,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Canada",
-      "prompt": "Where is Ottawa, Canada?"
+      "prompt": "CAPITAL: Where is Ottawa, Canada?"
     },
     {
       "id": "capital:belgrade:rs",
@@ -3694,8 +3795,9 @@
       "population": 1099000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Serbia",
-      "prompt": "Where is Belgrade, Serbia?"
+      "prompt": "CAPITAL: Where is Belgrade, Serbia?"
     },
     {
       "id": "capital:bandar-seri-begawan:bn",
@@ -3711,8 +3813,9 @@
       "population": 296500,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Brunei",
-      "prompt": "Where is Bandar Seri Begawan, Brunei?"
+      "prompt": "CAPITAL: Where is Bandar Seri Begawan, Brunei?"
     },
     {
       "id": "capital:sucre:bo",
@@ -3728,8 +3831,9 @@
       "population": 224838,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Bolivia",
-      "prompt": "Where is Sucre, Bolivia?"
+      "prompt": "CAPITAL: Where is Sucre, Bolivia?"
     },
     {
       "id": "capital:belmopan:bz",
@@ -3745,8 +3849,9 @@
       "population": 15220,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Belize",
-      "prompt": "Where is Belmopan, Belize?"
+      "prompt": "CAPITAL: Where is Belmopan, Belize?"
     },
     {
       "id": "capital:bangui:cf",
@@ -3762,8 +3867,9 @@
       "population": 831925,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Central African Republic",
-      "prompt": "Where is Bangui, Central African Republic?"
+      "prompt": "CAPITAL: Where is Bangui, Central African Republic?"
     },
     {
       "id": "capital:yaound:cm",
@@ -3779,8 +3885,9 @@
       "population": 1611000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Cameroon",
-      "prompt": "Where is Yaoundé, Cameroon?"
+      "prompt": "CAPITAL: Where is Yaoundé, Cameroon?"
     },
     {
       "id": "capital:tirana:al",
@@ -3796,8 +3903,9 @@
       "population": 895350,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Albania",
-      "prompt": "Where is Tirana, Albania?"
+      "prompt": "CAPITAL: Where is Tirana, Albania?"
     },
     {
       "id": "capital:yerevan:am",
@@ -3813,8 +3921,9 @@
       "population": 1102000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Armenia",
-      "prompt": "Where is Yerevan, Armenia?"
+      "prompt": "CAPITAL: Where is Yerevan, Armenia?"
     },
     {
       "id": "capital:baku:az",
@@ -3830,8 +3939,9 @@
       "population": 2122300,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Azerbaijan",
-      "prompt": "Where is Baku, Azerbaijan?"
+      "prompt": "CAPITAL: Where is Baku, Azerbaijan?"
     },
     {
       "id": "capital:phnom-penh:kh",
@@ -3847,8 +3957,9 @@
       "population": 1466000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Cambodia",
-      "prompt": "Where is Phnom Penh, Cambodia?"
+      "prompt": "CAPITAL: Where is Phnom Penh, Cambodia?"
     },
     {
       "id": "capital:la-paz:bo",
@@ -3864,8 +3975,9 @@
       "population": 1590000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Bolivia",
-      "prompt": "Where is La Paz, Bolivia?"
+      "prompt": "CAPITAL: Where is La Paz, Bolivia?"
     },
     {
       "id": "capital:cotonou:bj",
@@ -3881,8 +3993,9 @@
       "population": 762000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Benin",
-      "prompt": "Where is Cotonou, Benin?"
+      "prompt": "CAPITAL: Where is Cotonou, Benin?"
     },
     {
       "id": "capital:sofia:bg",
@@ -3898,8 +4011,9 @@
       "population": 1185000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Bulgaria",
-      "prompt": "Where is Sofia, Bulgaria?"
+      "prompt": "CAPITAL: Where is Sofia, Bulgaria?"
     },
     {
       "id": "capital:minsk:by",
@@ -3915,8 +4029,9 @@
       "population": 1805000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Belarus",
-      "prompt": "Where is Minsk, Belarus?"
+      "prompt": "CAPITAL: Where is Minsk, Belarus?"
     },
     {
       "id": "capital:thimphu:bt",
@@ -3932,8 +4047,9 @@
       "population": 98676,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Bhutan",
-      "prompt": "Where is Thimphu, Bhutan?"
+      "prompt": "CAPITAL: Where is Thimphu, Bhutan?"
     },
     {
       "id": "capital:gaborone:bw",
@@ -3949,8 +4065,9 @@
       "population": 208411,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Botswana",
-      "prompt": "Where is Gaborone, Botswana?"
+      "prompt": "CAPITAL: Where is Gaborone, Botswana?"
     },
     {
       "id": "capital:canberra:au",
@@ -3966,8 +4083,9 @@
       "population": 327700,
       "scalerank": 3,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Australia",
-      "prompt": "Where is Canberra, Australia?"
+      "prompt": "CAPITAL: Where is Canberra, Australia?"
     },
     {
       "id": "capital:ouagadougou:bf",
@@ -3983,8 +4101,9 @@
       "population": 1149000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Burkina Faso",
-      "prompt": "Where is Ouagadougou, Burkina Faso?"
+      "prompt": "CAPITAL: Where is Ouagadougou, Burkina Faso?"
     },
     {
       "id": "capital:sarajevo:ba",
@@ -4000,8 +4119,9 @@
       "population": 696731,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Bosnia and Herzegovina",
-      "prompt": "Where is Sarajevo, Bosnia and Herzegovina?"
+      "prompt": "CAPITAL: Where is Sarajevo, Bosnia and Herzegovina?"
     },
     {
       "id": "capital:naypyidaw:mm",
@@ -4017,8 +4137,9 @@
       "population": 930000,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Myanmar",
-      "prompt": "Where is Naypyidaw, Myanmar?"
+      "prompt": "CAPITAL: Where is Naypyidaw, Myanmar?"
     },
     {
       "id": "capital:nuku-alofa:to",
@@ -4033,8 +4154,9 @@
       "population": 42620,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Tonga",
-      "prompt": "Where is Nuku'alofa, Tonga?"
+      "prompt": "CAPITAL: Where is Nuku'alofa, Tonga?"
     },
     {
       "id": "capital:hargeisa:xx",
@@ -4047,8 +4169,9 @@
       "population": 477876,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Somaliland",
-      "prompt": "Where is Hargeisa, Somaliland?"
+      "prompt": "CAPITAL: Where is Hargeisa, Somaliland?"
     },
     {
       "id": "capital:victoria:sc",
@@ -4063,8 +4186,9 @@
       "population": 33576,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Seychelles",
-      "prompt": "Where is Victoria, Seychelles?"
+      "prompt": "CAPITAL: Where is Victoria, Seychelles?"
     },
     {
       "id": "capital:s-o-tom:st",
@@ -4079,8 +4203,9 @@
       "population": 88219,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Sao Tome and Principe",
-      "prompt": "Where is São Tomé, Sao Tome and Principe?"
+      "prompt": "CAPITAL: Where is São Tomé, Sao Tome and Principe?"
     },
     {
       "id": "capital:apia:ws",
@@ -4095,8 +4220,9 @@
       "population": 61916,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Samoa",
-      "prompt": "Where is Apia, Samoa?"
+      "prompt": "CAPITAL: Where is Apia, Samoa?"
     },
     {
       "id": "capital:valletta:mt",
@@ -4112,8 +4238,9 @@
       "population": 368250,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Malta",
-      "prompt": "Where is Valletta, Malta?"
+      "prompt": "CAPITAL: Where is Valletta, Malta?"
     },
     {
       "id": "capital:mal:mv",
@@ -4128,8 +4255,9 @@
       "population": 112927,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Maldives",
-      "prompt": "Where is Malé, Maldives?"
+      "prompt": "CAPITAL: Where is Malé, Maldives?"
     },
     {
       "id": "capital:jerusalem:il",
@@ -4145,8 +4273,9 @@
       "population": 1029300,
       "scalerank": 3,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Israel",
-      "prompt": "Where is Jerusalem, Israel?"
+      "prompt": "CAPITAL: Where is Jerusalem, Israel?"
     },
     {
       "id": "capital:praia:cv",
@@ -4161,8 +4290,9 @@
       "population": 113364,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Cape Verde",
-      "prompt": "Where is Praia, Cape Verde?"
+      "prompt": "CAPITAL: Where is Praia, Cape Verde?"
     },
     {
       "id": "capital:nassau:bs",
@@ -4178,8 +4308,9 @@
       "population": 227940,
       "scalerank": 3,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "The Bahamas",
-      "prompt": "Where is Nassau, The Bahamas?"
+      "prompt": "CAPITAL: Where is Nassau, The Bahamas?"
     },
     {
       "id": "capital:nicosia:cy",
@@ -4195,8 +4326,9 @@
       "population": 224300,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Cyprus",
-      "prompt": "Where is Nicosia, Cyprus?"
+      "prompt": "CAPITAL: Where is Nicosia, Cyprus?"
     },
     {
       "id": "capital:hanoi:vn",
@@ -4212,8 +4344,9 @@
       "population": 4378000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Vietnam",
-      "prompt": "Where is Hanoi, Vietnam?"
+      "prompt": "CAPITAL: Where is Hanoi, Vietnam?"
     },
     {
       "id": "capital:ankara:tr",
@@ -4229,8 +4362,9 @@
       "population": 3716000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Turkey",
-      "prompt": "Where is Ankara, Turkey?"
+      "prompt": "CAPITAL: Where is Ankara, Turkey?"
     },
     {
       "id": "capital:budapest:hu",
@@ -4246,8 +4380,9 @@
       "population": 1679000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Hungary",
-      "prompt": "Where is Budapest, Hungary?"
+      "prompt": "CAPITAL: Where is Budapest, Hungary?"
     },
     {
       "id": "capital:sanaa:ye",
@@ -4263,8 +4398,9 @@
       "population": 2008000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Yemen",
-      "prompt": "Where is Sanaa, Yemen?"
+      "prompt": "CAPITAL: Where is Sanaa, Yemen?"
     },
     {
       "id": "capital:bucharest:ro",
@@ -4280,8 +4416,9 @@
       "population": 1942000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Romania",
-      "prompt": "Where is Bucharest, Romania?"
+      "prompt": "CAPITAL: Where is Bucharest, Romania?"
     },
     {
       "id": "capital:damascus:sy",
@@ -4297,8 +4434,9 @@
       "population": 2466000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Syria",
-      "prompt": "Where is Damascus, Syria?"
+      "prompt": "CAPITAL: Where is Damascus, Syria?"
     },
     {
       "id": "capital:lisbon:pt",
@@ -4314,8 +4452,9 @@
       "population": 2812000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Portugal",
-      "prompt": "Where is Lisbon, Portugal?"
+      "prompt": "CAPITAL: Where is Lisbon, Portugal?"
     },
     {
       "id": "capital:khartoum:sd",
@@ -4331,8 +4470,9 @@
       "population": 4754000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Sudan",
-      "prompt": "Where is Khartoum, Sudan?"
+      "prompt": "CAPITAL: Where is Khartoum, Sudan?"
     },
     {
       "id": "capital:oslo:no",
@@ -4348,8 +4488,9 @@
       "population": 835000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Norway",
-      "prompt": "Where is Oslo, Norway?"
+      "prompt": "CAPITAL: Where is Oslo, Norway?"
     },
     {
       "id": "capital:warsaw:pl",
@@ -4365,8 +4506,9 @@
       "population": 1707000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Poland",
-      "prompt": "Where is Warsaw, Poland?"
+      "prompt": "CAPITAL: Where is Warsaw, Poland?"
     },
     {
       "id": "capital:pyongyang:kp",
@@ -4382,8 +4524,9 @@
       "population": 3300000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "North Korea",
-      "prompt": "Where is Pyongyang, North Korea?"
+      "prompt": "CAPITAL: Where is Pyongyang, North Korea?"
     },
     {
       "id": "capital:dar-es-salaam:tz",
@@ -4399,8 +4542,9 @@
       "population": 2930000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Tanzania",
-      "prompt": "Where is Dar es Salaam, Tanzania?"
+      "prompt": "CAPITAL: Where is Dar es Salaam, Tanzania?"
     },
     {
       "id": "capital:dublin:ie",
@@ -4416,8 +4560,9 @@
       "population": 1059000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Ireland",
-      "prompt": "Where is Dublin, Ireland?"
+      "prompt": "CAPITAL: Where is Dublin, Ireland?"
     },
     {
       "id": "capital:monrovia:lr",
@@ -4433,8 +4578,9 @@
       "population": 1041000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Liberia",
-      "prompt": "Where is Monrovia, Liberia?"
+      "prompt": "CAPITAL: Where is Monrovia, Liberia?"
     },
     {
       "id": "capital:kuala-lumpur:my",
@@ -4450,8 +4596,9 @@
       "population": 1448000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Malaysia",
-      "prompt": "Where is Kuala Lumpur, Malaysia?"
+      "prompt": "CAPITAL: Where is Kuala Lumpur, Malaysia?"
     },
     {
       "id": "capital:havana:cu",
@@ -4467,8 +4614,9 @@
       "population": 2174000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Cuba",
-      "prompt": "Where is Havana, Cuba?"
+      "prompt": "CAPITAL: Where is Havana, Cuba?"
     },
     {
       "id": "capital:prague:cz",
@@ -4484,8 +4632,9 @@
       "population": 1162000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Czechia",
-      "prompt": "Where is Prague, Czechia?"
+      "prompt": "CAPITAL: Where is Prague, Czechia?"
     },
     {
       "id": "capital:kuwait-city:kw",
@@ -4501,8 +4650,9 @@
       "population": 2063000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Kuwait",
-      "prompt": "Where is Kuwait City, Kuwait?"
+      "prompt": "CAPITAL: Where is Kuwait City, Kuwait?"
     },
     {
       "id": "capital:santo-domingo:do",
@@ -4518,8 +4668,9 @@
       "population": 2154000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Dominican Republic",
-      "prompt": "Where is Santo Domingo, Dominican Republic?"
+      "prompt": "CAPITAL: Where is Santo Domingo, Dominican Republic?"
     },
     {
       "id": "capital:accra:gh",
@@ -4535,8 +4686,9 @@
       "population": 2121000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Ghana",
-      "prompt": "Where is Accra, Ghana?"
+      "prompt": "CAPITAL: Where is Accra, Ghana?"
     },
     {
       "id": "capital:tripoli:ly",
@@ -4552,8 +4704,9 @@
       "population": 2189000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Libya",
-      "prompt": "Where is Tripoli, Libya?"
+      "prompt": "CAPITAL: Where is Tripoli, Libya?"
     },
     {
       "id": "capital:helsinki:fi",
@@ -4569,8 +4722,9 @@
       "population": 1115000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Finland",
-      "prompt": "Where is Helsinki, Finland?"
+      "prompt": "CAPITAL: Where is Helsinki, Finland?"
     },
     {
       "id": "capital:k-benhavn:dk",
@@ -4586,8 +4740,9 @@
       "population": 1085000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Denmark",
-      "prompt": "Where is København, Denmark?"
+      "prompt": "CAPITAL: Where is København, Denmark?"
     },
     {
       "id": "capital:abidjan:ci",
@@ -4603,8 +4758,9 @@
       "population": 3802000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Ivory Coast",
-      "prompt": "Where is Abidjan, Ivory Coast?"
+      "prompt": "CAPITAL: Where is Abidjan, Ivory Coast?"
     },
     {
       "id": "capital:bras-lia:br",
@@ -4620,8 +4776,9 @@
       "population": 3716996,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Brazil",
-      "prompt": "Where is Brasília, Brazil?"
+      "prompt": "CAPITAL: Where is Brasília, Brazil?"
     },
     {
       "id": "capital:brussels:be",
@@ -4637,8 +4794,9 @@
       "population": 1743000,
       "scalerank": 2,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Belgium",
-      "prompt": "Where is Brussels, Belgium?"
+      "prompt": "CAPITAL: Where is Brussels, Belgium?"
     },
     {
       "id": "capital:dhaka:bd",
@@ -4654,8 +4812,9 @@
       "population": 12797394,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Bangladesh",
-      "prompt": "Where is Dhaka, Bangladesh?"
+      "prompt": "CAPITAL: Where is Dhaka, Bangladesh?"
     },
     {
       "id": "capital:luanda:ao",
@@ -4671,8 +4830,9 @@
       "population": 5172900,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Angola",
-      "prompt": "Where is Luanda, Angola?"
+      "prompt": "CAPITAL: Where is Luanda, Angola?"
     },
     {
       "id": "capital:algiers:dz",
@@ -4688,8 +4848,9 @@
       "population": 3354000,
       "scalerank": 2,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Algeria",
-      "prompt": "Where is Algiers, Algeria?"
+      "prompt": "CAPITAL: Where is Algiers, Algeria?"
     },
     {
       "id": "capital:yangon:mm",
@@ -4705,8 +4866,9 @@
       "population": 4088000,
       "scalerank": 2,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Myanmar",
-      "prompt": "Where is Yangon, Myanmar?"
+      "prompt": "CAPITAL: Where is Yangon, Myanmar?"
     },
     {
       "id": "capital:caracas:ve",
@@ -4722,8 +4884,9 @@
       "population": 2985000,
       "scalerank": 1,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Venezuela",
-      "prompt": "Where is Caracas, Venezuela?"
+      "prompt": "CAPITAL: Where is Caracas, Venezuela?"
     },
     {
       "id": "capital:kyiv:ua",
@@ -4739,8 +4902,9 @@
       "population": 2709000,
       "scalerank": 1,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Ukraine",
-      "prompt": "Where is Kyiv, Ukraine?"
+      "prompt": "CAPITAL: Where is Kyiv, Ukraine?"
     },
     {
       "id": "capital:tashkent:uz",
@@ -4756,8 +4920,9 @@
       "population": 2184000,
       "scalerank": 1,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Uzbekistan",
-      "prompt": "Where is Tashkent, Uzbekistan?"
+      "prompt": "CAPITAL: Where is Tashkent, Uzbekistan?"
     },
     {
       "id": "capital:madrid:es",
@@ -4773,8 +4938,9 @@
       "population": 5567000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Spain",
-      "prompt": "Where is Madrid, Spain?"
+      "prompt": "CAPITAL: Where is Madrid, Spain?"
     },
     {
       "id": "capital:stockholm:se",
@@ -4790,8 +4956,9 @@
       "population": 1264000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Sweden",
-      "prompt": "Where is Stockholm, Sweden?"
+      "prompt": "CAPITAL: Where is Stockholm, Sweden?"
     },
     {
       "id": "capital:bangkok:th",
@@ -4807,8 +4974,9 @@
       "population": 6704000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Thailand",
-      "prompt": "Where is Bangkok, Thailand?"
+      "prompt": "CAPITAL: Where is Bangkok, Thailand?"
     },
     {
       "id": "capital:lima:pe",
@@ -4824,8 +4992,9 @@
       "population": 8012000,
       "scalerank": 1,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Peru",
-      "prompt": "Where is Lima, Peru?"
+      "prompt": "CAPITAL: Where is Lima, Peru?"
     },
     {
       "id": "capital:dakar:sn",
@@ -4841,8 +5010,9 @@
       "population": 2604000,
       "scalerank": 1,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Senegal",
-      "prompt": "Where is Dakar, Senegal?"
+      "prompt": "CAPITAL: Where is Dakar, Senegal?"
     },
     {
       "id": "capital:johannesburg:za",
@@ -4858,8 +5028,9 @@
       "population": 3435000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "South Africa",
-      "prompt": "Where is Johannesburg, South Africa?"
+      "prompt": "CAPITAL: Where is Johannesburg, South Africa?"
     },
     {
       "id": "capital:amsterdam:nl",
@@ -4875,8 +5046,9 @@
       "population": 1031000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Netherlands",
-      "prompt": "Where is Amsterdam, Netherlands?"
+      "prompt": "CAPITAL: Where is Amsterdam, Netherlands?"
     },
     {
       "id": "capital:seoul:kr",
@@ -4892,8 +5064,9 @@
       "population": 9796000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "South Korea",
-      "prompt": "Where is Seoul, South Korea?"
+      "prompt": "CAPITAL: Where is Seoul, South Korea?"
     },
     {
       "id": "capital:manila:ph",
@@ -4909,8 +5082,9 @@
       "population": 11100000,
       "scalerank": 1,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Philippines",
-      "prompt": "Where is Manila, Philippines?"
+      "prompt": "CAPITAL: Where is Manila, Philippines?"
     },
     {
       "id": "capital:berlin:de",
@@ -4926,8 +5100,9 @@
       "population": 3406000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Germany",
-      "prompt": "Where is Berlin, Germany?"
+      "prompt": "CAPITAL: Where is Berlin, Germany?"
     },
     {
       "id": "capital:kinshasa:cd",
@@ -4943,8 +5118,9 @@
       "population": 7843000,
       "scalerank": 1,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Democratic Republic of the Congo",
-      "prompt": "Where is Kinshasa, Democratic Republic of the Congo?"
+      "prompt": "CAPITAL: Where is Kinshasa, Democratic Republic of the Congo?"
     },
     {
       "id": "capital:new-delhi:in",
@@ -4960,8 +5136,9 @@
       "population": 317797,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "India",
-      "prompt": "Where is New Delhi, India?"
+      "prompt": "CAPITAL: Where is New Delhi, India?"
     },
     {
       "id": "capital:athens:gr",
@@ -4977,8 +5154,9 @@
       "population": 3242000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Greece",
-      "prompt": "Where is Athens, Greece?"
+      "prompt": "CAPITAL: Where is Athens, Greece?"
     },
     {
       "id": "capital:baghdad:iq",
@@ -4994,8 +5172,9 @@
       "population": 5054000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Iraq",
-      "prompt": "Where is Baghdad, Iraq?"
+      "prompt": "CAPITAL: Where is Baghdad, Iraq?"
     },
     {
       "id": "capital:addis-ababa:et",
@@ -5011,8 +5190,9 @@
       "population": 3100000,
       "scalerank": 1,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Ethiopia",
-      "prompt": "Where is Addis Ababa, Ethiopia?"
+      "prompt": "CAPITAL: Where is Addis Ababa, Ethiopia?"
     },
     {
       "id": "capital:tehran:ir",
@@ -5028,8 +5208,9 @@
       "population": 7873000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Iran",
-      "prompt": "Where is Tehran, Iran?"
+      "prompt": "CAPITAL: Where is Tehran, Iran?"
     },
     {
       "id": "capital:buenos-aires:ar",
@@ -5045,8 +5226,9 @@
       "population": 12795000,
       "scalerank": 1,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Argentina",
-      "prompt": "Where is Buenos Aires, Argentina?"
+      "prompt": "CAPITAL: Where is Buenos Aires, Argentina?"
     },
     {
       "id": "capital:kabul:af",
@@ -5062,8 +5244,9 @@
       "population": 3277000,
       "scalerank": 1,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Afghanistan",
-      "prompt": "Where is Kabul, Afghanistan?"
+      "prompt": "CAPITAL: Where is Kabul, Afghanistan?"
     },
     {
       "id": "capital:vienna:at",
@@ -5079,8 +5262,9 @@
       "population": 2400000,
       "scalerank": 1,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Austria",
-      "prompt": "Where is Vienna, Austria?"
+      "prompt": "CAPITAL: Where is Vienna, Austria?"
     },
     {
       "id": "capital:taipei:tw",
@@ -5096,8 +5280,9 @@
       "population": 6900273,
       "scalerank": 1,
       "difficulty": "hard",
+      "isCapital": true,
       "countryName": "Taiwan",
-      "prompt": "Where is Taipei, Taiwan?"
+      "prompt": "CAPITAL: Where is Taipei, Taiwan?"
     },
     {
       "id": "capital:washington-d-c:us",
@@ -5113,8 +5298,9 @@
       "population": 4338000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "United States of America",
-      "prompt": "Where is Washington,  D.C., United States of America?"
+      "prompt": "CAPITAL: Where is Washington,  D.C., United States of America?"
     },
     {
       "id": "capital:london:gb",
@@ -5130,8 +5316,9 @@
       "population": 8567000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "United Kingdom",
-      "prompt": "Where is London, United Kingdom?"
+      "prompt": "CAPITAL: Where is London, United Kingdom?"
     },
     {
       "id": "capital:riyadh:sa",
@@ -5147,8 +5334,9 @@
       "population": 4465000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Saudi Arabia",
-      "prompt": "Where is Riyadh, Saudi Arabia?"
+      "prompt": "CAPITAL: Where is Riyadh, Saudi Arabia?"
     },
     {
       "id": "capital:cape-town:za",
@@ -5164,8 +5352,9 @@
       "population": 3215000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "South Africa",
-      "prompt": "Where is Cape Town, South Africa?"
+      "prompt": "CAPITAL: Where is Cape Town, South Africa?"
     },
     {
       "id": "capital:moscow:ru",
@@ -5181,8 +5370,9 @@
       "population": 10452000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Russia",
-      "prompt": "Where is Moscow, Russia?"
+      "prompt": "CAPITAL: Where is Moscow, Russia?"
     },
     {
       "id": "capital:mexico-city:mx",
@@ -5198,8 +5388,9 @@
       "population": 19028000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Mexico",
-      "prompt": "Where is Mexico City, Mexico?"
+      "prompt": "CAPITAL: Where is Mexico City, Mexico?"
     },
     {
       "id": "capital:rome:it",
@@ -5215,8 +5406,9 @@
       "population": 3339000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Italy",
-      "prompt": "Where is Rome, Italy?"
+      "prompt": "CAPITAL: Where is Rome, Italy?"
     },
     {
       "id": "capital:beijing:cn",
@@ -5232,8 +5424,9 @@
       "population": 11106000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "China",
-      "prompt": "Where is Beijing, China?"
+      "prompt": "CAPITAL: Where is Beijing, China?"
     },
     {
       "id": "capital:nairobi:ke",
@@ -5249,8 +5442,9 @@
       "population": 3010000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Kenya",
-      "prompt": "Where is Nairobi, Kenya?"
+      "prompt": "CAPITAL: Where is Nairobi, Kenya?"
     },
     {
       "id": "capital:jakarta:id",
@@ -5266,8 +5460,9 @@
       "population": 9125000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Indonesia",
-      "prompt": "Where is Jakarta, Indonesia?"
+      "prompt": "CAPITAL: Where is Jakarta, Indonesia?"
     },
     {
       "id": "capital:bogota:co",
@@ -5283,8 +5478,9 @@
       "population": 7772000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Colombia",
-      "prompt": "Where is Bogota, Colombia?"
+      "prompt": "CAPITAL: Where is Bogota, Colombia?"
     },
     {
       "id": "capital:cairo:eg",
@@ -5300,8 +5496,9 @@
       "population": 11893000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Egypt",
-      "prompt": "Where is Cairo, Egypt?"
+      "prompt": "CAPITAL: Where is Cairo, Egypt?"
     },
     {
       "id": "capital:tokyo:jp",
@@ -5317,8 +5514,9 @@
       "population": 35676000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Japan",
-      "prompt": "Where is Tokyo, Japan?"
+      "prompt": "CAPITAL: Where is Tokyo, Japan?"
     },
     {
       "id": "capital:paris:fr",
@@ -5334,8 +5532,9 @@
       "population": 9904000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "France",
-      "prompt": "Where is Paris, France?"
+      "prompt": "CAPITAL: Where is Paris, France?"
     },
     {
       "id": "capital:santiago:cl",
@@ -5351,8 +5550,9 @@
       "population": 5720000,
       "scalerank": 0,
       "difficulty": "easy",
+      "isCapital": true,
       "countryName": "Chile",
-      "prompt": "Where is Santiago, Chile?"
+      "prompt": "CAPITAL: Where is Santiago, Chile?"
     },
     {
       "id": "capital:singapore:sg",
@@ -5367,8 +5567,9 @@
       "population": 5183700,
       "scalerank": 0,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "Singapore",
-      "prompt": "Where is Singapore, Singapore?"
+      "prompt": "CAPITAL: Where is Singapore, Singapore?"
     },
     {
       "id": "capital:wellington:nz",
@@ -5384,8 +5585,9 @@
       "population": 393400,
       "scalerank": 3,
       "difficulty": "medium",
+      "isCapital": true,
       "countryName": "New Zealand",
-      "prompt": "Where is Wellington, New Zealand?"
+      "prompt": "CAPITAL: Where is Wellington, New Zealand?"
     },
     {
       "id": "flag:ad",
@@ -5717,14 +5919,6 @@
       "prompt": "FLAG: Which country?",
       "difficulty": "easy",
       "region": "North America"
-    },
-    {
-      "id": "flag:cc",
-      "kind": "flag",
-      "name": "CC",
-      "image": "flags/cc.png",
-      "prompt": "FLAG: Which country?",
-      "difficulty": "hard"
     },
     {
       "id": "flag:cd",
@@ -6680,14 +6874,6 @@
       "difficulty": "hard"
     },
     {
-      "id": "flag:mq",
-      "kind": "flag",
-      "name": "MQ",
-      "image": "flags/mq.png",
-      "prompt": "FLAG: Which country?",
-      "difficulty": "hard"
-    },
-    {
       "id": "flag:mr",
       "kind": "flag",
       "name": "MR",
@@ -7549,12 +7735,732 @@
       "region": "Africa"
     },
     {
-      "id": "flag:um",
-      "kind": "flag",
-      "name": "UM",
-      "image": "flags/um.png",
-      "prompt": "FLAG: Which country?",
+      "id": "state:maine",
+      "kind": "state",
+      "type": "state",
+      "name": "Maine",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 45.218725,
+      "lng": -69.01711449999999,
+      "prompt": "Where is Maine, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:massachusetts",
+      "kind": "state",
+      "type": "state",
+      "name": "Massachusetts",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 42.062276499999996,
+      "lng": -71.7182015,
+      "prompt": "Where is Massachusetts, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:michigan",
+      "kind": "state",
+      "type": "state",
+      "name": "Michigan",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 44.943532000000005,
+      "lng": -86.4155505,
+      "prompt": "Where is Michigan, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:montana",
+      "kind": "state",
+      "type": "state",
+      "name": "Montana",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 46.6798055,
+      "lng": -110.044783,
+      "prompt": "Where is Montana, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:nevada",
+      "kind": "state",
+      "type": "state",
+      "name": "Nevada",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.502145999999996,
+      "lng": -117.022697,
+      "prompt": "Where is Nevada, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:new-jersey",
+      "kind": "state",
+      "type": "state",
+      "name": "New Jersey",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 40.142971,
+      "lng": -74.7267965,
+      "prompt": "Where is New Jersey, United States?",
       "difficulty": "hard"
+    },
+    {
+      "id": "state:new-york",
+      "kind": "state",
+      "type": "state",
+      "name": "New York",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 42.7559765,
+      "lng": -75.80918299999999,
+      "prompt": "Where is New York, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:north-carolina",
+      "kind": "state",
+      "type": "state",
+      "name": "North Carolina",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 35.214220499999996,
+      "lng": -79.890264,
+      "prompt": "Where is North Carolina, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:ohio",
+      "kind": "state",
+      "type": "state",
+      "name": "Ohio",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 40.1903625,
+      "lng": -82.669426,
+      "prompt": "Where is Ohio, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:pennsylvania",
+      "kind": "state",
+      "type": "state",
+      "name": "Pennsylvania",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 40.99483,
+      "lng": -77.6047035,
+      "prompt": "Where is Pennsylvania, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:rhode-island",
+      "kind": "state",
+      "type": "state",
+      "name": "Rhode Island",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 41.582568499999994,
+      "lng": -71.491671,
+      "prompt": "Where is Rhode Island, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:tennessee",
+      "kind": "state",
+      "type": "state",
+      "name": "Tennessee",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 35.830545,
+      "lng": -85.978599,
+      "prompt": "Where is Tennessee, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:texas",
+      "kind": "state",
+      "type": "state",
+      "name": "Texas",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 31.1690405,
+      "lng": -100.08102650000001,
+      "prompt": "Where is Texas, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:utah",
+      "kind": "state",
+      "type": "state",
+      "name": "Utah",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 39.499767500000004,
+      "lng": -111.54701,
+      "prompt": "Where is Utah, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:washington",
+      "kind": "state",
+      "type": "state",
+      "name": "Washington",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 47.273017499999995,
+      "lng": -120.8245815,
+      "prompt": "Where is Washington, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:wisconsin",
+      "kind": "state",
+      "type": "state",
+      "name": "Wisconsin",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 44.785962999999995,
+      "lng": -89.8467645,
+      "prompt": "Where is Wisconsin, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:puerto-rico",
+      "kind": "state",
+      "type": "state",
+      "name": "Puerto Rico",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 18.200285,
+      "lng": -66.58095449999999,
+      "prompt": "Where is Puerto Rico, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:maryland",
+      "kind": "state",
+      "type": "state",
+      "name": "Maryland",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.81738,
+      "lng": -77.268295,
+      "prompt": "Where is Maryland, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:alabama",
+      "kind": "state",
+      "type": "state",
+      "name": "Alabama",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 32.614580000000004,
+      "lng": -86.6820605,
+      "prompt": "Where is Alabama, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:alaska",
+      "kind": "state",
+      "type": "state",
+      "name": "Alaska",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 61.28621149999999,
+      "lng": 0.3155649999999923,
+      "prompt": "Where is Alaska, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:arizona",
+      "kind": "state",
+      "type": "state",
+      "name": "Arizona",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 34.1682185,
+      "lng": -111.929607,
+      "prompt": "Where is Arizona, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:arkansas",
+      "kind": "state",
+      "type": "state",
+      "name": "Arkansas",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 34.751853,
+      "lng": -92.1313785,
+      "prompt": "Where is Arkansas, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:california",
+      "kind": "state",
+      "type": "state",
+      "name": "California",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 37.271837000000005,
+      "lng": -119.272009,
+      "prompt": "Where is California, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:colorado",
+      "kind": "state",
+      "type": "state",
+      "name": "Colorado",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.997935,
+      "lng": -105.5508885,
+      "prompt": "Where is Colorado, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:connecticut",
+      "kind": "state",
+      "type": "state",
+      "name": "Connecticut",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 41.517879,
+      "lng": -72.7573845,
+      "prompt": "Where is Connecticut, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:delaware",
+      "kind": "state",
+      "type": "state",
+      "name": "Delaware",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 39.14501,
+      "lng": -75.41879850000001,
+      "prompt": "Where is Delaware, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:district-of-columbia",
+      "kind": "state",
+      "type": "state",
+      "name": "District of Columbia",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.893311499999996,
+      "lng": -77.0146475,
+      "prompt": "Where is District of Columbia, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:florida",
+      "kind": "state",
+      "type": "state",
+      "name": "Florida",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 27.7727945,
+      "lng": -83.83315,
+      "prompt": "Where is Florida, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:georgia",
+      "kind": "state",
+      "type": "state",
+      "name": "Georgia",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 32.679311,
+      "lng": -83.222857,
+      "prompt": "Where is Georgia, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:hawaii",
+      "kind": "state",
+      "type": "state",
+      "name": "Hawaii",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 23.6624285,
+      "lng": -166.5757405,
+      "prompt": "Where is Hawaii, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:idaho",
+      "kind": "state",
+      "type": "state",
+      "name": "Idaho",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 45.4946015,
+      "lng": -114.1432955,
+      "prompt": "Where is Idaho, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:illinois",
+      "kind": "state",
+      "type": "state",
+      "name": "Illinois",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 39.7393,
+      "lng": -89.5047865,
+      "prompt": "Where is Illinois, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:indiana",
+      "kind": "state",
+      "type": "state",
+      "name": "Indiana",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 39.766167,
+      "lng": -86.421539,
+      "prompt": "Where is Indiana, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:iowa",
+      "kind": "state",
+      "type": "state",
+      "name": "Iowa",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 41.938348500000004,
+      "lng": -93.3898825,
+      "prompt": "Where is Iowa, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:kansas",
+      "kind": "state",
+      "type": "state",
+      "name": "Kansas",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.4981225,
+      "lng": -98.32083850000001,
+      "prompt": "Where is Kansas, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:kentucky",
+      "kind": "state",
+      "type": "state",
+      "name": "Kentucky",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 37.8222935,
+      "lng": -85.76824,
+      "prompt": "Where is Kentucky, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:louisiana",
+      "kind": "state",
+      "type": "state",
+      "name": "Louisiana",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 30.972234,
+      "lng": -91.430082,
+      "prompt": "Where is Louisiana, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:minnesota",
+      "kind": "state",
+      "type": "state",
+      "name": "Minnesota",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 46.441857,
+      "lng": -93.3642175,
+      "prompt": "Where is Minnesota, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:mississippi",
+      "kind": "state",
+      "type": "state",
+      "name": "Mississippi",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 32.5849975,
+      "lng": -89.87644850000001,
+      "prompt": "Where is Mississippi, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:missouri",
+      "kind": "state",
+      "type": "state",
+      "name": "Missouri",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.304661499999995,
+      "lng": -92.4367735,
+      "prompt": "Where is Missouri, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:nebraska",
+      "kind": "state",
+      "type": "state",
+      "name": "Nebraska",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 41.500853,
+      "lng": -99.680902,
+      "prompt": "Where is Nebraska, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:new-hampshire",
+      "kind": "state",
+      "type": "state",
+      "name": "New Hampshire",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 44.001233,
+      "lng": -71.58394050000001,
+      "prompt": "Where is New Hampshire, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:new-mexico",
+      "kind": "state",
+      "type": "state",
+      "name": "New Mexico",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 34.1662665,
+      "lng": -106.02606850000001,
+      "prompt": "Where is New Mexico, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:north-dakota",
+      "kind": "state",
+      "type": "state",
+      "name": "North Dakota",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 47.467870500000004,
+      "lng": -100.3017035,
+      "prompt": "Where is North Dakota, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:oklahoma",
+      "kind": "state",
+      "type": "state",
+      "name": "Oklahoma",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 35.3093865,
+      "lng": -98.71689,
+      "prompt": "Where is Oklahoma, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:oregon",
+      "kind": "state",
+      "type": "state",
+      "name": "Oregon",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 44.131399,
+      "lng": -120.51473849999999,
+      "prompt": "Where is Oregon, United States?",
+      "difficulty": "easy"
+    },
+    {
+      "id": "state:south-carolina",
+      "kind": "state",
+      "type": "state",
+      "name": "South Carolina",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 33.625001,
+      "lng": -80.9471625,
+      "prompt": "Where is South Carolina, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:south-dakota",
+      "kind": "state",
+      "type": "state",
+      "name": "South Dakota",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 44.2125425,
+      "lng": -100.24714349999999,
+      "prompt": "Where is South Dakota, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:vermont",
+      "kind": "state",
+      "type": "state",
+      "name": "Vermont",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 43.871756,
+      "lng": -72.4511475,
+      "prompt": "Where is Vermont, United States?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "state:virginia",
+      "kind": "state",
+      "type": "state",
+      "name": "Virginia",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.003375,
+      "lng": -79.45883950000001,
+      "prompt": "Where is Virginia, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:west-virginia",
+      "kind": "state",
+      "type": "state",
+      "name": "West Virginia",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 38.920142,
+      "lng": -80.181884,
+      "prompt": "Where is West Virginia, United States?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "state:wyoming",
+      "kind": "state",
+      "type": "state",
+      "name": "Wyoming",
+      "countryName": "United States",
+      "countryCode": "US",
+      "iso2": "US",
+      "region": "North America",
+      "lat": 43.000325000000004,
+      "lng": -107.554524,
+      "prompt": "Where is Wyoming, United States?",
+      "difficulty": "easy"
     }
   ]
 }

@@ -57,14 +57,28 @@ export async function getStats() {
   const avg = plays ? Math.round(all.reduce((s, r) => s + r.totalKm, 0) / plays) : 0;
 
   // simple streak: consecutive days ending today
-  const today = new Date().toISOString().slice(0,10);
+  const today = new Date().toISOString().slice(0, 10);
   const set = new Set(all.map(r => r.date));
   let streak = 0;
   let d = new Date(today);
-  while (set.has(d.toISOString().slice(0,10))) {
+  while (set.has(d.toISOString().slice(0, 10))) {
     streak += 1;
     d.setDate(d.getDate() - 1);
   }
 
   return { plays, best, avg, streak };
+}
+
+// Return true if we already have a score stored for the given date
+export async function hasPlayed(dateISO: string): Promise<boolean> {
+  try {
+    const KEY = "daily_results_v1"; // must match your other lbStore functions
+    const raw = await AsyncStorage.getItem(KEY);
+    if (!raw) return false;
+    const map = JSON.parse(raw) as Record<string, number>;
+    const v = map?.[dateISO];
+    return typeof v === "number" && Number.isFinite(v);
+  } catch {
+    return false;
+  }
 }

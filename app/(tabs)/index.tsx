@@ -1,12 +1,13 @@
-import { router } from "expo-router";
-import React, { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router, useFocusEffect, usePathname, type Href } from "expo-router";
+import React, { useCallback, useRef, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import GameCard from "../../components/GameCard";
 import { todayISO } from "../../lib/daily";
 import { getAllResults } from "../../lib/lbStore";
 import { syncProfileToCloud } from "../../lib/profile";
-import { getDisplayName } from "../../lib/profileName";
+import { peekDisplayName } from "../../lib/profileName";
 
 function hashString(str: string) {
   let h = 0;
@@ -27,14 +28,50 @@ function initialsFromName(name: string) {
 
 export default function HomeScreen() {
   const [displayName, setDisplayName] = useState<string>("");
+  const [playedToday, setPlayedToday] = useState(false);
+  const didGuardRef = useRef(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    (async () => {
-      const name = await getDisplayName();
-      setDisplayName(name);
-      await syncProfileToCloud().catch(() => {});
-    })();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      let alive = true;
+      (async () => {
+        try {
+          // 1) Check for an existing name without generating one
+          const found = await peekDisplayName();
+          const haveName = Boolean(found && found.trim());
+          if (alive && haveName) setDisplayName(found!.trim());
+
+          // 2) First‑run name guard (session‑scoped): only once, skip if already on modal
+          if (!didGuardRef.current) {
+            if (String(pathname || "").includes("/modal")) {
+              didGuardRef.current = true;
+            } else {
+              const editing = await AsyncStorage.getItem("profile.editingName");
+              if (alive && !editing && !haveName) {
+                didGuardRef.current = true;
+                router.push("/modal" as Href);
+                return; // avoid generating a default name in this pass
+              } else {
+                didGuardRef.current = true; // evaluated once per session
+              }
+            }
+          }
+        } catch {}
+
+        try {
+          const all = await getAllResults();
+          if (alive) setPlayedToday(all.some((r) => r.date === todayISO()));
+        } catch {}
+
+        // Optional, non-blocking profile sync
+        syncProfileToCloud().catch(() => {});
+      })();
+      return () => {
+        alive = false;
+      };
+    }, [pathname])
+  );
 
   const avatarColor = colorFromName(displayName || "Player");
   const avatarText = initialsFromName(displayName || "Player");
@@ -85,19 +122,25 @@ export default function HomeScreen() {
 
         {/* Cards — make Daily and Challenge “tall”, Friends shorter */}
         <GameCard
-  title="Daily 10"
-  description="Play today’s 10-question world quiz"
-  image={require("../../assets/home-daily.png")}
-  imageHeight={200}
-  tint="#1F6FEB"
-  cta={playedToday ? "Replay (practice)" : "Play Daily 10"}
-  onPress={() => router.push("/question")}
-  played={playedToday}
-/>
+          title="Daily 10"
+          description="Play today’s 10-question world quiz"
+          image={require("../../assets/home-daily.png")}
+          imageHeight={200}
+          tint="#1F6FEB"
+          cta={playedToday ? "View Today’s Summary" : "Play Daily 10"}
+          onPress={() => {
+            if (playedToday) {
+            router.replace(`/(tabs)/summary?date=${todayISO()}`);
+            } else {
+              router.push("/question");
+            }
+          }}
+          played={playedToday}
+        />
 
         <GameCard
           title="6-Round Challenge"
-          description="Progress through the levels! It get's harder."
+          description="Progress through the levels! It gets harder."
           image={require("../../assets/home-challenge.png")}
           imageHeight={200}
           tint="#22C55E"
@@ -105,16 +148,16 @@ export default function HomeScreen() {
           onPress={() => router.push("/challenge/intro")}
         />
 
-<GameCard
-  title="Archived Daily 10s"
-  description="Play previous Daily 10s"
-  image={imgArchive}
-  imageHeight={130}          // a little shorter to balance the layout
-  tint="#8B5CF6"             // violet accent (pick any brand color)
-  cta="Open Archived Daily 10s"
-  onPress={() => router.push("/archive")}
-  compact
-/>
+        <GameCard
+          title="Archived Daily 10s"
+          description="Play previous Daily 10s"
+          image={imgArchive}
+          imageHeight={130}          // a little shorter to balance the layout
+          tint="#8B5CF6"             // violet accent (pick any brand color)
+          cta="Open Archived Daily 10s"
+          onPress={() => router.push("/archive")}
+          compact
+        />
 
         <GameCard
           title="Friends"
@@ -136,11 +179,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
-
-const [playedToday, setPlayedToday] = useState(false);
-useEffect(() => {
-  (async () => {
-    const all = await getAllResults();
-    setPlayedToday(all.some(r => r.date === todayISO()));
-  })();
-}, []);
