@@ -31,14 +31,15 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="friends/index"
-        options={{
-          title: "Friends",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="people-outline" size={size} color={color} />
-          ),
-        }}
-      />
+  name="friends/index"
+  options={{
+    title: "Friends",
+    tabBarIcon: ({ color, size }) => (
+      <Ionicons name="people-outline" size={size} color={color} />
+    ),
+  }}
+/>
+r
       <Tabs.Screen
         name="stats"
         options={{
@@ -56,6 +57,13 @@ export default function TabsLayout() {
       />
       <Tabs.Screen name="archive/index" options={{ href: null }} />
       <Tabs.Screen name="archive/[date]" options={{ href: null }} />
+      <Tabs.Screen
+  name="practice/index"
+  options={{
+    title: "Practice",
+    href: null, // keep it under Tabs (so the bottom bar shows) but don't show a tab button
+  }}
+/>
     </Tabs>
   );
 }

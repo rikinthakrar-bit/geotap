@@ -95,5 +95,12 @@ export async function setDisplayName(name: string): Promise<void> {
   } catch { /* ignore */ }
 }
 
+// --- Validation helpers for unique display names ---
+export const normalizeDisplayName = (s: string): string =>
+  s.toLowerCase().replace(/[^a-z0-9_]/g, "");
+
+export const isValidDisplayName = (s: string): boolean =>
+  /^[a-z0-9](?:[a-z0-9_]{1,13}[a-z0-9])$/.test(s); // 3–15 chars, no edge underscores
+
 // Some parts of the code may import default setDisplayName
 export default setDisplayName;

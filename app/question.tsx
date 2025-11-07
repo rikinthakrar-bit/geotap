@@ -13,6 +13,8 @@ function isCountryLikeQuestion(q: any): boolean {
   // Country polygons include explicit country questions and flag questions
   return t === "country" || t === "flag" || t === "flags" || k === "flag";
 }
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createClient } from "@supabase/supabase-js";
 import { router, useLocalSearchParams, type Href } from "expo-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
@@ -24,7 +26,7 @@ import { getDeviceId } from "../lib/device";
 import { getFlagSource } from "../lib/flags";
 import { addResult, hasPlayed } from "../lib/lbStore";
 import { loadQuestions } from "../lib/loadQuestions";
-import { upsertDaily } from "../lib/publicResults";
+import { fetchRange, upsertDaily } from "../lib/publicResults";
 import { type Question } from "../lib/questions";
 import { incrementChallengeLevel, saveSummary } from "../lib/storage";
 
@@ -82,6 +84,18 @@ const COLORS = {
   brand: "#1e88e5",
 };
 
+// Map presets for Practice topics (MapLibre view framing)
+type InitialRegion = { latitude: number; longitude: number; latitudeDelta: number; longitudeDelta: number };
+const PRACTICE_REGION: Record<string, InitialRegion> = {
+  region_europe:   { latitude: 54,  longitude: 15,   latitudeDelta: 40,  longitudeDelta: 60  },
+  region_asia:     { latitude: 34,  longitude: 90,   latitudeDelta: 60,  longitudeDelta: 120 },
+  region_africa:   { latitude: 1,   longitude: 20,   latitudeDelta: 55,  longitudeDelta: 60  },
+  region_americas: { latitude: 15,  longitude: -85,  latitudeDelta: 100, longitudeDelta: 120 },
+  region_oceania:  { latitude: -20, longitude: 140,  latitudeDelta: 40,  longitudeDelta: 70  },
+  // US states drill (zoom over the US)
+  states:          { latitude: 39.5, longitude: -98.35, latitudeDelta: 25, longitudeDelta: 60 },
+};
+
 const CARD_SHADOW = {
   shadowColor: "#000",
   shadowOpacity: 0.12,
@@ -92,6 +106,63 @@ const CARD_SHADOW = {
 
 const MAX_DISTANCE_KM = 10000;
 const QUESTION_SECONDS = 20;
+
+const PLAYED_FLAG_PREFIX = "played_v1:"; // Fast local guard fallback
+
+async function getPlayedFlag(dateISO: string) {
+  try { return (await AsyncStorage.getItem(PLAYED_FLAG_PREFIX + dateISO)) === "1"; } catch { return false; }
+}
+async function setPlayedFlag(dateISO: string) {
+  try { await AsyncStorage.setItem(PLAYED_FLAG_PREFIX + dateISO, "1"); } catch {}
+}
+
+// --- Supabase client + H2H helper ---
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supabaseKey) : null;
+
+/**
+ * If both you and a friend have played on `dateISO`, upsert a canonical H2H daily row
+ * keyed by (date, a_device_id, b_device_id). Pairs are stored as (least, greatest) for idempotence.
+ */
+async function upsertDailyH2HIfBothPlayed(dateISO: string, myTotalKm: number) {
+  try {
+    if (!supabase) return; // skip if env not set
+    const me = await getDeviceId();
+
+    // Load friend device IDs from local cache
+    const raw = (await AsyncStorage.getItem("friends_v1")) || "[]";
+    const friends: Array<{ deviceId: string }> = JSON.parse(raw);
+    if (!Array.isArray(friends) || friends.length === 0) return;
+
+    for (const f of friends) {
+      const fid = f?.deviceId;
+      if (!fid) continue;
+      // Fetch friend's score for the same day
+      const theirs = await fetchRange(fid, dateISO, dateISO);
+      const theirKm = (theirs && theirs[0] && typeof (theirs[0] as any).totalKm === "number")
+        ? (theirs[0] as any).totalKm as number
+        : null;
+      if (theirKm == null) continue; // only upsert once both have a score
+
+      // Canonicalize pair ordering
+      const a = me < fid ? me : fid;
+      const b = me < fid ? fid : me;
+      const a_km = me < fid ? myTotalKm : theirKm;
+      const b_km = me < fid ? theirKm : myTotalKm;
+      const winner = a_km === b_km ? "draw" : (a_km < b_km ? "a" : "b");
+
+      await supabase
+        .from("h2h_daily")
+        .upsert(
+          { date: dateISO, a_device_id: a, b_device_id: b, a_km, b_km, winner },
+          { onConflict: "date,a_device_id,b_device_id" }
+        );
+    }
+  } catch (e) {
+    console.warn("H2H upsert skipped:", e);
+  }
+}
 
 // Safely convert a string URL or a local module into an Image source
 function asImageSource(img: any) {
@@ -127,6 +198,9 @@ function formatPrompt(q: Question): string {
     (q as any)?.countryName ??
     (q as any)?.country ??
     "";
+
+    // Map presets for practice topics (react-native-maps initialRegion format)
+type InitialRegion = { latitude: number; longitude: number; latitudeDelta: number; longitudeDelta: number };
 
   // Normalize and sanitize
   if (bestLabel == null) bestLabel = "";
@@ -542,7 +616,12 @@ const HTML = `
   .badge .km{font-weight:700;font-size:14px;color:#cfe3ff}
   .badge .km.perfect{background:transparent;color:#222}
   .badge.below{transform:translate(-50%,8px);}
-  .badge.perfect{background:linear-gradient(135deg,#ffcc33,#ff9933);color:#222;font-weight:800;box-shadow:0 0 12px rgba(255,204,51,.5);}
+  .badge.perfect{
+    background:linear-gradient(135deg,#ffcc33,#ff9933);
+    color:#fff;
+    font-weight:800;
+    box-shadow:0 0 12px rgba(255,204,51,.5);
+  }
   canvas#line{position:absolute;top:0;left:0;pointer-events:none;z-index:2;}
 </style>
 </head>
@@ -785,6 +864,15 @@ map.on("load", () => {
         const msg = (typeof payload === "string") ? JSON.parse(payload) : payload;
         if (!msg) return;
 
+        if (msg.type === "set-view"){
+  try{
+    var c = Array.isArray(msg.center) ? msg.center : [0,20];
+    var z = (typeof msg.zoom === 'number') ? msg.zoom : 2;
+    map.easeTo({ center: { lng: c[0], lat: c[1] }, zoom: z, duration: 250 });
+  }catch{}
+  return;
+}
+
         if (msg.type === "set-point"){ 
           window.__mode = "point"; 
           window.__feature = null; 
@@ -833,7 +921,7 @@ map.on("load", () => {
             placeDot(target, lng, lat);
             window.answerText = typeof msg.answer === "string" ? msg.answer : "";
             if (typeof msg.km === "number") {
-              window.kmText = (msg.km === 0) ? "⭐ Perfect!" : (msg.km.toLocaleString() + " km");
+              window.kmText = (msg.km === 0) ? "⭐ Perfect! ⭐" : (msg.km.toLocaleString() + " km");
               placeBadgeSmart(lng, lat, window.kmText, msg.km === 0);
             }
 
@@ -859,24 +947,44 @@ export default function Question() {
   const isToday = dateISO === todayISO();
 
   // Challenge params
-  const { mode, level, targetKm, difficulty, num } = useLocalSearchParams<{
+  const { mode, level, targetKm, difficulty, num, topic, count } = useLocalSearchParams<{
     mode?: string;
     level?: string;
     targetKm?: string;
     difficulty?: "easy" | "medium" | "hard";
     num?: string;
+    topic?: string; 
+    count?: string; 
   }>();
 
   const isChallenge = mode === "challenge";
+  const isPractice  = mode === "practice";
   const targetKmNum = isChallenge ? Math.max(0, Number(targetKm ?? "0")) : 0;
-  const roundDesiredCount = isChallenge ? Math.max(1, Number(num ?? "6")) : 0;
+  const roundDesiredCount    = isChallenge ? Math.max(1, Number(num ?? "6"))  : 0;
+  const practiceDesiredCount = isPractice  ? Math.max(1, Number(count ?? "10")) : 0;
+
+// Practice map preset chosen from PRACTICE_REGION
+const practiceInitialRegion: InitialRegion | undefined =
+  isPractice ? PRACTICE_REGION[String(topic ?? "").toLowerCase()] : undefined;
+
+function zoomForRegion(r?: InitialRegion): number {
+  if (!r) return 1.8;
+  const d = Math.max(r.longitudeDelta, r.latitudeDelta);
+  if (d >= 110) return 1.6;
+  if (d >= 80)  return 1.8;
+  if (d >= 60)  return 2.0;
+  if (d >= 40)  return 2.2;
+  if (d >= 25)  return 2.5;
+  return 2.8;
+}
 
   // Prevent replaying Daily 10 for today: if already played, bounce to Summary
   useEffect(() => {
-    if (!isChallenge && isToday) {
+    if (!isChallenge && !isPractice && isToday) {
       (async () => {
         try {
-          if (await hasPlayed(dateISO)) {
+          const played = (await hasPlayed(dateISO)) || (await getPlayedFlag(dateISO));
+          if (played) {
             router.replace(`/(tabs)/summary?date=${dateISO}` as Href);
           }
         } catch {}
@@ -968,15 +1076,24 @@ export default function Question() {
   const [results, setResults] = useState<{ id: string; prompt: string; km: number }[]>([]);
   const [roundKm, setRoundKm] = useState(0);
 
-  const QUESTIONS = useMemo(() => {
-    if (!allQs) return [];
-    if (!isChallenge) return getDailySet(allQs, dateISO, 10);
+const QUESTIONS = useMemo(() => {
+  if (!allQs) return [];
 
+  if (isChallenge) {
     const pool = allQs.filter((q) => q.difficulty === difficulty);
     const seedKey = `${todayISO()}#L${level ?? "1"}#${difficulty ?? "easy"}`;
-    const seeded = getDailySet(pool, seedKey, roundDesiredCount);
-    return seeded;
-  }, [allQs, isChallenge, dateISO, level, difficulty, roundDesiredCount]);
+    return getDailySet(pool, seedKey, roundDesiredCount);
+  }
+
+  if (isPractice) {
+    const pool = allQs.filter((q) => matchesPracticeTopic(q, topic));
+    const seedKey = `practice#${topic ?? "any"}#${Date.now()}`; // intentionally non-deterministic
+    return getDailySet(pool, seedKey, practiceDesiredCount || 10);
+  }
+
+  // Default: Daily 10
+  return getDailySet(allQs, dateISO, 10);
+}, [allQs, isChallenge, isPractice, dateISO, level, difficulty, roundDesiredCount, practiceDesiredCount, topic]);
 
   const hasQs = QUESTIONS.length > 0;
   const q: Question | null = hasQs ? QUESTIONS[qIndex] : null;
@@ -986,6 +1103,32 @@ export default function Question() {
   const isPointLike = (t: Question["type"], k?: string) =>
     t === "point" || t === "image" || (k ?? "").toLowerCase() === "city";
   const norm = (v: any) => (typeof v === "string" ? v.trim().toUpperCase() : "");
+
+function matchesPracticeTopic(q: Question, t?: string): boolean {
+  if (!t) return false;
+  const slug = String(t).toLowerCase();
+  const qt = qType(q);
+  const k  = (q as any)?.kind?.toLowerCase?.() || "";
+
+  if (slug === "countries") return qt === "country";
+  if (slug === "flags")     return isFlagQuestion(q);
+  if (slug === "capitals")  return k === "capital";
+  if (slug === "cities")    return k === "city" || k === "capital" || qt === "city" || (qt === "point" && k === "city");
+  if (slug === "states")    return qt === "state" || k === "state";
+
+  // Regions – best-effort using common fields (depends on your generator)
+  const region = (
+    (q as any)?.region || (q as any)?.continent || (q as any)?.worldRegion || (q as any)?.subregion || ""
+  ).toString().toLowerCase();
+
+  if (slug === "region_europe")   return /europe/.test(region);
+  if (slug === "region_asia")     return /asia/.test(region);
+  if (slug === "region_africa")   return /africa/.test(region);
+  if (slug === "region_americas") return /americas|america|north america|south america/.test(region);
+  if (slug === "region_oceania")  return /oceania|australia/.test(region);
+
+  return false;
+}
 
   const findFeatureForQuestion = (question: Question) => {
     const t = qType(question);
@@ -1066,6 +1209,15 @@ export default function Question() {
   const sendModeToWebView = () => {
     if (!webref.current || !ready || !q) return;
 
+    // Practice: center & zoom to region so users don't need to pan
+if (isPractice && practiceInitialRegion) {
+  const viewMsg = {
+    type: "set-view",
+    center: [practiceInitialRegion.longitude, practiceInitialRegion.latitude],
+    zoom: zoomForRegion(practiceInitialRegion),
+  };
+  webref.current.injectJavaScript(`window.receiveFromRN(${JSON.stringify(viewMsg)}); true;`);
+}
     // Point-like: raw coordinates or image questions
     if (qType(q) === "point" || qType(q) === "image" || (q as any)?.kind === "city") {
       // Ensure target exists for point-like (city/image) questions
@@ -1249,23 +1401,36 @@ export default function Question() {
         if (isChallenge) {
           const finalKm = roundKm + kmRounded;
           finishChallengeRound(finalKm);
-        } else {
-          try {
-            // Persist: best-of-day leaderboard + public daily + detailed summary for Summary screen
-            await addResult(dateISO, nextTotal);
-            const deviceId = await getDeviceId();
-            await upsertDaily(deviceId, dateISO, nextTotal);
-            await saveSummary(dateISO, nextTotal, nextResults);
-          } catch (e) {
-            console.warn("Result save failed:", e);
-          }
-
-          const resultsParam = encodeURIComponent(JSON.stringify(nextResults));
-          router.push({
-            pathname: "/summary",
-            params: { totalKm: String(nextTotal), results: resultsParam, date: dateISO },
-          } as Href);
+        }     else {
+      if (isPractice) {
+        try {
+          Alert.alert(
+            "Practice complete",
+            `Total distance: ${(totalKm + kmRounded).toLocaleString()} km`,
+            [{ text: "OK", onPress: () => router.replace("/practice" as Href) }]
+          );
+        } catch {
+          router.replace("/practice" as Href);
         }
+      } else {
+        try {
+          // Persist: best-of-day leaderboard + public daily + detailed summary for Summary screen
+          const nextTotal = totalKm + kmRounded;
+          await addResult(dateISO, nextTotal);
+          const deviceId = await getDeviceId();
+          await upsertDaily(deviceId, dateISO, nextTotal);
+          await saveSummary(dateISO, nextTotal, nextResults);
+          // Mark as played locally to hard-stop immediate replays
+          await setPlayedFlag(dateISO);
+          // Update head-to-head once both sides have played
+          await upsertDailyH2HIfBothPlayed(dateISO, nextTotal);
+          const resultsParam = encodeURIComponent(JSON.stringify(nextResults));
+          router.push({ pathname: "/summary", params: { totalKm: String(nextTotal), results: resultsParam, date: dateISO } } as Href);
+        } catch (e) {
+          console.warn("Result save failed:", e);
+        }
+      }
+    }
       }
     }, 3000);
   };

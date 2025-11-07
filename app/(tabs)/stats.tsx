@@ -12,6 +12,16 @@ const num = (v: any) => {
   return Number.isFinite(n) ? n : 0;
 };
 
+// Normalise stored distances to km and tame outliers
+function normaliseKm(v: any): number {
+  const n = num(v);
+  if (!Number.isFinite(n) || n < 0) return 0;
+  // Heuristic: if value looks like meters (e.g. > 100k), convert to km
+  if (n > 100_000) return Math.round(n / 1000);
+  // Cap at a plausible max per question (earth half-circumference ~20,000km)
+  return Math.min(n, 20_000);
+}
+
 function dateFromISO(iso: string): Date {
   const [y, m, d] = iso.split("-").map((s) => parseInt(s, 10));
   return new Date(Date.UTC(y, (m || 1) - 1, d || 1));
@@ -93,15 +103,17 @@ export default function StatsScreen() {
             const kindKey = isCapital ? "capital" : kind;
             const region = meta?.region || "Unknown";
 
+            const km = normaliseKm(it.km);
+
             // by kind
             if (!byKind[kindKey]) byKind[kindKey] = { total: 0, n: 0 };
-            byKind[kindKey].total += it.km || 0;
+            byKind[kindKey].total += km;
             byKind[kindKey].n += 1;
 
             // by region
             if (region) {
               if (!byRegion[region]) byRegion[region] = { total: 0, n: 0 };
-              byRegion[region].total += it.km || 0;
+              byRegion[region].total += km;
               byRegion[region].n += 1;
             }
           }

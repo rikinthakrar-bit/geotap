@@ -85,9 +85,9 @@ export default function HomeScreen() {
     >
       <ScrollView
         contentContainerStyle={{
-          padding: 16,
-          paddingBottom: 24,
-          paddingTop: 8,
+          paddingHorizontal: 16,
+          paddingTop: 0,
+          paddingBottom: 10, // extra room for future sticky ad
           gap: 16,
         }}
       >
@@ -138,41 +138,52 @@ export default function HomeScreen() {
           played={playedToday}
         />
 
-        <GameCard
-          title="6-Round Challenge"
-          description="Progress through the levels! It gets harder."
-          image={require("../../assets/home-challenge.png")}
-          imageHeight={200}
-          tint="#22C55E"
-          cta="Play Challenge"
-          onPress={() => router.push("/challenge/intro")}
-        />
+        {/* Grid: 2 x 2 below the full-width Daily card */}
+        <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
+          {/* Challenge */}
+          <View style={{ width: "49%", height: 220, marginBottom: 16, overflow: "hidden" }}>
+            <GameCard
+              title="6-Round Challenge"
+              description="Beat the target each round"
+              image={require("../../assets/home-challenge.png")}
+              imageHeight={90}
+              tint="#22C55E"
+              cta="Play Challenge"
+              onPress={() => router.push("/challenge/intro")}
+              compact
+            />
+          </View>
 
-        <GameCard
-          title="Archived Daily 10s"
-          description="Play previous Daily 10s"
-          image={imgArchive}
-          imageHeight={130}          // a little shorter to balance the layout
-          tint="#8B5CF6"             // violet accent (pick any brand color)
-          cta="Open Archived Daily 10s"
-          onPress={() => router.push("/archive")}
-          compact
-        />
+          {/* Practice */}
+          <View style={{ width: "49%", height: 220, marginBottom: 16, overflow: "hidden" }}>
+            <GameCard
+              title="Practice rounds"
+              description="Drills: Countries, Cities, Capitals…"
+              image={require("../../assets/home-challenge.png")} // TODO: replace with a practice-specific image when added
+              imageHeight={90}
+              tint="#0EA5E9"
+              cta="Open Practice"
+              onPress={() => router.push("/(tabs)/practice" as Href)}
+              compact
+            />
+          </View>
 
-        <GameCard
-          title="Friends"
-          description="Invite a friend and compete on Daily 10"
-          image={require("../../assets/home-friends.png")}
-          imageHeight={130}
-          tint="#F59E0B"
-          cta="Play with Friends"
-          onPress={() => router.push("/friends")}
-          compact
-        />
-
-  
-
-
+          {/* Archived (centered on its row) */}
+          <View style={{ width: "100%", marginBottom: 16, alignItems: "center" }}>
+            <View style={{ width: "49%", height: 220, overflow: "hidden" }}>
+              <GameCard
+                title="Archived Daily 10s"
+                description="Play previous days"
+                image={imgArchive}
+                imageHeight={90}
+                tint="#8B5CF6"
+                cta="Open Archive"
+                onPress={() => router.push("/archive")}
+                compact
+              />
+            </View>
+          </View>
+        </View>
         {/* Optional sticky ad spacer */}
         <View style={{ height: 80 }} />
       </ScrollView>

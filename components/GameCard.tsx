@@ -30,6 +30,7 @@ export default function GameCard({
   compact = false,
   played = false,
 }: Props) {
+  const imgH = compact ? Math.min(imageHeight, 90) : imageHeight;
   return (
     <View
       style={{
@@ -38,6 +39,9 @@ export default function GameCard({
         borderWidth: 1,
         borderColor: "#1f2937",
         overflow: "hidden", // ensures rounded corners apply to image and CTA bar
+        height: compact ? "100%" : undefined,
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
       {/* Image / placeholder with optional "Played" badge */}
@@ -48,14 +52,14 @@ export default function GameCard({
             resizeMode="cover"
             style={{
               width: "100%",
-              height: imageHeight, // controls visual height
+              height: imgH, // controls visual height
             }}
           />
         ) : (
           <View
             style={{
               width: "100%",
-              height: imageHeight,
+              height: imgH,
               backgroundColor: "#0d1526",
               borderBottomWidth: 1,
               borderBottomColor: "#182133",
@@ -83,11 +87,21 @@ export default function GameCard({
       </View>
 
       {/* Text content */}
-      <View style={{ padding: compact ? 12 : 16, gap: compact ? 6 : 8 }}>
-        <Text style={{ color: "#fff", fontSize: 18, fontWeight: "800" }}>
+      <View style={{ flex: 1, padding: compact ? 12 : 16, gap: compact ? 6 : 8, justifyContent: "flex-start", minHeight: 0, flexShrink: 1 }}>
+        <Text
+          style={{ color: "#fff", fontSize: compact ? 15 : 18, fontWeight: "800" }}
+          numberOfLines={2}
+          ellipsizeMode="tail"
+        >
           {title}
         </Text>
-        <Text style={{ color: "#9aa", fontSize: 14 }}>{description}</Text>
+        <Text
+          style={{ color: "#9aa", fontSize: compact ? 13 : 14 }}
+          numberOfLines={2}
+          ellipsizeMode="tail"
+        >
+          {description}
+        </Text>
       </View>
 
       {/* Full-width CTA bar at the bottom */}
@@ -96,7 +110,7 @@ export default function GameCard({
         activeOpacity={0.85}
         style={{
           backgroundColor: tint,
-          paddingVertical: 14,
+          paddingVertical: compact ? 12 : 14,
           alignItems: "center",
           justifyContent: "center",
         }}

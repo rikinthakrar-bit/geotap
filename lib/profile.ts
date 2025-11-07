@@ -9,7 +9,7 @@ const KEY = "profile_v1";
 const KEY_LEGACY_PRIMARY = "profile.displayName";   // legacy/simple key
 const KEY_LEGACY_SECONDARY = "display_name_v1";     // alternate legacy key
 
-type Profile = {
+export type Profile = {
   id: string;            // deviceId
   displayName: string;   // "Brave Narwhal"
   color: string;         // hex like "#7cc9b2"
@@ -82,6 +82,15 @@ export async function getOrCreateProfile(): Promise<Profile> {
     ]);
   } catch {}
 
+  // Best-effort immediate cloud sync so leaderboards can resolve names promptly
+  try {
+    if (supabase) {
+      await supabase
+        .from("profiles")
+        .upsert({ id, display_name: displayName, color }, { onConflict: "id" });
+    }
+  } catch {}
+
   return profile;
 }
 
@@ -96,6 +105,16 @@ export async function updateLocalDisplayName(displayName: string) {
       [KEY_LEGACY_SECONDARY, displayName],
     ]);
   } catch {}
+
+  // Best-effort: mirror name change to cloud immediately
+  try {
+    if (supabase) {
+      await supabase
+        .from("profiles")
+        .upsert({ id: next.id, display_name: next.displayName, color: next.color }, { onConflict: "id" });
+    }
+  } catch {}
+
   return next;
 }
 
@@ -106,12 +125,20 @@ const supabase = (supabaseUrl && supabaseKey)
   ? createClient(supabaseUrl, supabaseKey)
   : null;
 
+// Helpful for debugging in dev
+export const isSupabaseReady = !!supabase;
+if (!supabase) {
+  // Only warn once per session
+  // eslint-disable-next-line no-console
+  console.warn("[profiles] Supabase client not initialised. Check EXPO_PUBLIC_SUPABASE_URL / EXPO_PUBLIC_SUPABASE_ANON_KEY.");
+}
+
 export async function syncProfileToCloud() {
   if (!supabase) return; // skip if no env
   const me = await getOrCreateProfile();
   await supabase
     .from("profiles")
-    .upsert({ id: me.id, display_name: me.displayName, color: me.color }, { onConflict: "id" });
+    .upsert({ id: me.id, display_name: me.displayName, color: me.color, updated_at: new Date().toISOString() }, { onConflict: "id" });
 }
 
 export async function fetchProfiles(ids: string[]) {

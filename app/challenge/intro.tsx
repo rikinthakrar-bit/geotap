@@ -1,6 +1,8 @@
 import { router, Stack, useLocalSearchParams } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { useEffect, useMemo, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { loadChallenge, type LevelRule } from "../../lib/loadChallenge";
 
 const COLORS = {
@@ -53,9 +55,10 @@ export default function ChallengeIntro() {
   const title = `Round ${rule.id}: ${rule.difficulty.toUpperCase()}`;
 
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS.bg }}>
-      <Stack.Screen options={{ headerShown: false }} />
-      <View style={{ padding: 20, gap: 16 }}>
+    <SafeAreaView edges={["top", "left", "right"]} style={{ flex: 1, backgroundColor: COLORS.bg }}>
+      <Stack.Screen options={{ headerShown: false, contentStyle: { backgroundColor: COLORS.bg }, animation: "fade" }} />
+      <StatusBar style="light" backgroundColor={COLORS.bg} />
+      <View style={{ padding: 20, gap: 16, marginTop: 60 }}>
         <Text style={{ color: COLORS.text, fontSize: 26, fontWeight: "800" }}>{title}</Text>
         <View
           style={{
@@ -112,6 +115,6 @@ export default function ChallengeIntro() {
           <Text style={{ color: "#fff", fontSize: 15, fontWeight: "700" }}>Back to Challenge Home</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,5 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createClient } from "@supabase/supabase-js";
 
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
+export const supabase = createClient(supabaseUrl, supabaseKey);
 export type LBEntry = {
   id: string;
   totalKm: number;
@@ -9,14 +13,19 @@ export type LBEntry = {
 const keyFor = (dateISO: string) => `lb.${dateISO}`;
 
 /** Get leaderboard entries sorted by totalKm asc, then timestamp asc. */
-export async function getLeaderboard(dateISO: string): Promise<LBEntry[]> {
-  try {
-    const raw = await AsyncStorage.getItem(keyFor(dateISO));
-    const list: LBEntry[] = raw ? JSON.parse(raw) : [];
-    return list.sort((a, b) => (a.totalKm - b.totalKm) || (a.ts - b.ts));
-  } catch {
+export async function getLeaderboard(dateISO?: string) {
+  const { data, error } = await supabase
+    .from("v_daily_results_with_names")   // 👈 use the view, not the table
+    .select("*")
+    .eq("date_iso", dateISO)
+    .order("total_km", { ascending: true });
+
+  if (error) {
+    console.error("[getLeaderboard] error:", error);
     return [];
   }
+
+  return data || [];
 }
 
 /** Add a result and return updated, sorted list. */

@@ -1,7 +1,8 @@
 // app/(tabs)/summary.tsx
+import { useNavigation } from "@react-navigation/native";
 import { router, useLocalSearchParams, type Href } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
-import { Button, ScrollView, Share, Text, View } from "react-native";
+import { ScrollView, Share, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { loadSummary } from "../../lib/storage";
 
@@ -9,6 +10,15 @@ function formatUkDate(iso: string): string {
   try {
     const d = new Date(iso);
     return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  } catch {
+    return iso;
+  }
+}
+
+function formatUkDayMonth(iso: string): string {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short" });
   } catch {
     return iso;
   }
@@ -37,6 +47,18 @@ export default function Summary() {
 
   const dateISO = typeof date === "string" && date ? date : todayISO();
   const datePretty = formatUkDate(dateISO);
+  const isToday = dateISO === todayISO();
+  const headerTitle = isToday ? "Your Daily 10 summary" : `Daily 10 summary - ${formatUkDayMonth(dateISO)}`;
+  const navigation = useNavigation();
+  useEffect(() => {
+    navigation.setOptions?.({
+      headerShown: true,
+      headerTitle,
+      headerBackTitle: "Back",
+      headerTintColor: "#fff",
+      headerStyle: { backgroundColor: "#0c1320" },
+    });
+  }, [navigation, headerTitle]);
   // Stored summary (fallback when URL params are missing)
   const [storedTotal, setStoredTotal] = useState<number | undefined>(undefined);
   const [storedItems, setStoredItems] = useState<Array<{ id: string; prompt: string; km: number }>>([]);
@@ -99,17 +121,39 @@ export default function Summary() {
   };
 
   return (
-    <SafeAreaView edges={["top", "left", "right"]} style={{ flex: 1, backgroundColor: "#0c1320" }}>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingTop: 8, paddingBottom: 24, gap: 16 }}>
-        <View style={{ backgroundColor: "#0f172a", borderRadius: 12, padding: 16, marginBottom: 0, borderWidth: 1, borderColor: "#111827" }}>
-          <Text style={{ fontSize: 22, fontWeight: "800", marginBottom: 6, color: "#ffffff" }}>
-            Daily Challenge — {datePretty}
-          </Text>
-          <Text style={{ fontSize: 16, color: "#cbd5e1" }}>
-            {total !== undefined
-              ? `Total distance: ${total.toLocaleString()} km`
-              : "No total recorded"}
-          </Text>
+    <SafeAreaView edges={["left", "right"]} style={{ flex: 1, backgroundColor: "#0c1320" }}>
+      <ScrollView
+        contentInsetAdjustmentBehavior="never"
+        automaticallyAdjustContentInsets={false}
+        contentContainerStyle={{ padding: 8, paddingTop: 0, paddingBottom: 12, gap: 16 }}>
+        <View style={{ backgroundColor: "#0f172a", borderRadius: 12, padding: 16, marginBottom: 8, borderWidth: 1, borderColor: "#111827" }}>
+          <Text style={{ color: "#9aa4b2", fontSize: 12, marginBottom: 6 }}>{datePretty}</Text>
+          <View style={{ flexDirection: "row", alignItems: "baseline", flexWrap: "wrap" }}>
+            <Text style={{ fontSize: 30, fontWeight: "900", color: "#ffffff" }}>
+              {total !== undefined ? total.toLocaleString() : "—"}
+            </Text>
+            <Text style={{ color: "#e5e7eb", fontSize: 18, marginLeft: 6 }}>km</Text>
+            <Text style={{ color: "#a78bfa", fontSize: 13, marginLeft: 10, fontWeight: "700" }}>distance away</Text>
+          </View>
+
+          <View style={{ height: 10 }} />
+
+          <View style={{ flexDirection: "row", gap: 12 }}>
+            <TouchableOpacity
+              activeOpacity={0.9}
+              onPress={() => router.push(`/leaderboard?date=${dateISO}` as Href)}
+              style={{ flex: 1, backgroundColor: "#1F6FEB", paddingVertical: 12, borderRadius: 10, alignItems: "center" }}
+            >
+              <Text style={{ color: "#fff", fontWeight: "800" }}>Leaderboard</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.9}
+              onPress={onShare}
+              style={{ flex: 1, backgroundColor: "#0b5b2e", paddingVertical: 12, borderRadius: 10, alignItems: "center" }}
+            >
+              <Text style={{ color: "#fff", fontWeight: "800" }}>Share</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={{ backgroundColor: "#0b1220", borderRadius: 12, padding: 0, marginBottom: 16, borderWidth: 1, borderColor: "#111827", overflow: "hidden" }}>
@@ -139,24 +183,6 @@ export default function Summary() {
               <Text style={{ opacity: 0.7 }}>No per-question results found.</Text>
             </View>
           )}
-        </View>
-
-        <View style={{ backgroundColor: "#0b1220", borderRadius: 12, padding: 12, borderWidth: 1, borderColor: "#111827", gap: 12 }}>
-          <Button title="Share Results" onPress={onShare} />
-          <Button
-            title="View Leaderboard for this Day"
-            onPress={() => router.push(`/leaderboard?date=${dateISO}` as Href)}
-          />
-          {roomId ? (
-            <Button
-              title="View Challenge Room"
-              onPress={() => router.push(`/challenge/${roomId}` as Href)}
-            />
-          ) : null}
-          <Button
-            title="Play Another Day"
-            onPress={() => router.replace("/archive" as Href)}
-          />
         </View>
       </ScrollView>
     </SafeAreaView>
