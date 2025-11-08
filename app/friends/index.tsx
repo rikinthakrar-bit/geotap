@@ -393,47 +393,70 @@ export default function FriendsTab() {
             friends.map((f) => {
               const friendName = nameMap[f.deviceId]?.name || f.name || f.deviceId.slice(0, 6);
               const friendToday = scores[f.deviceId] ?? null;
-              // TODO: wire real W-L record here if/when available
-              const recordLeft = ""; // e.g., your wins
-              const recordRight = ""; // e.g., friend wins
-
               return (
                 <TouchableOpacity
                   key={f.deviceId}
                   onPress={() => router.push(`/challenge/h2h?peer=${f.deviceId}`)}
-                  style={{
-                    paddingVertical: 14,
-                    borderTopColor: "#1b293f",
-                    borderTopWidth: 1,
-                  }}
+                  style={{ paddingVertical: 12, borderTopColor: "#1b293f", borderTopWidth: 1 }}
                 >
-                  {/* Heading row: Me    4 - 3    John */}
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text style={{ color: "#fff", fontSize: 16, fontWeight: "800", flex: 1 }}>
-                      Me
-                    </Text>
-                    <Text style={{ color: "#fff", fontSize: 16, fontWeight: "800" }}>
-                      {(() => { const rec = recordMap[f.deviceId]; return rec ? `${rec.w} - ${rec.l}` : ""; })()}
-                    </Text>
-                    <Text style={{ color: "#fff", fontSize: 16, fontWeight: "800", flex: 1, textAlign: "right" }}>
-                      {friendName}
-                    </Text>
-                  </View>
-
-                  {/* Sub row: today 5,000km  -  8,721km */}
-                  <View style={{ marginTop: 6 }}>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      {/* Left: label */}
-                      <Text style={{ color: "#9aa", fontSize: 12, flex: 1 }}>
-                        today
+                  <View
+                    style={{
+                      backgroundColor: "#0b1628",
+                      borderColor: "#23314a",
+                      borderWidth: 1,
+                      borderRadius: 12,
+                      padding: 12,
+                    }}
+                  >
+                    {/* Header row: names with centered W-L chip */}
+                    <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
+                      <Text
+                        numberOfLines={1}
+                        style={{ color: "#fff", fontSize: 16, fontWeight: "800", flex: 1 }}
+                      >
+                        Me
                       </Text>
-                      {/* Center: my distance, hyphen, opponent distance */}
-                      <View style={{ flexDirection: "row", alignItems: "center", marginLeft: -100 }}>
-                        <Text style={{ color: "#9aa", fontSize: 12 }}>{fmt(myToday)} km</Text>
-                        <Text style={{ color: "#9aa", fontSize: 12, marginHorizontal: 8 }}> - </Text>
-                        <Text style={{ color: "#9aa", fontSize: 12 }}>{fmt(friendToday)} km</Text>
+
+                      <View
+                        style={{
+                          paddingHorizontal: 10,
+                          paddingVertical: 4,
+                          borderRadius: 999,
+                          backgroundColor: "#1f6feb",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Text style={{ color: "#fff", fontWeight: "800", fontSize: 13 }}>
+                          {(() => { const rec = recordMap[f.deviceId]; return rec ? `${rec.w} - ${rec.l}` : "-"; })()}
+                        </Text>
                       </View>
-                      {/* Right: spacer to keep the center truly centered */}
+
+                      <Text
+                        numberOfLines={1}
+                        style={{ color: "#fff", fontSize: 16, fontWeight: "800", flex: 1, textAlign: "right" }}
+                      >
+                        {friendName}
+                      </Text>
+                    </View>
+
+                    {/* Sub row: today + distances, perfectly centered */}
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      {/* Left label */}
+                      <Text style={{ color: "#9aa", fontSize: 12, flex: 1 }}>today</Text>
+
+                      {/* Centered comparison */}
+                      <View style={{ flex: 2, flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                        <Text style={{ color: "#cbd5e1", fontSize: 13, fontVariant: ["tabular-nums"] }}>
+                          {fmt(myToday)} km
+                        </Text>
+                        <Text style={{ color: "#9aa", marginHorizontal: 10 }}>—</Text>
+                        <Text style={{ color: "#cbd5e1", fontSize: 13, fontVariant: ["tabular-nums"] }}>
+                          {fmt(friendToday)} km
+                        </Text>
+                      </View>
+
+                      {/* Right spacer for symmetry */}
                       <View style={{ flex: 1 }} />
                     </View>
                   </View>

@@ -10,20 +10,22 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.geotap",
       "infoPlist": {
-        "NSUserTrackingUsageDescription": "We use your device ID to show relevant ads."
-      },
-      "bundleIdentifier": "com.anonymous.geotap"
+        "NSUserTrackingUsageDescription": "We use your device ID to show relevant ads.",
+        "GADApplicationIdentifier": "ca-app-pub-3940256099942544~1458002511"
+      }
     },
     "android": {
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.geotap",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      }
     },
     "web": {
       "output": "static",
@@ -46,8 +48,8 @@
       [
         "react-native-google-mobile-ads",
         {
-          "android_app_id": "ca-app-pub-3940256099942544~3347511713",
-          "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+          "androidAppId": "ca-app-pub-7411339580974421~2914081757",
+          "iosAppId": "ca-app-pub-7411339580974421~7609264419"
         }
       ]
     ],

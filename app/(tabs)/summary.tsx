@@ -125,7 +125,7 @@ export default function Summary() {
       <ScrollView
         contentInsetAdjustmentBehavior="never"
         automaticallyAdjustContentInsets={false}
-        contentContainerStyle={{ padding: 8, paddingTop: 0, paddingBottom: 12, gap: 16 }}>
+        contentContainerStyle={{ padding: 8, paddingTop: 0, paddingBottom: 120, gap: 16 }}>
         <View style={{ backgroundColor: "#0f172a", borderRadius: 12, padding: 16, marginBottom: 8, borderWidth: 1, borderColor: "#111827" }}>
           <Text style={{ color: "#9aa4b2", fontSize: 12, marginBottom: 6 }}>{datePretty}</Text>
           <View style={{ flexDirection: "row", alignItems: "baseline", flexWrap: "wrap" }}>

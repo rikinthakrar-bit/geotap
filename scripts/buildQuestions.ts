@@ -36,12 +36,124 @@ function validateCurated(items: AnyQ[]): BasicValidationIssue[] {
 
 type AnyQ = any;
 
+// Only these kinds are written to the final output
+const ALLOWED_KINDS = new Set(["country", "city", "state", "flag"]);
+
+function logKindCounts(arr: AnyQ[]) {
+  const m: Record<string, number> = {};
+  for (const x of arr) {
+    const k = String((x as any)?.kind ?? "").trim().toLowerCase() || "(blank/missing)";
+    m[k] = (m[k] || 0) + 1;
+  }
+  console.log("🔎 Kind counts:", m);
+}
+
 function readJSON<T = any>(p: string): T | null {
   try {
     return JSON.parse(fs.readFileSync(p, "utf8"));
   } catch {
     return null;
   }
+}
+
+// Try to extract items from many possible curated.json shapes:
+// - top-level array (of questions OR of section objects)
+// - { items: [...] }
+// - { countries: [...], capitals: [...], cities: [...], states: [...], flags: [...] }
+// - any object where values are arrays or where values have an "items" array
+function extractCuratedItems(raw: any): AnyQ[] {
+  if (!raw) return [];
+
+  const out: AnyQ[] = [];
+
+  // Heuristic to decide if an object is a "question-like" leaf
+  const isLikelyQuestion = (o: any): boolean => {
+    if (!o || typeof o !== "object") return false;
+    if (typeof o.kind === "string") return true;
+    if (typeof o.id === "string") {
+      const id = o.id.toLowerCase();
+      if (id.startsWith("city:") || id.startsWith("state:") || id.startsWith("country:") || id.startsWith("flag:") || id.startsWith("capital:") || id.startsWith("point:")) {
+        return true;
+      }
+    }
+    if (typeof o.lat === "number" && typeof o.lng === "number") return true;
+    if (typeof o.image === "string") return true;
+    if ((o.city || o.state || o.country || o.countryName) && (o.iso2 || o.iso3 || o.countryCode)) return true;
+    return false;
+  };
+
+  // If an array looks like a question array (majority of elements are question-like), collect it
+  const collectIfQuestionArray = (arr: any[]): boolean => {
+    if (!Array.isArray(arr) || arr.length === 0) return false;
+    let q = 0, seen = 0;
+    for (const el of arr) {
+      if (el && typeof el === "object") {
+        seen++;
+        if (isLikelyQuestion(el)) q++;
+      }
+      // short-circuit if we’ve sampled enough
+      if (seen >= 12) break;
+    }
+    const ratio = seen === 0 ? 0 : q / seen;
+    if (ratio >= 0.5) {
+      out.push(...arr);
+      return true;
+    }
+    return false;
+  };
+
+  const visit = (node: any) => {
+    if (!node) return;
+
+    // Arrays: always attempt to collect, but always recurse into elements too
+    if (Array.isArray(node)) {
+      // Detect if this looks like an array of questions (will push to 'out' if so)
+      const lookedLikeQuestions = collectIfQuestionArray(node);
+
+      // Always recurse into elements to uncover nested arrays/sections even when we already
+      // collected the parent array. Dedup by 'id' later will prevent duplicates.
+      for (const el of node) {
+        if (el && (typeof el === "object" || Array.isArray(el))) {
+          visit(el);
+        }
+      }
+      return;
+    }
+
+    // Objects: collect `{ items: [...] }` buckets, then recurse into all props
+    if (typeof node === "object") {
+      if (Array.isArray((node as any).items)) {
+        const items = (node as any).items;
+        // Attempt to collect question-like arrays…
+        collectIfQuestionArray(items);
+        // …but ALWAYS recurse to discover nested buckets within items.
+        visit(items);
+      }
+      for (const v of Object.values(node)) {
+        if (v && (typeof v === "object" || Array.isArray(v))) {
+          visit(v);
+        }
+      }
+    }
+  };
+
+  visit(raw);
+
+  // Deduplicate by `id` if present
+  const seen = new Set<string>();
+  const deduped: AnyQ[] = [];
+  for (const q of out) {
+    if (q && typeof q === "object") {
+      const id = typeof (q as any).id === "string" ? (q as any).id : undefined;
+      if (id) {
+        if (seen.has(id)) continue;
+        seen.add(id);
+      }
+      deduped.push(q);
+    }
+  }
+
+  return deduped;
 }
 
 // --- Country name lookup ----------------------------------------------
@@ -143,31 +255,53 @@ function normalize(item: AnyQ): AnyQ {
     }
   }
 
+  // --- If an explicit kind is present, normalize spelling/case and lock it in ---
+  if (typeof obj.kind === "string" && obj.kind.trim().length) {
+    const k0 = obj.kind.trim().toLowerCase();
+    // map synonyms first
+    const k1 = (k0 === "capital") ? "city" : k0;
+    // Only accept allowed domain kinds; others left for inference later
+    if (k1 === "city" || k1 === "state" || k1 === "country" || k1 === "flag") {
+      obj.kind = k1;
+      // Important: with an explicit allowed kind, skip any later kind-inference branches
+      // (prevents accidental demotion to "point/image" when lat/lng or image exists)
+      // We still continue to derive prompt/countryName/etc, but we will not change `obj.kind`.
+      (obj as any).__lockKind = true;
+    } else {
+      obj.kind = k1; // keep normalized value but not locked
+    }
+  }
+
   // If `kind` is missing but a `type` was provided, use it
   if (!obj.kind && typeof obj.type === "string" && obj.type.trim().length) {
     obj.kind = obj.type.trim();
   }
 
-  // Ensure/Infer `kind`
-  if (!obj.kind) {
-    obj.kind = inferKind(obj);
+  // Ensure/Infer `kind` (unless explicitly locked by an allowed kind above)
+  if (!(obj as any).__lockKind) {
+    if (!obj.kind) {
+      obj.kind = inferKind(obj);
+    }
+    if (typeof obj.kind === "string") {
+      const k = obj.kind.toLowerCase();
+      obj.kind = (k === "capital") ? "city" : k; // coerce capital -> city
+    }
+    if (!obj.kind) {
+      if (typeof obj.image === "string") obj.kind = "image";
+      else if (
+        (typeof obj.lat === "number" && typeof obj.lng === "number") ||
+        (typeof obj.latitude === "number" && typeof obj.longitude === "number")
+      ) obj.kind = "point";
+      else if (obj.iso2 || obj.iso3 || obj.countryCode) obj.kind = "country";
+      else obj.kind = "image";
+    }
+  } else {
+    // Ensure locked kind is lowercased and capital coerced
+    if (typeof obj.kind === "string") {
+      const k = obj.kind.toLowerCase();
+      obj.kind = (k === "capital") ? "city" : k;
+    }
   }
-  // Map synonyms before lowercasing
-  if (typeof obj.kind === "string") {
-    const k = obj.kind.toLowerCase();
-    obj.kind = (k === "capital") ? "city" : k; // coerce capital -> city
-  }
-  // Final fallback for missing/unknown kind – choose a sensible allowed default
-  if (!obj.kind) {
-    if (typeof obj.image === "string") obj.kind = "image"; // generic image card
-    else if (
-      (typeof obj.lat === "number" && typeof obj.lng === "number") ||
-      (typeof obj.latitude === "number" && typeof obj.longitude === "number")
-    ) obj.kind = "point";
-    else if (obj.iso2 || obj.iso3 || obj.countryCode) obj.kind = "country";
-    else obj.kind = "image"; // absolute last resort so it passes validation
-  }
-  if (typeof obj.kind === "string") obj.kind = obj.kind.toLowerCase();
 
   // Infer capital status from id or explicit flag
   const idStr = typeof obj.id === "string" ? obj.id.toLowerCase() : "";
@@ -257,13 +391,14 @@ function normalize(item: AnyQ): AnyQ {
       // Prefix CAPITAL: for capital city questions
       obj.prompt = (obj.isCapital && !/^CAPITAL:\s*/i.test(base)) ? `CAPITAL: ${base}` : base;
     } else if (kind === "state") {
-      if (displayName && typeof obj.countryName === "string" && obj.countryName.trim().length) {
-        obj.prompt = `Where is ${displayName}, ${obj.countryName.trim()}?`;
-      } else if (displayName) {
-        obj.prompt = `Where is ${displayName}?`;
-      } else {
-        obj.prompt = "Where is this state?";
-      }
+      const label = displayName ? `${displayName} state` : "this state";
+      const country =
+        (typeof obj.countryName === "string" && obj.countryName.trim().length)
+          ? obj.countryName.trim()
+          : "";
+      obj.prompt = country
+        ? `Where is ${label}, ${country}?`
+        : `Where is ${label}?`;
     } else if (kind === "country") {
       // Rule: Country prompts should use full country name: "Where is France?"
       const country = (typeof obj.countryName === "string" && obj.countryName.trim().length)
@@ -287,6 +422,31 @@ function normalize(item: AnyQ): AnyQ {
     obj.prompt = `CAPITAL: ${obj.prompt}`;
   }
 
+  // Ensure there is a stable string 'id' (curated safety)
+  if (typeof obj.id !== "string" || obj.id.trim().length === 0) {
+    const kindSafe = (typeof obj.kind === "string" && obj.kind.trim().length ? obj.kind.trim().toLowerCase() : "item");
+    // Try to synthesize a readable base from common fields
+    const baseSource =
+      (typeof obj.name === "string" && obj.name.trim().length && obj.name) ||
+      (typeof obj.city === "string" && obj.city.trim().length && obj.city) ||
+      (typeof obj.stateName === "string" && obj.stateName.trim().length && obj.stateName) ||
+      (typeof obj.countryName === "string" && obj.countryName.trim().length && obj.countryName) ||
+      (typeof obj.iso3 === "string" && obj.iso3.trim().length && obj.iso3) ||
+      (typeof obj.iso2 === "string" && obj.iso2.trim().length && obj.iso2) ||
+      (typeof obj.answer === "string" && obj.answer.trim().length && obj.answer) ||
+      undefined;
+
+    const baseSlug = (baseSource || "unknown")
+      .toString()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    // Add a short random suffix to reduce chance of clash in large batches
+    const suffix = Math.random().toString(36).slice(2, 8);
+    obj.id = `${kindSafe}:${baseSlug || "item"}:${suffix}`;
+  }
+
   return obj;
 }
 
@@ -303,100 +463,41 @@ if (!fs.existsSync(curatedPath)) {
 }
 
 const curatedRaw = readJSON<any>(curatedPath);
-let curatedItemsSource: AnyQ[] = [];
-if (Array.isArray(curatedRaw)) {
-  curatedItemsSource = curatedRaw;
-} else if (curatedRaw && Array.isArray(curatedRaw.items)) {
-  curatedItemsSource = curatedRaw.items;
-} else {
-  curatedItemsSource = [];
+let curatedItemsSource: AnyQ[] = extractCuratedItems(curatedRaw);
+console.log(`🧩 Curated raw resolved to ${curatedItemsSource.length} items (after flexible extraction)`);
+if (curatedItemsSource.length < 700) {
+  console.warn("⚠️  Curated count looks low. If you expect ~780, ensure the file is saved and contains all sections. We now support multi-bucket objects too.");
 }
 const curatedItems = curatedItemsSource.map(normalize);
 
-console.log(
-  `ℹ️  Loaded curated from ${curatedPath} -> ` +
-  (Array.isArray(curatedRaw)
-    ? `top-level array (${curatedItemsSource.length} items)`
-    : Array.isArray(curatedRaw?.items)
-      ? `items[] array (${curatedItemsSource.length} items)`
-      : `no items found`)
-);
-
-// --- Optionally include generated flags (merge with curated) ---
-const flagsPath = path.resolve(process.cwd(), "app/data/questions.flags.json");
-let flagItems: AnyQ[] = [];
-if (fs.existsSync(flagsPath)) {
-  try {
-    const raw = readJSON<any>(flagsPath);
-    const arr = Array.isArray(raw) ? raw : (Array.isArray(raw?.items) ? raw.items : []);
-    flagItems = arr.map(normalize).filter((q: AnyQ) => q && q.kind === "flag");
-    console.log(`ℹ️  Loaded flags from ${flagsPath} -> ${flagItems.length} items`);
-  } catch (e) {
-    console.warn(`⚠️  Failed to read flags at ${flagsPath}:`, (e as Error)?.message);
+// Log pre-filter counts (helps diagnose unexpected kinds like "capital")
+logKindCounts(curatedItems);
+// Extra debug: count by "type" field too (useful when curated uses "type":"city")
+(function debugTypeCounts() {
+  const t: Record<string, number> = {};
+  for (const x of curatedItemsSource) {
+    const v = String((x as any)?.type ?? "").trim().toLowerCase() || "(blank/missing)";
+    t[v] = (t[v] || 0) + 1;
   }
-}
+  console.log("🔎 Type counts (raw curated):", t);
+})();
 
-// --- Optionally include generated US states (merge with curated) ---
-const statesPath = path.resolve(process.cwd(), "app/data/questions.us_states.json");
-let stateItems: AnyQ[] = [];
-if (fs.existsSync(statesPath)) {
-  try {
-    const raw = readJSON<any>(statesPath);
-    const arr = Array.isArray(raw) ? raw : (Array.isArray(raw?.items) ? raw.items : []);
-    stateItems = arr.map(normalize).filter((q: AnyQ) => q && q.kind === "state");
-    console.log(`ℹ️  Loaded states from ${statesPath} -> ${stateItems.length} items`);
-  } catch (e) {
-    console.warn(`⚠️  Failed to read states at ${statesPath}:`, (e as Error)?.message);
-  }
-}
-
-// Merge curated + flags + states, preferring curated on id collisions, then flags, then states
-const byId = new Map<string, AnyQ>();
-for (const q of curatedItems) {
-  if (q && typeof q.id === "string") byId.set(q.id, q);
-}
-for (const q of flagItems) {
-  if (!q || typeof q.id !== "string") continue;
-  if (!byId.has(q.id)) byId.set(q.id, q);
-}
-for (const q of stateItems) {
-  if (!q || typeof q.id !== "string") continue;
-  if (!byId.has(q.id)) byId.set(q.id, q);
-}
-let finalItems = Array.from(byId.values());
-// --- Exclude unsupported micro-territories (e.g., Jersey / JE) ---
-const DROP_ISO2 = new Set(["je", "um", "mq", "cc", "vc"]);
-
-function extractIso2Loose(q: any): string | undefined {
-  // explicit iso2
-  if (q && typeof q.iso2 === "string" && q.iso2.length === 2) return q.iso2.toLowerCase();
-  // some flags use name as code (e.g., "JE")
-  if (q && typeof q.name === "string" && q.name.length === 2) return q.name.toLowerCase();
-  // image path like flags/je.png
-  if (q && typeof q.image === "string") {
-    const m = q.image.match(/flags\/([a-z]{2})\.[a-z]+$/i);
-    if (m) return m[1].toLowerCase();
-  }
-  // id suffix: country:je, flag:je, flag:xyz:je → last 2-letter token
-  if (q && typeof q.id === "string") {
-    const parts = q.id.split(":").filter(Boolean);
-    const last = parts[parts.length - 1];
-    if (last && /^[a-z]{2}$/i.test(last)) return last.toLowerCase();
-  }
-  return undefined;
-}
-
-const beforeDrop = finalItems.length;
-finalItems = finalItems.filter((q: any) => {
-  const code = extractIso2Loose(q);
-  if (code && DROP_ISO2.has(code)) return false;
-  const nameText = ((q?.countryName || q?.country || q?.answer || q?.name || "") + "").toLowerCase();
-  if (nameText === "jersey") return false;
-  return true;
+// Coerce any lingering "capital" → "city" and filter to allowed kinds only
+const normalizedItems = curatedItems.map((it) => {
+  const k = String((it as any).kind ?? "").trim().toLowerCase();
+  (it as any).kind = (k === "capital") ? "city" : k;
+  return it;
 });
-if (beforeDrop !== finalItems.length) {
-  console.log(`🧹 Removed ${beforeDrop - finalItems.length} item(s) for excluded territories (JE)`);
-}
+
+console.log(`ℹ️  Loaded curated from ${curatedPath} -> resolved ${curatedItemsSource.length} items`);
+
+// --- Curated is the *only* source of truth ---------------------------------
+// Only keep the kinds we want to ship
+let finalItems = normalizedItems.filter((it) => ALLOWED_KINDS.has(String((it as any).kind)));
+
+console.log(`📦  Assembling output: curated-only final=${finalItems.length}`);
+// Log post-filter counts
+logKindCounts(finalItems);
 
 // --- Safety checks before writing ---
 // 1) Do not proceed if there are zero curated items (unless FORCE=1)
@@ -448,7 +549,6 @@ if (
   process.exit(1);
 }
 
-console.log(`📦  Assembling output: curated=${curatedItems.length}, flags=${flagItems.length}, final=${finalItems.length}`);
 
 // Backup previous file (timestamped) before writing
 if (fs.existsSync(outPath)) {

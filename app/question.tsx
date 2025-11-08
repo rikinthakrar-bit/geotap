@@ -13,6 +13,7 @@ function isCountryLikeQuestion(q: any): boolean {
   // Country polygons include explicit country questions and flag questions
   return t === "country" || t === "flag" || t === "flags" || k === "flag";
 }
+import { recordAttempt } from "@/lib/attempts";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import { router, useLocalSearchParams, type Href } from "expo-router";
@@ -949,9 +950,7 @@ export default function Question() {
 
   // Safe area and CTA spacing
   const insets = useSafeAreaInsets();
-  const BANNER_HEIGHT = 90; // matches StickyBannerSpacer default
-  const CTA_GAP = 8;        // small gap between CTA and banner
-  const ctaBottom = Math.max(24, insets.bottom + BANNER_HEIGHT + CTA_GAP);
+  const ctaBottom = insets.bottom + 100;
 
   // Challenge params
   const { mode, level, targetKm, difficulty, num, topic, count } = useLocalSearchParams<{
@@ -1083,6 +1082,56 @@ function zoomForRegion(r?: InitialRegion): number {
   const [results, setResults] = useState<{ id: string; prompt: string; km: number }[]>([]);
   const [roundKm, setRoundKm] = useState(0);
 
+// --- Curated Daily10 mix: 3 country (easy), 2 country (medium), 1 country (hard),
+// 2 capitals, 1 flag (easy/med), 1 city (easy)
+function buildCuratedDaily10(allQs: Question[], dateISO: string): Question[] {
+  const seedBase = `${dateISO}#daily10`; // deterministic per day
+  const used = new Set<string>();
+  const out: Question[] = [];
+  const idOf = (q: any) => String(q?.id ?? `${q?.type}:${q?.name ?? q?.answer ?? q?.featureId ?? Math.random()}`);
+
+  const isCountry = (q: any) => qType(q) === "country" || (q?.kind ?? "").toLowerCase() === "country";
+  const isCapital = (q: any) => (q?.kind ?? "").toLowerCase() === "capital";
+  const isCityEasy = (q: any) => (q?.kind ?? "").toLowerCase() === "city" && (q?.difficulty ?? "").toLowerCase() === "easy";
+  const isFlagEasyMed = (q: any) => isFlagQuestion(q) && /^(easy|medium)$/i.test(String(q?.difficulty ?? ""));
+
+  function take(pool: Question[], count: number, key: string) {
+    if (!count) return;
+    const picked = getDailySet(pool, `${seedBase}#${key}`, count);
+    for (const q of picked) {
+      const id = idOf(q);
+      if (used.has(id)) continue;
+      used.add(id);
+      out.push(q);
+    }
+  }
+
+  // pools
+  const countryEasy   = allQs.filter((q) => isCountry(q) && String((q as any).difficulty).toLowerCase() === "easy");
+  const countryMed    = allQs.filter((q) => isCountry(q) && String((q as any).difficulty).toLowerCase() === "medium");
+  const countryHard   = allQs.filter((q) => isCountry(q) && String((q as any).difficulty).toLowerCase() === "hard");
+  const capitals      = allQs.filter((q) => isCapital(q));
+  const flagEasyMed   = allQs.filter((q) => isFlagEasyMed(q));
+  const cityEasyPool  = allQs.filter((q) => isCityEasy(q));
+
+  // take in desired counts
+  take(countryEasy, 3, "country-easy");
+  take(countryMed,  2, "country-med");
+  take(countryHard, 1, "country-hard");
+  take(capitals,    2, "capitals");
+  take(flagEasyMed, 1, "flags");
+  take(cityEasyPool,1, "city-easy");
+
+  // If we came up short (datasets can vary), backfill deterministically from remaining questions
+  if (out.length < 10) {
+    const remaining = allQs.filter((q) => !used.has(idOf(q)));
+    const backfill = getDailySet(remaining, `${seedBase}#backfill`, 10 - out.length);
+    out.push(...backfill);
+  }
+
+  return out.slice(0, 10);
+}
+
 const QUESTIONS = useMemo(() => {
   if (!allQs) return [];
 
@@ -1098,8 +1147,8 @@ const QUESTIONS = useMemo(() => {
     return getDailySet(pool, seedKey, practiceDesiredCount || 10);
   }
 
-  // Default: Daily 10
-  return getDailySet(allQs, dateISO, 10);
+  // Default: Daily 10 (curated mix)
+  return buildCuratedDaily10(allQs, dateISO);
 }, [allQs, isChallenge, isPractice, dateISO, level, difficulty, roundDesiredCount, practiceDesiredCount, topic]);
 
   const hasQs = QUESTIONS.length > 0;
@@ -1376,6 +1425,24 @@ if (isPractice && practiceInitialRegion) {
       );
     }
 
+// --- per-question attempt log (feeds Stats) ---
+    try {
+      const modeLabel =
+        isChallenge ? "challenge" :
+        (isPractice ? "practice" : (isToday ? "daily" : "archive"));
+
+      await recordAttempt({
+        ts: Date.now(),
+        mode: modeLabel,
+        topic: isPractice ? String(topic ?? null) : null,
+        kind: String((q as any)?.kind ?? (q as any)?.type ?? null).toLowerCase(),
+        region: String((q as any)?.region ?? (q as any)?.meta?.region ?? null).toLowerCase(),
+        correctKm: typeof kmRounded === "number" ? kmRounded : null,
+        wasCorrect: typeof kmRounded === "number" ? kmRounded === 0 : null,
+        metaId: String((q as any)?.id ?? null),
+      });
+    } catch {}
+
     if (isChallenge) {
       const newKm = roundKm + kmRounded;
       setRoundKm(newKm);
@@ -1465,6 +1532,7 @@ if (isPractice && practiceInitialRegion) {
 
   // ---------------- UI ----------------
   return (
+  
     <View style={{ flex: 1 }}>
       {/* Header */}
       <View
@@ -1617,6 +1685,20 @@ if (isPractice && practiceInitialRegion) {
                 <View style={{ flex: ready ? 1 - progress : 1 }} />
               </View>
             </View>
+
+            { /* Cumulative distance (Daily 10 only) */}
+            {!isChallenge && !isPractice && (
+              <Text
+                style={{
+                  marginTop: 8,
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: 14,
+                  fontWeight: "700",
+                }}
+              >
+                Total distance away: {totalKm.toLocaleString()} km
+              </Text>
+            )}
 
             {/* Challenge progress bar */}
             {isChallenge && (
@@ -1781,5 +1863,7 @@ if (isPractice && practiceInitialRegion) {
         </TouchableOpacity>
       </View>
     </View>
+   
+
   );
 }

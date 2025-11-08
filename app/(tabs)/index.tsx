@@ -149,7 +149,7 @@ export default function HomeScreen() {
               imageHeight={90}
               tint="#22C55E"
               cta="Play Challenge"
-              onPress={() => router.push("/challenge/intro")}
+              onPress={() => router.push("/(tabs)/challenge")}
               compact
             />
           </View>
@@ -158,7 +158,7 @@ export default function HomeScreen() {
           <View style={{ width: "49%", height: 220, marginBottom: 16, overflow: "hidden" }}>
             <GameCard
               title="Practice rounds"
-              description="Drills: Countries, Cities, Capitals…"
+              description="Improve your world knowledge!"
               image={require("../../assets/practice.png")} // TODO: replace with a practice-specific image when added
               imageHeight={90}
               tint="#0EA5E9"
@@ -173,7 +173,7 @@ export default function HomeScreen() {
             <View style={{ width: "49%", height: 220, overflow: "hidden" }}>
               <GameCard
                 title="Archived Daily 10s"
-                description="Play previous days"
+                description="Play previous days contests"
                 image={imgArchive}
                 imageHeight={90}
                 tint="#8B5CF6"

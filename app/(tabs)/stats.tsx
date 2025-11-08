@@ -1,11 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useFocusEffect } from "@react-navigation/native";
+import * as Notifications from "expo-notifications";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { RefreshControl, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { getAttempts } from "../../lib/attempts";
 import { getStats } from "../../lib/lbStore";
-import { getAllSummaries, getChallengeCounts, migrateDailyResultsFromLeaderboards } from "../../lib/storage";
-import QUESTIONS from "../data/questions.json";
+import { getChallengeCounts, migrateDailyResultsFromLeaderboards } from "../../lib/storage";
 
 const num = (v: any) => {
   const n = typeof v === "string" ? Number(v) : v;
@@ -62,15 +63,42 @@ export default function StatsScreen() {
   const [avgByKind, setAvgByKind] = useState<Record<string, number>>({});
   const [avgByRegion, setAvgByRegion] = useState<Record<string, number>>({});
 
-  const qIndex = useMemo(() => {
-    const m = new Map<string, any>();
-    const doc: any = QUESTIONS as any;
-    const arr: any[] = Array.isArray(doc) ? doc : (Array.isArray(doc?.items) ? doc.items : []);
-    arr.forEach((q: any) => {
-      if (q && typeof q.id === "string") m.set(q.id, q);
+  // Ensure foreground notifications show an alert (updated API)
+  useEffect(() => {
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowBanner: true,
+        shouldShowList: true,
+        shouldPlaySound: true,
+        shouldSetBadge: false,
+      }),
     });
-    return m;
   }, []);
+
+  const testLocalNotification = async () => {
+    try {
+      const { status: existing } = await Notifications.getPermissionsAsync();
+      let status = existing;
+      if (existing !== "granted") {
+        const req = await Notifications.requestPermissionsAsync();
+        status = req.status;
+      }
+      if (status !== "granted") {
+        console.warn("Notifications permission not granted");
+        return;
+      }
+          await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Test notification 🧪",
+        body: "This is a local test from GeoTap!",
+        sound: "default",
+      },
+      trigger: null,
+    });
+    } catch (e) {
+      console.warn("Failed to present local notification", e);
+    }
+  };
 
   const loadStats = useCallback(async () => {
     setLoading(true);
@@ -88,35 +116,58 @@ export default function StatsScreen() {
         setChallengeCounts(cc || {});
       } catch {}
 
-      // Overall averages by kind and by region (from saved per-question summaries)
+      // Overall averages by kind and by region (from per-question attempts across ALL modes)
       try {
-        const allSums = await getAllSummaries();
-        const byKind: Record<string, { total: number; n: number }> = {};
-        const byRegion: Record<string, { total: number; n: number }> = {};
+        const atts: any[] = (await getAttempts()) || [];
 
-        for (const day of allSums) {
-          for (const it of day.items || []) {
-            const meta = qIndex.get(it.id);
-            const idStr = String(it.id || "");
-            const isCapital = idStr.startsWith("capital:");
-            const kind = meta?.kind || (idStr.startsWith("flag:") ? "flag" : idStr.split(":" )[0]);
-            const kindKey = isCapital ? "capital" : kind;
-            const region = meta?.region || "Unknown";
+        type Agg = { total: number; n: number };
+        const byKind: Record<string, Agg> = {};
+        const byRegion: Record<string, Agg> = {};
 
-            const km = normaliseKm(it.km);
+        // Pretty-print known regions; fallback to Title Case
+        const prettyRegion = (r?: string) => {
+          const s = String(r ?? "").toLowerCase().replace(/_/g, " ").trim();
+          const map: Record<string, string> = {
+            "africa": "Africa",
+            "asia": "Asia",
+            "europe": "Europe",
+            "north america": "North America",
+            "south america": "South America",
+            "oceania": "Oceania",
+            "australia": "Oceania",
+          };
+          if (map[s]) return map[s];
+          if (!s) return "Unknown";
+          return s.replace(/\b\w/g, (c) => c.toUpperCase());
+        };
 
-            // by kind
-            if (!byKind[kindKey]) byKind[kindKey] = { total: 0, n: 0 };
-            byKind[kindKey].total += km;
-            byKind[kindKey].n += 1;
+        // Normalise kind to the keys used by the UI cards
+        const normKind = (k?: string, id?: string) => {
+          const s = String(k ?? "").toLowerCase();
+          if (s.includes("capital")) return "capital";
+          if (s.includes("country")) return "country";
+          if (s.includes("city")) return "city";
+          if (s.includes("flag")) return "flag";
+          const idStr = String(id ?? "");
+          if (idStr.startsWith("capital:")) return "capital";
+          if (idStr.startsWith("flag:")) return "flag";
+          if (idStr.startsWith("city:")) return "city";
+          if (idStr.startsWith("country:")) return "country";
+          return "other";
+        };
 
-            // by region
-            if (region) {
-              if (!byRegion[region]) byRegion[region] = { total: 0, n: 0 };
-              byRegion[region].total += km;
-              byRegion[region].n += 1;
-            }
-          }
+        for (const a of atts) {
+          const km = normaliseKm((a as any)?.correctKm);
+          const kindKey = normKind((a as any)?.kind, (a as any)?.metaId);
+          const regionKey = prettyRegion((a as any)?.region);
+
+          if (!byKind[kindKey]) byKind[kindKey] = { total: 0, n: 0 };
+          byKind[kindKey].total += km;
+          byKind[kindKey].n += 1;
+
+          if (!byRegion[regionKey]) byRegion[regionKey] = { total: 0, n: 0 };
+          byRegion[regionKey].total += km;
+          byRegion[regionKey].n += 1;
         }
 
         const avgK: Record<string, number> = {};
@@ -141,7 +192,7 @@ export default function StatsScreen() {
     } finally {
       setLoading(false);
     }
-  }, [qIndex]);
+  }, []);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -237,6 +288,22 @@ export default function StatsScreen() {
               <Text style={styles.label}>Level {lvl}</Text>
             </View>
           ))}
+        </View>
+
+        <View style={{ marginTop: 20, alignItems: "center" }}>
+          <Text
+            onPress={testLocalNotification}
+            style={{
+              color: "#1E90FF",
+              fontSize: 16,
+              fontWeight: "700",
+              padding: 12,
+              backgroundColor: "#111827",
+              borderRadius: 8,
+            }}
+          >
+            Send Test Notification
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>

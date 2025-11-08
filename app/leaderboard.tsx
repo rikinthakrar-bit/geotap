@@ -1,9 +1,66 @@
 import { Stack, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { todayISO } from "../lib/daily";
 import { getLeaderboard } from "../lib/lbStore";
 import { fetchProfiles, getOrCreateProfile, syncProfileToCloud } from "../lib/profile";
+
+// Countdown helpers: Europe/London next 05:00 local time
+function getLondonParts(d: Date) {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(d);
+
+  const map = Object.fromEntries(parts.map(p => [p.type, p.value]));
+  return {
+    year: Number(map.year),
+    month: Number(map.month), // 1..12
+    day: Number(map.day),
+    hour: Number(map.hour),
+    minute: Number(map.minute),
+    second: Number(map.second),
+  };
+}
+
+// Build a Date based on Europe/London "wall clock" values, interpreting them in UTC.
+// Since we use the same construction for 'now' and 'target', the difference in ms is correct.
+function londonDateAsUTC(year: number, month1: number, day: number, hour = 0, minute = 0, second = 0) {
+  return new Date(`${String(year).padStart(4, "0")}-${String(month1).padStart(2, "0")}-${String(day).padStart(2, "0")}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:${String(second).padStart(2, "0")}Z`);
+}
+
+function nextLondonReset(): Date {
+  const now = new Date();
+  const p = getLondonParts(now);
+  const today0500 = londonDateAsUTC(p.year, p.month, p.day, 5, 0, 0);
+  const nowAsLondonUTC = londonDateAsUTC(p.year, p.month, p.day, p.hour, p.minute, p.second);
+  if (nowAsLondonUTC >= today0500) {
+    // tomorrow 05:00
+    const tomorrow = new Date(londonDateAsUTC(p.year, p.month, p.day, 12, 0, 0)); // noon as safe base
+    // add 1 day
+    const tYear = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", year: "numeric" }).format(new Date(tomorrow.getTime() + 24 * 60 * 60 * 1000)));
+    const tMonth = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", month: "2-digit" }).format(new Date(tomorrow.getTime() + 24 * 60 * 60 * 1000)));
+    const tDay = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", day: "2-digit" }).format(new Date(tomorrow.getTime() + 24 * 60 * 60 * 1000)));
+    return londonDateAsUTC(tYear, tMonth, tDay, 5, 0, 0);
+  }
+  return today0500;
+}
+
+function fmtHMS(ms: number) {
+  if (ms < 0) ms = 0;
+  const totalSec = Math.floor(ms / 1000);
+  const h = Math.floor(totalSec / 3600);
+  const m = Math.floor((totalSec % 3600) / 60);
+  const s = totalSec % 60;
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${pad(h)}:${pad(m)}:${pad(s)}`;
+}
 
 export default function Leaderboard() {
   const { date } = useLocalSearchParams<{ date?: string }>();
@@ -33,6 +90,9 @@ export default function Leaderboard() {
 
   const [page, setPage] = useState(0);
   const pageSize = 20;
+
+  const [countdown, setCountdown] = useState<string>("");
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const total = rows.length;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
@@ -95,6 +155,28 @@ export default function Leaderboard() {
     })();
   }, [dateISO]);
 
+  useEffect(() => {
+    function tick() {
+      try {
+        const target = nextLondonReset();
+        const now = new Date();
+        const parts = getLondonParts(now);
+        const nowAsLondonUTC = londonDateAsUTC(parts.year, parts.month, parts.day, parts.hour, parts.minute, parts.second);
+        const ms = target.getTime() - nowAsLondonUTC.getTime();
+        setCountdown(fmtHMS(ms));
+      } catch {
+        // noop
+      }
+    }
+    tick();
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(tick, 1000);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      timerRef.current = null;
+    };
+  }, []);
+
   return (
     <>
       <Stack.Screen
@@ -104,6 +186,14 @@ export default function Leaderboard() {
           headerTintColor: "#fff",
           headerStyle: { backgroundColor: "#0c1320" },
           contentStyle: { backgroundColor: "#0c1320" },
+          headerRight: () => (
+            <View style={{ alignItems: "flex-end" }}>
+              <Text style={{ color: "#93c5fd", fontSize: 11 }}>Next round in</Text>
+              <Text style={{ color: "#fff", fontSize: 14, fontWeight: "700", letterSpacing: 0.5 }}>
+                {countdown || "—:—:—"}
+              </Text>
+            </View>
+          ),
         }}
       />
       <ScrollView contentContainerStyle={{ padding: 16, backgroundColor: "#0c1320", flexGrow: 1 }}>

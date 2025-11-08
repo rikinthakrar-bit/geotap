@@ -4455,14 +4455,6 @@
   },
   
   {
-    "id": "flag:ad",
-    "kind": "flag",
-    "name": "AD",
-    "image": "flags/ad.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:ae",
     "kind": "flag",
     "name": "AE",
@@ -4479,22 +4471,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Asia"
-  },
-  {
-    "id": "flag:ag",
-    "kind": "flag",
-    "name": "AG",
-    "image": "flags/ag.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:ai",
-    "kind": "flag",
-    "name": "AI",
-    "image": "flags/ai.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:al",
@@ -4524,15 +4500,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:aq",
-    "kind": "flag",
-    "name": "AQ",
-    "image": "flags/aq.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard",
-    "region": "Other"
-  },
-  {
     "id": "flag:ar",
     "kind": "flag",
     "name": "AR",
@@ -4540,14 +4507,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "easy",
     "region": "South America"
-  },
-  {
-    "id": "flag:as",
-    "kind": "flag",
-    "name": "AS",
-    "image": "flags/as.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:at",
@@ -4568,22 +4527,6 @@
     "region": "Oceania"
   },
   {
-    "id": "flag:aw",
-    "kind": "flag",
-    "name": "AW",
-    "image": "flags/aw.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:ax",
-    "kind": "flag",
-    "name": "AX",
-    "image": "flags/ax.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:az",
     "kind": "flag",
     "name": "AZ",
@@ -4600,14 +4543,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Europe"
-  },
-  {
-    "id": "flag:bb",
-    "kind": "flag",
-    "name": "BB",
-    "image": "flags/bb.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:bd",
@@ -4646,14 +4581,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:bh",
-    "kind": "flag",
-    "name": "BH",
-    "image": "flags/bh.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:bi",
     "kind": "flag",
     "name": "BI",
@@ -4670,14 +4597,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Africa"
-  },
-  {
-    "id": "flag:bl",
-    "kind": "flag",
-    "name": "BL",
-    "image": "flags/bl.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:bm",
@@ -4707,14 +4626,6 @@
     "region": "South America"
   },
   {
-    "id": "flag:bq",
-    "kind": "flag",
-    "name": "BQ",
-    "image": "flags/bq.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:br",
     "kind": "flag",
     "name": "BR",
@@ -4740,14 +4651,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Asia"
-  },
-  {
-    "id": "flag:bv",
-    "kind": "flag",
-    "name": "BV",
-    "image": "flags/bv.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:bw",
@@ -4831,14 +4734,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:ck",
-    "kind": "flag",
-    "name": "CK",
-    "image": "flags/ck.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:cl",
     "kind": "flag",
     "name": "CL",
@@ -4893,30 +4788,6 @@
     "region": "North America"
   },
   {
-    "id": "flag:cv",
-    "kind": "flag",
-    "name": "CV",
-    "image": "flags/cv.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:cw",
-    "kind": "flag",
-    "name": "CW",
-    "image": "flags/cw.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:cx",
-    "kind": "flag",
-    "name": "CX",
-    "image": "flags/cx.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:cy",
     "kind": "flag",
     "name": "CY",
@@ -4960,14 +4831,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "medium",
     "region": "Europe"
-  },
-  {
-    "id": "flag:dm",
-    "kind": "flag",
-    "name": "DM",
-    "image": "flags/dm.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:do",
@@ -5078,22 +4941,6 @@
     "region": "South America"
   },
   {
-    "id": "flag:fm",
-    "kind": "flag",
-    "name": "FM",
-    "image": "flags/fm.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:fo",
-    "kind": "flag",
-    "name": "FO",
-    "image": "flags/fo.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:fr",
     "kind": "flag",
     "name": "FR",
@@ -5121,14 +4968,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:gd",
-    "kind": "flag",
-    "name": "GD",
-    "image": "flags/gd.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:ge",
     "kind": "flag",
     "name": "GE",
@@ -5147,14 +4986,6 @@
     "region": "South America"
   },
   {
-    "id": "flag:gg",
-    "kind": "flag",
-    "name": "GG",
-    "image": "flags/gg.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:gh",
     "kind": "flag",
     "name": "GH",
@@ -5162,14 +4993,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Africa"
-  },
-  {
-    "id": "flag:gi",
-    "kind": "flag",
-    "name": "GI",
-    "image": "flags/gi.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:gl",
@@ -5199,14 +5022,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:gp",
-    "kind": "flag",
-    "name": "GP",
-    "image": "flags/gp.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:gq",
     "kind": "flag",
     "name": "GQ",
@@ -5225,14 +5040,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:gs",
-    "kind": "flag",
-    "name": "GS",
-    "image": "flags/gs.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:gt",
     "kind": "flag",
     "name": "GT",
@@ -5240,14 +5047,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "North America"
-  },
-  {
-    "id": "flag:gu",
-    "kind": "flag",
-    "name": "GU",
-    "image": "flags/gu.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:gw",
@@ -5266,22 +5065,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "South America"
-  },
-  {
-    "id": "flag:hk",
-    "kind": "flag",
-    "name": "HK",
-    "image": "flags/hk.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "medium"
-  },
-  {
-    "id": "flag:hm",
-    "kind": "flag",
-    "name": "HM",
-    "image": "flags/hm.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:hn",
@@ -5347,14 +5130,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:im",
-    "kind": "flag",
-    "name": "IM",
-    "image": "flags/im.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:in",
     "kind": "flag",
     "name": "IN",
@@ -5362,14 +5137,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "easy",
     "region": "Asia"
-  },
-  {
-    "id": "flag:io",
-    "kind": "flag",
-    "name": "IO",
-    "image": "flags/io.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:iq",
@@ -5462,30 +5229,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:ki",
-    "kind": "flag",
-    "name": "KI",
-    "image": "flags/ki.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:km",
-    "kind": "flag",
-    "name": "KM",
-    "image": "flags/km.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:kn",
-    "kind": "flag",
-    "name": "KN",
-    "image": "flags/kn.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:kp",
     "kind": "flag",
     "name": "KP",
@@ -5513,14 +5256,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:ky",
-    "kind": "flag",
-    "name": "KY",
-    "image": "flags/ky.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:kz",
     "kind": "flag",
     "name": "KZ",
@@ -5546,22 +5281,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Asia"
-  },
-  {
-    "id": "flag:lc",
-    "kind": "flag",
-    "name": "LC",
-    "image": "flags/lc.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:li",
-    "kind": "flag",
-    "name": "LI",
-    "image": "flags/li.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:lk",
@@ -5636,14 +5355,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:mc",
-    "kind": "flag",
-    "name": "MC",
-    "image": "flags/mc.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:md",
     "kind": "flag",
     "name": "MD",
@@ -5662,14 +5373,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:mf",
-    "kind": "flag",
-    "name": "MF",
-    "image": "flags/mf.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:mg",
     "kind": "flag",
     "name": "MG",
@@ -5677,14 +5380,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Africa"
-  },
-  {
-    "id": "flag:mh",
-    "kind": "flag",
-    "name": "MH",
-    "image": "flags/mh.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:mk",
@@ -5723,22 +5418,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:mo",
-    "kind": "flag",
-    "name": "MO",
-    "image": "flags/mo.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:mp",
-    "kind": "flag",
-    "name": "MP",
-    "image": "flags/mp.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:mr",
     "kind": "flag",
     "name": "MR",
@@ -5748,14 +5427,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:ms",
-    "kind": "flag",
-    "name": "MS",
-    "image": "flags/ms.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:mt",
     "kind": "flag",
     "name": "MT",
@@ -5763,22 +5434,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Europe"
-  },
-  {
-    "id": "flag:mu",
-    "kind": "flag",
-    "name": "MU",
-    "image": "flags/mu.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:mv",
-    "kind": "flag",
-    "name": "MV",
-    "image": "flags/mv.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:mw",
@@ -5844,14 +5499,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:nf",
-    "kind": "flag",
-    "name": "NF",
-    "image": "flags/nf.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:ng",
     "kind": "flag",
     "name": "NG",
@@ -5897,22 +5544,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:nr",
-    "kind": "flag",
-    "name": "NR",
-    "image": "flags/nr.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:nu",
-    "kind": "flag",
-    "name": "NU",
-    "image": "flags/nu.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:nz",
     "kind": "flag",
     "name": "NZ",
@@ -5947,14 +5578,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "South America"
-  },
-  {
-    "id": "flag:pf",
-    "kind": "flag",
-    "name": "PF",
-    "image": "flags/pf.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:pg",
@@ -5993,22 +5616,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:pm",
-    "kind": "flag",
-    "name": "PM",
-    "image": "flags/pm.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:pn",
-    "kind": "flag",
-    "name": "PN",
-    "image": "flags/pn.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:pr",
     "kind": "flag",
     "name": "PR",
@@ -6036,14 +5643,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:pw",
-    "kind": "flag",
-    "name": "PW",
-    "image": "flags/pw.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:py",
     "kind": "flag",
     "name": "PY",
@@ -6060,14 +5659,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Asia"
-  },
-  {
-    "id": "flag:re",
-    "kind": "flag",
-    "name": "RE",
-    "image": "flags/re.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:ro",
@@ -6124,14 +5715,6 @@
     "region": "Oceania"
   },
   {
-    "id": "flag:sc",
-    "kind": "flag",
-    "name": "SC",
-    "image": "flags/sc.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:sd",
     "kind": "flag",
     "name": "SD",
@@ -6150,22 +5733,6 @@
     "region": "Europe"
   },
   {
-    "id": "flag:sg",
-    "kind": "flag",
-    "name": "SG",
-    "image": "flags/sg.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "medium"
-  },
-  {
-    "id": "flag:sh",
-    "kind": "flag",
-    "name": "SH",
-    "image": "flags/sh.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:si",
     "kind": "flag",
     "name": "SI",
@@ -6173,14 +5740,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Europe"
-  },
-  {
-    "id": "flag:sj",
-    "kind": "flag",
-    "name": "SJ",
-    "image": "flags/sj.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:sk",
@@ -6199,14 +5758,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Africa"
-  },
-  {
-    "id": "flag:sm",
-    "kind": "flag",
-    "name": "SM",
-    "image": "flags/sm.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:sn",
@@ -6245,14 +5796,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:st",
-    "kind": "flag",
-    "name": "ST",
-    "image": "flags/st.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:sv",
     "kind": "flag",
     "name": "SV",
@@ -6260,14 +5803,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "North America"
-  },
-  {
-    "id": "flag:sx",
-    "kind": "flag",
-    "name": "SX",
-    "image": "flags/sx.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:sy",
@@ -6288,14 +5823,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:tc",
-    "kind": "flag",
-    "name": "TC",
-    "image": "flags/tc.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:td",
     "kind": "flag",
     "name": "TD",
@@ -6303,15 +5830,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Africa"
-  },
-  {
-    "id": "flag:tf",
-    "kind": "flag",
-    "name": "TF",
-    "image": "flags/tf.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard",
-    "region": "Other"
   },
   {
     "id": "flag:tg",
@@ -6341,14 +5859,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:tk",
-    "kind": "flag",
-    "name": "TK",
-    "image": "flags/tk.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:tl",
     "kind": "flag",
     "name": "TL",
@@ -6376,14 +5886,6 @@
     "region": "Africa"
   },
   {
-    "id": "flag:to",
-    "kind": "flag",
-    "name": "TO",
-    "image": "flags/to.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:tr",
     "kind": "flag",
     "name": "TR",
@@ -6400,14 +5902,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "North America"
-  },
-  {
-    "id": "flag:tv",
-    "kind": "flag",
-    "name": "TV",
-    "image": "flags/tv.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:tw",
@@ -6473,14 +5967,6 @@
     "region": "Asia"
   },
   {
-    "id": "flag:va",
-    "kind": "flag",
-    "name": "VA",
-    "image": "flags/va.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:ve",
     "kind": "flag",
     "name": "VE",
@@ -6488,22 +5974,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "South America"
-  },
-  {
-    "id": "flag:vg",
-    "kind": "flag",
-    "name": "VG",
-    "image": "flags/vg.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:vi",
-    "kind": "flag",
-    "name": "VI",
-    "image": "flags/vi.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:vn",
@@ -6524,30 +5994,6 @@
     "region": "Oceania"
   },
   {
-    "id": "flag:wf",
-    "kind": "flag",
-    "name": "WF",
-    "image": "flags/wf.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:ws",
-    "kind": "flag",
-    "name": "WS",
-    "image": "flags/ws.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
-    "id": "flag:xk",
-    "kind": "flag",
-    "name": "XK",
-    "image": "flags/xk.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
-  },
-  {
     "id": "flag:ye",
     "kind": "flag",
     "name": "YE",
@@ -6555,14 +6001,6 @@
     "prompt": "FLAG: Which country?",
     "difficulty": "hard",
     "region": "Asia"
-  },
-  {
-    "id": "flag:yt",
-    "kind": "flag",
-    "name": "YT",
-    "image": "flags/yt.png",
-    "prompt": "FLAG: Which country?",
-    "difficulty": "hard"
   },
   {
     "id": "flag:za",

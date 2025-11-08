@@ -1,8 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import dayjs from "dayjs";
-import { router, useLocalSearchParams } from "expo-router";
-import { useEffect, useMemo, useState } from "react";
+import { router, useLocalSearchParams, useNavigation } from "expo-router";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { ActivityIndicator, Alert, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { todayISO } from "../../lib/daily";
 import { getDeviceId } from "../../lib/device";
@@ -60,6 +60,12 @@ export default function H2H() {
   const [rows, setRows] = useState<Row[]>([]);
   const [loading, setLoading] = useState(true);
   const [friendName, setFriendName] = useState<string | null>(null);
+
+  // Set navigation options for header back button
+  const navigation = useNavigation();
+  useLayoutEffect(() => {
+    navigation.setOptions({ headerBackTitle: "Back" });
+  }, [navigation]);
   useEffect(() => {
     (async () => {
       if (!peer) { setFriendName(null); return; }
