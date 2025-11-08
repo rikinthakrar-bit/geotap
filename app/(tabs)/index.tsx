@@ -159,7 +159,7 @@ export default function HomeScreen() {
             <GameCard
               title="Practice rounds"
               description="Drills: Countries, Cities, Capitals…"
-              image={require("../../assets/home-challenge.png")} // TODO: replace with a practice-specific image when added
+              image={require("../../assets/practice.png")} // TODO: replace with a practice-specific image when added
               imageHeight={90}
               tint="#0EA5E9"
               cta="Open Practice"

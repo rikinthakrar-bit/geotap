@@ -39,7 +39,6 @@ export default function TabsLayout() {
     ),
   }}
 />
-r
       <Tabs.Screen
         name="stats"
         options={{

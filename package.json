@@ -5,8 +5,8 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
     "gen:countries": "tsx scripts/generateCountryQuestions.ts",
@@ -16,10 +16,7 @@
     "gen:flagsQ": "tsx scripts/generateFlagQuestions.ts",
     "gen:flags-iso2": "tsx scripts/extractIso2FromFlags.ts",
     "build:questions": "tsx scripts/buildQuestions.ts && cp app/data/questions.json public/questions.json"
-
-
   },
-  
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
@@ -51,6 +48,7 @@
     "react-native": "0.81.4",
     "react-native-gesture-handler": "~2.28.0",
     "react-native-get-random-values": "^2.0.0",
+    "react-native-google-mobile-ads": "^16.0.0",
     "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",

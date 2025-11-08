@@ -18,6 +18,7 @@ import { createClient } from "@supabase/supabase-js";
 import { router, useLocalSearchParams, type Href } from "expo-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
 import countries from "../assets/countries-110m.json";
 import usStates from "../assets/us-states.json";
@@ -946,6 +947,12 @@ export default function Question() {
   const dateISO = typeof date === "string" && date ? date : todayISO();
   const isToday = dateISO === todayISO();
 
+  // Safe area and CTA spacing
+  const insets = useSafeAreaInsets();
+  const BANNER_HEIGHT = 90; // matches StickyBannerSpacer default
+  const CTA_GAP = 8;        // small gap between CTA and banner
+  const ctaBottom = Math.max(24, insets.bottom + BANNER_HEIGHT + CTA_GAP);
+
   // Challenge params
   const { mode, level, targetKm, difficulty, num, topic, count } = useLocalSearchParams<{
     mode?: string;
@@ -1720,11 +1727,12 @@ if (isPractice && practiceInitialRegion) {
       />
 
       {/* Confirm & reveal lock */}
+      {/* CTA sits above sticky banner (ctaBottom = safe bottom + banner height + gap) */}
       <View
         pointerEvents="box-none"
         style={{
           position: "absolute",
-          bottom: 34,
+          bottom: ctaBottom,
           left: 20,
           right: 20,
           zIndex: 10,
