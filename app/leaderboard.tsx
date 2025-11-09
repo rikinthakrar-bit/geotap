@@ -1,6 +1,7 @@
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
+import { trackEvent } from "../lib/analytics";
 import { todayISO } from "../lib/daily";
 import { getLeaderboard } from "../lib/lbStore";
 import { fetchProfiles, getOrCreateProfile, syncProfileToCloud } from "../lib/profile";
@@ -75,6 +76,10 @@ export default function Leaderboard() {
   }
   const headerTitle = isToday ? "Today's Leaderboard" : `${formatPrettyDate(dateISO)} Leaderboard`;
 
+  useEffect(() => {
+    trackEvent("screen_view", { screen: "leaderboard", dateISO, isToday });
+  }, [dateISO]);
+
   const [rows, setRows] = useState<Array<{
     device_id?: string;
     id?: string;
@@ -125,6 +130,7 @@ export default function Leaderboard() {
 
       const lb = await getLeaderboard(dateISO);
       setRows(lb as any);
+      trackEvent("leaderboard_loaded", { dateISO, total: (lb as any)?.length || 0 });
 
       // Collect device IDs from rows (supports either `device_id` or `id`)
       const ids = Array.from(new Set((lb as any[])
@@ -203,13 +209,19 @@ export default function Leaderboard() {
           </Text>
           <View style={{ flexDirection: "row", gap: 10 }}>
             <Text
-              onPress={() => setPage(p => Math.max(0, p - 1))}
+              onPress={() => {
+                setPage(p => Math.max(0, p - 1));
+                trackEvent("tap_leaderboard_page_prev", { page });
+              }}
               style={{ color: clampedPage > 0 ? "#cbd5e1" : "#475569", fontSize: 14 }}
             >
               ◀ Prev
             </Text>
             <Text
-              onPress={() => setPage(p => Math.min(totalPages - 1, p + 1))}
+              onPress={() => {
+                setPage(p => Math.min(totalPages - 1, p + 1));
+                trackEvent("tap_leaderboard_page_next", { page });
+              }}
               style={{ color: clampedPage < totalPages - 1 ? "#cbd5e1" : "#475569", fontSize: 14 }}
             >
               Next ▶

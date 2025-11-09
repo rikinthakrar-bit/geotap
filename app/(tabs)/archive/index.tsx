@@ -1,5 +1,6 @@
+import { trackEvent } from "@/lib/analytics";
 import { router, Stack, type Href } from "expo-router";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -43,6 +44,12 @@ export default function ArchiveScreen() {
     return all.filter((d) => d !== todayISO);
   }, []);
 
+  useEffect(() => {
+    // Standard analytics: screen view + list impression
+    trackEvent("screen_view", { screen: "archive", surface: "tab" });
+    trackEvent("archive_list_impression", { count: Array.isArray(days) ? days.length : 0 });
+  }, [days]);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#0F172A" }}>
       {header}
@@ -77,9 +84,10 @@ export default function ArchiveScreen() {
               </Text>
               <View style={{ flexDirection: "row", gap: 12 }}>
                 <TouchableOpacity
-                  onPress={() =>
-                    router.push((`/question?mode=archive&date=${encodeURIComponent(dateISO)}` as Href))
-                  }
+                  onPress={() => {
+                    trackEvent("tap_archive_play", { dateISO, surface: "archive_list" });
+                    router.push((`/question?mode=archive&date=${encodeURIComponent(dateISO)}` as Href));
+                  }}
                   style={{
                     flex: 1,
                     backgroundColor: "#3B82F6",
@@ -92,7 +100,10 @@ export default function ArchiveScreen() {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => router.push((`/leaderboard?date=${encodeURIComponent(dateISO)}` as Href))}
+                  onPress={() => {
+                    trackEvent("tap_archive_leaderboard", { dateISO, surface: "archive_list" });
+                    router.push((`/leaderboard?date=${encodeURIComponent(dateISO)}` as Href));
+                  }}
                   style={{
                     flex: 1,
                     backgroundColor: "#334155",

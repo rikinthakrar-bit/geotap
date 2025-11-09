@@ -4,6 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import GameCard from "../../components/GameCard";
+import { trackEvent, trackScreen } from "../../lib/analytics";
 import { todayISO } from "../../lib/daily";
 import { getAllResults } from "../../lib/lbStore";
 import { syncProfileToCloud } from "../../lib/profile";
@@ -50,6 +51,7 @@ export default function HomeScreen() {
               const editing = await AsyncStorage.getItem("profile.editingName");
               if (alive && !editing && !haveName) {
                 didGuardRef.current = true;
+                trackEvent("first_run_missing_name", { surface: "home" });
                 router.push("/modal" as Href);
                 return; // avoid generating a default name in this pass
               } else {
@@ -72,6 +74,11 @@ export default function HomeScreen() {
       };
     }, [pathname])
   );
+
+  React.useEffect(() => {
+    trackScreen("Home");
+    trackEvent("home_view");
+  }, []);
 
   const avatarColor = colorFromName(displayName || "Player");
   const avatarText = initialsFromName(displayName || "Player");
@@ -111,7 +118,12 @@ export default function HomeScreen() {
             <Text style={{ color: "#fff", fontSize: 22, fontWeight: "800" }}>
               👋 Hello, {displayName || "…"}
             </Text>
-            <TouchableOpacity onPress={() => router.push("/modal")}>
+            <TouchableOpacity
+              onPress={() => {
+                trackEvent("tap_edit_name", { surface: "home" });
+                router.push("/modal");
+              }}
+            >
               <Text style={{ color: "#ccc", fontSize: 18 }}>✏️</Text>
             </TouchableOpacity>
           </View>
@@ -129,8 +141,10 @@ export default function HomeScreen() {
           tint="#1F6FEB"
           cta={playedToday ? "View Today’s Summary" : "Play Daily 10"}
           onPress={() => {
+            // CTA click is tracked here; actual "start" is tracked inside questions screen when a run begins
+            trackEvent("tap_daily10", { surface: "home", playedToday });
             if (playedToday) {
-            router.replace(`/(tabs)/summary?date=${todayISO()}`);
+              router.replace(`/(tabs)/summary?date=${todayISO()}`);
             } else {
               router.push("/question");
             }
@@ -149,7 +163,10 @@ export default function HomeScreen() {
               imageHeight={90}
               tint="#22C55E"
               cta="Play Challenge"
-              onPress={() => router.push("/(tabs)/challenge")}
+              onPress={() => {
+                trackEvent("tap_challenge", { surface: "home" });
+                router.push("/(tabs)/challenge");
+              }}
               compact
             />
           </View>
@@ -163,7 +180,10 @@ export default function HomeScreen() {
               imageHeight={90}
               tint="#0EA5E9"
               cta="Open Practice"
-              onPress={() => router.push("/(tabs)/practice" as Href)}
+              onPress={() => {
+                trackEvent("tap_practice", { surface: "home" });
+                router.push("/(tabs)/practice" as Href);
+              }}
               compact
             />
           </View>
@@ -178,7 +198,10 @@ export default function HomeScreen() {
                 imageHeight={90}
                 tint="#8B5CF6"
                 cta="Open Archive"
-                onPress={() => router.push("/archive")}
+                onPress={() => {
+                  trackEvent("tap_archive", { surface: "home" });
+                  router.push("/archive");
+                }}
                 compact
               />
             </View>

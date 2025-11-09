@@ -1,5 +1,7 @@
 // app/(tabs)/practice/index.tsx
+import { trackEvent } from "@/lib/analytics";
 import { router } from "expo-router";
+import { useEffect } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -19,6 +21,11 @@ const ITEMS: Array<{ label: string; topic: string; tint: string }> = [
 ];
 
 export default function PracticeScreenTabs() {
+  useEffect(() => {
+    try {
+      trackEvent("screen_view", { screen: "practice_index" });
+    } catch {}
+  }, []);
   return (
     <SafeAreaView edges={["top", "left", "right"]} style={{ flex: 1, backgroundColor: BG }}>
       <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 140, gap: 14 }}>
@@ -34,7 +41,12 @@ export default function PracticeScreenTabs() {
         {ITEMS.map((item) => (
           <TouchableOpacity
             key={item.topic}
-            onPress={() => router.push({ pathname: "/question", params: { mode: "practice", topic: item.topic, count: "10" } } as const)}
+            onPress={() => {
+              try {
+                trackEvent("tap_practice_topic", { surface: "practice", topic: item.topic, label: item.label });
+              } catch {}
+              router.push({ pathname: "/question", params: { mode: "practice", topic: item.topic, count: "10" } } as const);
+            }}
             style={{ backgroundColor: item.tint, borderRadius: 12, paddingVertical: 14, paddingHorizontal: 14, alignItems: "center" }}
             activeOpacity={0.9}
           >

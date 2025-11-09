@@ -13,6 +13,7 @@ function isCountryLikeQuestion(q: any): boolean {
   // Country polygons include explicit country questions and flag questions
   return t === "country" || t === "flag" || t === "flags" || k === "flag";
 }
+import { trackEvent } from "@/lib/analytics";
 import { recordAttempt } from "@/lib/attempts";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
@@ -1071,6 +1072,13 @@ function zoomForRegion(r?: InitialRegion): number {
   const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Analytics run guards & timers
+  const roundStartFired = useRef(false);
+  const startTsRef = useRef<number | null>(null);
+  function getMode() {
+    return isChallenge ? "challenge" : (isPractice ? "practice" : (isToday ? "daily" : "archive"));
+  }
+
   const [qIndex, setQIndex] = useState(0);
   const [guess, setGuess] = useState<{ lng: number; lat: number } | null>(null);
   const [lastPolyKm, setLastPolyKm] = useState<number | undefined>(undefined);
@@ -1132,6 +1140,7 @@ function buildCuratedDaily10(allQs: Question[], dateISO: string): Question[] {
   return out.slice(0, 10);
 }
 
+
 const QUESTIONS = useMemo(() => {
   if (!allQs) return [];
 
@@ -1150,6 +1159,68 @@ const QUESTIONS = useMemo(() => {
   // Default: Daily 10 (curated mix)
   return buildCuratedDaily10(allQs, dateISO);
 }, [allQs, isChallenge, isPractice, dateISO, level, difficulty, roundDesiredCount, practiceDesiredCount, topic]);
+
+// --- Analytics: fire <mode>_start once when the run becomes ready ---
+const hasFiredStartRef = useRef(false);
+useEffect(() => {
+  if (!hasFiredStartRef.current && QUESTIONS && QUESTIONS.length > 0) {
+    hasFiredStartRef.current = true;
+
+    const modeLabel = isChallenge ? "challenge" : (isPractice ? "practice" : (isToday ? "daily" : "archive"));
+
+    // Mode-specific aliases
+    if (modeLabel === "daily") {
+      trackEvent("daily10_start", { questions: QUESTIONS.length, date: dateISO });
+    } else if (modeLabel === "practice") {
+      trackEvent("practice_start", { topic: String(topic ?? null), questions: QUESTIONS.length });
+    } else if (modeLabel === "challenge") {
+      trackEvent("challenge_start", { level, difficulty, targetKm: Number(targetKm ?? 0), questions: QUESTIONS.length });
+    } else {
+      trackEvent("archive_start", { questions: QUESTIONS.length, date: dateISO });
+    }
+
+    // Generic
+    trackEvent("round_start", {
+      mode: modeLabel,
+      topic: isPractice ? String(topic ?? null) : null,
+      questions: QUESTIONS.length,
+      date: dateISO,
+    });
+  }
+}, [QUESTIONS?.length]);
+
+  // Analytics: fire round_start once per round
+  useEffect(() => {
+    if (!roundStartFired.current && QUESTIONS.length > 0) {
+      roundStartFired.current = true;
+      startTsRef.current = Date.now();
+      try {
+        trackEvent("round_start", {
+          mode: getMode(),
+          topic: isPractice ? String(topic ?? null) : null,
+          questions: QUESTIONS.length,
+          date: dateISO,
+        });
+      } catch {}
+    }
+  }, [QUESTIONS.length]);
+
+  // --- Analytics: question_shown ---
+  useEffect(() => {
+    if (!QUESTIONS || QUESTIONS.length === 0) return;
+    const qShown = QUESTIONS[qIndex];
+    if (!qShown) return;
+
+    const kind = String((qShown as any)?.kind ?? (qShown as any)?.type ?? "unknown").toLowerCase();
+    const region = String((qShown as any)?.region ?? (qShown as any)?.meta?.region ?? "unknown").toLowerCase();
+
+    trackEvent("question_shown", {
+      mode: isChallenge ? "challenge" : (isPractice ? "practice" : (isToday ? "daily" : "archive")),
+      idx: qIndex + 1,
+      kind,
+      region,
+    });
+  }, [qIndex, QUESTIONS]);
 
   const hasQs = QUESTIONS.length > 0;
   const q: Question | null = hasQs ? QUESTIONS[qIndex] : null;
@@ -1403,6 +1474,19 @@ if (isPractice && practiceInitialRegion) {
     };
   }, []);
 
+  // --- Analytics: abandon if user leaves mid-run ---
+  useEffect(() => {
+    return () => {
+      if (hasFiredStartRef.current && QUESTIONS && QUESTIONS.length > 0 && qIndex < QUESTIONS.length) {
+        trackEvent("round_abandon", {
+          mode: isChallenge ? "challenge" : (isPractice ? "practice" : (isToday ? "daily" : "archive")),
+          reached: qIndex,
+          planned: QUESTIONS.length,
+        });
+      }
+    };
+  }, [qIndex, QUESTIONS?.length]);
+
   // ---------------- handlers ----------------
   const revealAndAdvance = async (kmRounded: number) => {
     if (!ready || !q) return;
@@ -1443,12 +1527,42 @@ if (isPractice && practiceInitialRegion) {
       });
     } catch {}
 
+    // Analytics per-question
+    try {
+      trackEvent("question_answered", {
+        mode: getMode(),
+        kind: String((q as any)?.kind ?? (q as any)?.type ?? "unknown").toLowerCase(),
+        region: String((q as any)?.region ?? (q as any)?.meta?.region ?? "unknown").toLowerCase(),
+        km: typeof kmRounded === "number" ? kmRounded : null,
+        correct: typeof kmRounded === "number" ? kmRounded === 0 : null,
+        idx: (qIndex ?? 0) + 1,
+      });
+    } catch {}
+
     if (isChallenge) {
       const newKm = roundKm + kmRounded;
       setRoundKm(newKm);
 
       if (targetKmNum > 0 && newKm > targetKmNum) {
-        setTimeout(() => finishChallengeRound(newKm), 1200);
+        setTimeout(() => {
+          try {
+            const durationSec = startTsRef.current ? Math.round((Date.now() - startTsRef.current) / 1000) : null;
+            trackEvent("round_complete", {
+              mode: "challenge",
+              topic: null,
+              questions: QUESTIONS.length,
+              totalKm: newKm,
+              perfect: newKm === 0,
+              durationSec,
+            });
+            trackEvent("challenge_round_complete", {
+              totalKm: newKm,
+              questions: QUESTIONS.length,
+              targetKm: targetKmNum
+            });
+          } catch {}
+          finishChallengeRound(newKm);
+        }, 1200);
         return;
       }
     }
@@ -1474,9 +1588,42 @@ if (isPractice && practiceInitialRegion) {
       } else {
         if (isChallenge) {
           const finalKm = roundKm + kmRounded;
+          try {
+            const durationSec = startTsRef.current ? Math.round((Date.now() - startTsRef.current) / 1000) : null;
+            trackEvent("round_complete", {
+              mode: "challenge",
+              topic: null,
+              questions: QUESTIONS.length,
+              totalKm: finalKm,
+              perfect: finalKm === 0,
+              durationSec,
+            });
+            trackEvent("challenge_round_complete", {
+              totalKm: finalKm,
+              questions: QUESTIONS.length,
+              targetKm: targetKmNum
+            });
+          } catch {}
           finishChallengeRound(finalKm);
         }     else {
       if (isPractice) {
+        try {
+          const runTotal = totalKm + kmRounded;
+          const durationSec = startTsRef.current ? Math.round((Date.now() - startTsRef.current) / 1000) : null;
+          trackEvent("round_complete", {
+            mode: "practice",
+            topic: String(topic ?? null),
+            questions: QUESTIONS.length,
+            totalKm: runTotal,
+            perfect: runTotal === 0,
+            durationSec,
+          });
+          trackEvent("practice_complete", {
+            topic: String(topic ?? null),
+            totalKm: runTotal,
+            questions: QUESTIONS.length
+          });
+        } catch {}
         try {
           Alert.alert(
             "Practice complete",
@@ -1487,6 +1634,23 @@ if (isPractice && practiceInitialRegion) {
           router.replace("/practice" as Href);
         }
       } else {
+        try {
+          const runTotal = totalKm + kmRounded;
+          const durationSec = startTsRef.current ? Math.round((Date.now() - startTsRef.current) / 1000) : null;
+          trackEvent("round_complete", {
+            mode: isToday ? "daily" : "archive",
+            topic: null,
+            questions: QUESTIONS.length,
+            totalKm: runTotal,
+            perfect: runTotal === 0,
+            durationSec,
+          });
+          if (isToday) {
+            trackEvent("daily10_complete", { totalKm: runTotal, questions: QUESTIONS.length });
+          } else {
+            trackEvent("archive_complete", { totalKm: runTotal, questions: QUESTIONS.length });
+          }
+        } catch {}
         try {
           // Persist: best-of-day leaderboard + public daily + detailed summary for Summary screen
           const nextTotal = totalKm + kmRounded;
