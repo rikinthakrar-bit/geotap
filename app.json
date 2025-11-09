@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "geotap",
-    "slug": "geotap",
+    "name": "Where On Earth?",
+    "slug": "where-on-earth",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,16 +10,19 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.geotap",
+      "bundleIdentifier": "com.rtx.whereonearth",
+      "buildNumber": "1.0.0",
       "infoPlist": {
         "NSUserTrackingUsageDescription": "We use your device ID to show relevant ads.",
-        "GADApplicationIdentifier": "ca-app-pub-3940256099942544~1458002511"
+        "GADApplicationIdentifier": "ca-app-pub-3940256099942544~1458002511",
+        "CFBundleDisplayName": "Where On Earth?"
       }
     },
     "android": {
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.geotap",
+      "package": "com.rtx.whereonearth",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -30,6 +33,11 @@
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png"
+    },
+    "splash": {
+      "image": "./assets/splash_where_on_earth_1242x2688.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0c1320"
     },
     "plugins": [
       "expo-router",
@@ -51,11 +59,26 @@
           "androidAppId": "ca-app-pub-7411339580974421~2914081757",
           "iosAppId": "ca-app-pub-7411339580974421~7609264419"
         }
-      ]
-    ],
+      ],
+[
+  "expo-build-properties",
+  {
+    "ios": {
+      "useFrameworks": "static",
+      "deploymentTarget": "13.4"
+    }
+  }
+]    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "865be2c8-78de-4548-bec5-72df81b383db"
+      }
+    },
+    "owner": "rikinthakrar"
   }
 }
