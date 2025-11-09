@@ -14,7 +14,7 @@
       "buildNumber": "1.0.0",
       "infoPlist": {
         "NSUserTrackingUsageDescription": "We use your device ID to show relevant ads.",
-        "GADApplicationIdentifier": "ca-app-pub-3940256099942544~1458002511",
+        "GADApplicationIdentifier": "ca-app-pub-7411339580974421~7609264419",
         "CFBundleDisplayName": "Where On Earth?"
       }
     },
@@ -65,7 +65,7 @@
   {
     "ios": {
       "useFrameworks": "static",
-      "deploymentTarget": "13.4"
+      "deploymentTarget": "15.1"
     }
   }
 ]    ],
