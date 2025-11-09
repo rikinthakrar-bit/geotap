@@ -2,9 +2,8 @@
   "expo.jsEngine": "hermes",
   "EX_DEV_CLIENT_NETWORK_INSPECTOR": "true",
   "newArchEnabled": "true",
-  "expo-build-properties": {
-    "ios": {
-      "useFrameworks": "dynamic"
-    }
-  }
+  "ios.deploymentTarget": "15.1",
+  "ios.useFrameworks": "dynamic",
+  "ios.forceStaticLinking": "[]",
+  "apple.privacyManifestAggregationEnabled": "true"
 }

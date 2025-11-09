@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "geotap.app"
-               BlueprintName = "geotap"
-               ReferencedContainer = "container:geotap.xcodeproj">
+               BuildableName = "WhereOnEarth.app"
+               BlueprintName = "WhereOnEarth"
+               ReferencedContainer = "container:WhereOnEarth.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "geotapTests.xctest"
-               BlueprintName = "geotapTests"
-               ReferencedContainer = "container:geotap.xcodeproj">
+               BuildableName = "WhereOnEarthTests.xctest"
+               BlueprintName = "WhereOnEarthTests"
+               ReferencedContainer = "container:WhereOnEarth.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "geotap.app"
-            BlueprintName = "geotap"
-            ReferencedContainer = "container:geotap.xcodeproj">
+            BuildableName = "WhereOnEarth.app"
+            BlueprintName = "WhereOnEarth"
+            ReferencedContainer = "container:WhereOnEarth.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "geotap.app"
-            BlueprintName = "geotap"
-            ReferencedContainer = "container:geotap.xcodeproj">
+            BuildableName = "WhereOnEarth.app"
+            BlueprintName = "WhereOnEarth"
+            ReferencedContainer = "container:WhereOnEarth.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

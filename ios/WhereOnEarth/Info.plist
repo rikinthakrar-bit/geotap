@@ -28,14 +28,14 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>geotap</string>
-          <string>com.anonymous.geotap</string>
+          <string>com.rtx.whereonearth</string>
         </array>
       </dict>
     </array>
     <key>CFBundleVersion</key>
-    <string>1</string>
+    <string>1.0.0</string>
     <key>GADApplicationIdentifier</key>
-    <string>ca-app-pub-3940256099942544~1458002511</string>
+    <string>ca-app-pub-7411339580974421~7609264419</string>
     <key>GADDelayAppMeasurementInit</key>
     <false/>
     <key>LSMinimumSystemVersion</key>
