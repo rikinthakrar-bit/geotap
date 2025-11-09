@@ -60,15 +60,17 @@
           "iosAppId": "ca-app-pub-7411339580974421~7609264419"
         }
       ],
-[
-  "expo-build-properties",
-  {
-    "ios": {
-      "useFrameworks": "static",
-      "deploymentTarget": "15.1"
-    }
-  }
-]    ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "deploymentTarget": "15.1",
+            "modularHeaders": true
+          }
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
