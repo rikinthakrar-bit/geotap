@@ -66,7 +66,7 @@
           "ios": {
             "useFrameworks": "dynamic",
             "deploymentTarget": "15.1",
-            "modularHeaders": true
+            "useModularHeaders": true
           }
         }
       ]
