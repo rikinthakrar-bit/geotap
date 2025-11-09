@@ -64,7 +64,7 @@
         "expo-build-properties",
         {
           "ios": {
-            "useFrameworks": "static",
+            "useFrameworks": "dynamic",
             "deploymentTarget": "15.1",
             "modularHeaders": true
           }
